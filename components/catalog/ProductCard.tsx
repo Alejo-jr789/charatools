@@ -176,7 +176,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {isInQuotation ? (
               <>
                 <Check className="w-4 h-4 shrink-0" />
-                <span className="truncate">Agregado<span className="hidden sm:inline"> a Cotización</span></span>
+                <span className="truncate">Agregado</span>
               </>
             ) : status === 'added' ? (
               <>
@@ -188,7 +188,7 @@ export function ProductCard({ product }: ProductCardProps) {
             ) : isDisabled ? (
               <>
                 <Info className="w-4 h-4 shrink-0" />
-                <span className="truncate">Agotado<span className="hidden sm:inline"> temporalmente</span></span>
+                <span className="truncate">Agotado</span>
               </>
             ) : (
               <>
