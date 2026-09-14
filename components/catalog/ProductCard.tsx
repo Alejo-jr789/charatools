@@ -175,25 +175,25 @@ export function ProductCard({ product }: ProductCardProps) {
           >
             {isInQuotation ? (
               <>
-                <Check className="w-4 h-4" />
-                <span>Agregado a Cotización</span>
+                <Check className="w-4 h-4 shrink-0" />
+                <span className="truncate">Agregado<span className="hidden sm:inline"> a Cotización</span></span>
               </>
             ) : status === 'added' ? (
               <>
                 <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>¡Añadido!</span>
+                <span className="truncate">¡Añadido!</span>
               </>
             ) : isDisabled ? (
               <>
-                <Info className="w-4 h-4" />
-                <span>Agotado temporalmente</span>
+                <Info className="w-4 h-4 shrink-0" />
+                <span className="truncate">Agotado<span className="hidden sm:inline"> temporalmente</span></span>
               </>
             ) : (
               <>
-                <Plus className="w-4 h-4" />
-                <span>Cotizar Ahora</span>
+                <Plus className="w-4 h-4 shrink-0" />
+                <span className="truncate">Cotizar Ahora</span>
               </>
             )}
           </Button>
