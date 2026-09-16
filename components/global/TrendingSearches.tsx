@@ -11,7 +11,7 @@ const TRENDING_SEARCHES = [
   { label: 'Cable #12', query: 'cable #12' },
 ]
 
-export function TrendingSearches() {
+export function TrendingSearches({ onClose }: { onClose?: () => void } = {}) {
   return (
     <div className="flex items-center gap-3 overflow-x-auto whitespace-nowrap hide-scrollbar py-2 w-full max-w-full">
       <span className="font-bold text-xs md:text-sm text-gray-700 shrink-0">
@@ -22,6 +22,7 @@ export function TrendingSearches() {
           <Link
             key={search.query}
             href={`/catalogo?q=${encodeURIComponent(search.query)}`}
+            onClick={onClose}
             className="px-3 py-1 bg-gray-200/60 hover:bg-yellow-100 text-gray-800 hover:text-yellow-900 text-xs md:text-sm rounded-full transition-colors border border-transparent hover:border-yellow-400 font-medium"
           >
             {search.label}

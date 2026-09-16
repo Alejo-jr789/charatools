@@ -60,7 +60,7 @@ function SearchProductThumbnail({
   )
 }
 
-export function PredictiveSearchBar() {
+export function PredictiveSearchBar({ onClose }: { onClose?: () => void } = {}) {
   const router = useRouter()
   const [query, setQuery] = useState('')
   const [isFocused, setIsFocused] = useState(false)
@@ -157,8 +157,9 @@ export function PredictiveSearchBar() {
       if (!raw) return
       router.push(`/catalogo?q=${encodeURIComponent(raw)}`)
       setIsFocused(false)
+      onClose?.()
     },
-    [query, router]
+    [query, router, onClose]
   )
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -259,7 +260,7 @@ export function PredictiveSearchBar() {
                     {/* Thumbnail con fallback seguro */}
                     <Link
                       href={`/producto/${product.slug}`}
-                      onClick={() => setIsFocused(false)}
+                      onClick={() => { setIsFocused(false); onClose?.(); }}
                       className="flex-shrink-0"
                     >
                       <SearchProductThumbnail
@@ -271,7 +272,7 @@ export function PredictiveSearchBar() {
                     {/* Información */}
                     <Link
                       href={`/producto/${product.slug}`}
-                      onClick={() => setIsFocused(false)}
+                      onClick={() => { setIsFocused(false); onClose?.(); }}
                       className="flex-1 min-w-0 flex flex-col"
                     >
                       <span className="text-sm font-bold text-gray-900 truncate group-hover/item:text-yellow-600 transition-colors">

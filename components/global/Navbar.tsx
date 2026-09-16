@@ -130,11 +130,11 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="absolute top-20 md:top-24 left-0 w-full bg-gray-900 border-b border-gray-800 p-4 md:hidden animate-in slide-in-from-top duration-200 z-50 max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="relative mb-2">
-            <PredictiveSearchBar />
+            <PredictiveSearchBar onClose={() => setIsMenuOpen(false)} />
           </div>
 
           <div className="mb-4 bg-white/5 p-2 rounded-xl border border-white/10">
-            <TrendingSearches />
+            <TrendingSearches onClose={() => setIsMenuOpen(false)} />
           </div>
 
           {/* <div className="flex flex-col gap-3 mb-5">
