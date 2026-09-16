@@ -187,6 +187,7 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
         const subitemNorm = normalizeText(p.subitem || '')
         const tagsNorm = (p.tags || []).map(normalizeText)
         const refNorm = normalizeText(p.reference || p.slug || '')
+        const shortDescNorm = normalizeText(p.shortDescription || '')
 
         if (
           nameNorm.includes(cleanQ) ||
@@ -195,7 +196,8 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           subNorm.includes(cleanQ) ||
           subitemNorm.includes(cleanQ) ||
           refNorm.includes(cleanQ) ||
-          tagsNorm.some((t) => t.includes(cleanQ))
+          tagsNorm.some((t) => t.includes(cleanQ)) ||
+          shortDescNorm.includes(cleanQ)
         ) {
           return true
         }
@@ -207,7 +209,8 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
             catNorm.includes(t) ||
             subNorm.includes(t) ||
             subitemNorm.includes(t) ||
-            tagsNorm.some((tag) => tag.includes(t))
+            tagsNorm.some((tag) => tag.includes(t)) ||
+            shortDescNorm.includes(t)
         )
       })
     }
@@ -217,22 +220,53 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
       result = result.filter((p) => p.isCasheaEligible)
     }
 
-    // Ordenar: si hay búsqueda por texto, priorizar coincidencia en nombre
+    // Ordenar: si hay búsqueda por texto, priorizar coincidencia directa en nombre
     if (filters.q) {
       const cleanQ = normalizeText(filters.q)
+      const terms = cleanQ.split(/\s+/).filter(Boolean)
+
+      const getRelevanceScore = (p: CatalogProduct): number => {
+        const nameNorm = normalizeText(p.name)
+        const brandNorm = normalizeText(p.brand || '')
+        const catNorm = normalizeText(p.categoryLabel || p.category || '')
+        const subNorm = normalizeText(p.subcategory || '')
+        const subitemNorm = normalizeText(p.subitem || '')
+        const tagsNorm = (p.tags || []).map(normalizeText)
+        const shortDescNorm = normalizeText(p.shortDescription || '')
+
+        let score = 0
+
+        // Máxima prioridad: el nombre del producto
+        if (nameNorm.startsWith(cleanQ)) {
+          score += 100
+        } else if (nameNorm.includes(cleanQ)) {
+          score += 80
+        }
+
+        // Alta prioridad: marca, subcategoría, categoría o tags
+        if (brandNorm.includes(cleanQ)) score += 60
+        if (subNorm.includes(cleanQ) || subitemNorm.includes(cleanQ)) score += 50
+        if (catNorm.includes(cleanQ)) score += 40
+        if (tagsNorm.some((t) => t.includes(cleanQ))) score += 40
+
+        // Prioridad secundaria: coincidencia en descripción corta
+        if (shortDescNorm.includes(cleanQ)) score += 20
+
+        // Puntos adicionales por cada término individual presente en el nombre
+        for (const t of terms) {
+          if (nameNorm.includes(t)) score += 15
+        }
+
+        return score
+      }
+
       return [...result].sort((a, b) => {
-        const nameA = normalizeText(a.name)
-        const nameB = normalizeText(b.name)
+        const scoreA = getRelevanceScore(a)
+        const scoreB = getRelevanceScore(b)
 
-        const aStarts = nameA.startsWith(cleanQ)
-        const bStarts = nameB.startsWith(cleanQ)
-        if (aStarts && !bStarts) return -1
-        if (!aStarts && bStarts) return 1
-
-        const aIncludes = nameA.includes(cleanQ)
-        const bIncludes = nameB.includes(cleanQ)
-        if (aIncludes && !bIncludes) return -1
-        if (!aIncludes && bIncludes) return 1
+        if (scoreA !== scoreB) {
+          return scoreB - scoreA // Mayor relevancia primero
+        }
 
         const prioA = a.priority ?? 999
         const prioB = b.priority ?? 999
