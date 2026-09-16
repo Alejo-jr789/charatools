@@ -93,11 +93,15 @@ export function PredictiveSearchBar({ onClose }: { onClose?: () => void } = {}) 
     }
   }, [])
 
+  const qParam = searchParams?.get('q') || ''
+  const prevQRef = useRef(qParam)
+
   useEffect(() => {
-    if (!isFocused && searchParams?.get('q') !== query) {
-      setQuery(searchParams?.get('q') || '')
+    if (qParam !== prevQRef.current) {
+      prevQRef.current = qParam
+      setQuery(qParam)
     }
-  }, [searchParams, isFocused])
+  }, [qParam])
 
   // Algoritmo de Búsqueda Predictiva Inteligente (ignora tildes, busca marcas, tags, categorías)
   const results = useMemo(() => {
