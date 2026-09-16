@@ -10,7 +10,7 @@
  * - Navegación B2B: Links directos a categorías optimizados para SEO.
  */
 
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import { ClipboardList, Search, Menu, X, Zap, Tag, Crown, Info, Sparkles } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -75,7 +75,9 @@ export function Navbar() {
 
         {/* ── Buscador Masivo (Desktop) ── */}
         <div className="hidden md:flex flex-1 max-w-xl relative flex-col">
-          <PredictiveSearchBar />
+          <Suspense fallback={<div className="w-full h-11 bg-gray-800 rounded-xl animate-pulse" />}>
+            <PredictiveSearchBar />
+          </Suspense>
           {/* Trending Searches dropdown */}
           <div className="absolute top-full left-0 w-full mt-2 hidden lg:block opacity-0 invisible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50 bg-white/95 backdrop-blur-md border border-gray-200 p-3 rounded-xl shadow-2xl">
             <TrendingSearches />
@@ -130,7 +132,9 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="absolute top-20 md:top-24 left-0 w-full bg-gray-900 border-b border-gray-800 p-4 md:hidden animate-in slide-in-from-top duration-200 z-50 max-h-[calc(100vh-80px)] overflow-y-auto">
           <div className="relative mb-2">
-            <PredictiveSearchBar onClose={() => setIsMenuOpen(false)} />
+            <Suspense fallback={<div className="w-full h-11 bg-gray-800 rounded-xl animate-pulse" />}>
+              <PredictiveSearchBar onClose={() => setIsMenuOpen(false)} />
+            </Suspense>
           </div>
 
           <div className="mb-4 bg-white/5 p-2 rounded-xl border border-white/10">
