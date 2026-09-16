@@ -15,6 +15,18 @@ import { useCallback, useMemo } from 'react'
 import type { CatalogProduct, CatalogFilters, StockStatus } from '@/lib/catalog.types'
 
 // ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function normalizeText(text: string): string {
+  return (text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+}
+
+// ---------------------------------------------------------------------------
 // Parsers de URL → Tipos
 // ---------------------------------------------------------------------------
 
@@ -164,22 +176,70 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
 
     // Filtro por búsqueda libre (q)
     if (filters.q) {
-      const term = filters.q.toLowerCase()
-      result = result.filter(
-        (p) =>
-          p.name.toLowerCase().includes(term) ||
-          p.shortDescription.toLowerCase().includes(term) ||
-          p.brand.toLowerCase().includes(term) ||
-          p.category.toLowerCase().includes(term) ||
-          p.categoryLabel.toLowerCase().includes(term) ||
-          p.reference?.toLowerCase().includes(term) ||
-          p.tags?.some((tag) => tag.toLowerCase().includes(term))
-      )
+      const cleanQ = normalizeText(filters.q)
+      const terms = cleanQ.split(/\s+/).filter(Boolean)
+
+      result = result.filter((p) => {
+        const nameNorm = normalizeText(p.name)
+        const brandNorm = normalizeText(p.brand || '')
+        const catNorm = normalizeText(p.categoryLabel || p.category || '')
+        const subNorm = normalizeText(p.subcategory || '')
+        const subitemNorm = normalizeText(p.subitem || '')
+        const tagsNorm = (p.tags || []).map(normalizeText)
+        const refNorm = normalizeText(p.reference || p.slug || '')
+
+        if (
+          nameNorm.includes(cleanQ) ||
+          brandNorm.includes(cleanQ) ||
+          catNorm.includes(cleanQ) ||
+          subNorm.includes(cleanQ) ||
+          subitemNorm.includes(cleanQ) ||
+          refNorm.includes(cleanQ) ||
+          tagsNorm.some((t) => t.includes(cleanQ))
+        ) {
+          return true
+        }
+
+        return terms.every(
+          (t) =>
+            nameNorm.includes(t) ||
+            brandNorm.includes(t) ||
+            catNorm.includes(t) ||
+            subNorm.includes(t) ||
+            subitemNorm.includes(t) ||
+            tagsNorm.some((tag) => tag.includes(t))
+        )
+      })
     }
 
     // Filtro por Cashea
     if (filters.cashea === 'true') {
       result = result.filter((p) => p.isCasheaEligible)
+    }
+
+    // Ordenar: si hay búsqueda por texto, priorizar coincidencia en nombre
+    if (filters.q) {
+      const cleanQ = normalizeText(filters.q)
+      return [...result].sort((a, b) => {
+        const nameA = normalizeText(a.name)
+        const nameB = normalizeText(b.name)
+
+        const aStarts = nameA.startsWith(cleanQ)
+        const bStarts = nameB.startsWith(cleanQ)
+        if (aStarts && !bStarts) return -1
+        if (!aStarts && bStarts) return 1
+
+        const aIncludes = nameA.includes(cleanQ)
+        const bIncludes = nameB.includes(cleanQ)
+        if (aIncludes && !bIncludes) return -1
+        if (!aIncludes && bIncludes) return 1
+
+        const prioA = a.priority ?? 999
+        const prioB = b.priority ?? 999
+        if (prioA !== prioB) return prioA - prioB
+
+        return a.name.localeCompare(b.name)
+      })
     }
 
     // Ordenar por prioridad (tuberías primero, luego conexiones) y por nombre alfabéticamente
