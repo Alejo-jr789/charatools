@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Image from 'next/image'
 import { Search, PlusCircle, ArrowRight, X } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { MOCK_PRODUCTS } from '@/lib/catalog.types'
 import { useQuotationStore } from '@/store/quotationStore'
@@ -62,7 +62,8 @@ function SearchProductThumbnail({
 
 export function PredictiveSearchBar({ onClose }: { onClose?: () => void } = {}) {
   const router = useRouter()
-  const [query, setQuery] = useState('')
+  const searchParams = useSearchParams()
+  const [query, setQuery] = useState(searchParams?.get('q') || '')
   const [isFocused, setIsFocused] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState<number>(-1)
   const [liveProducts, setLiveProducts] = useState<CatalogProduct[]>(MOCK_PRODUCTS)
@@ -91,6 +92,12 @@ export function PredictiveSearchBar({ onClose }: { onClose?: () => void } = {}) 
       isMounted = false
     }
   }, [])
+
+  useEffect(() => {
+    if (!isFocused && searchParams?.get('q') !== query) {
+      setQuery(searchParams?.get('q') || '')
+    }
+  }, [searchParams, isFocused])
 
   // Algoritmo de Búsqueda Predictiva Inteligente (ignora tildes, busca marcas, tags, categorías)
   const results = useMemo(() => {
