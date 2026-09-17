@@ -187,7 +187,6 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
         const subitemNorm = normalizeText(p.subitem || '')
         const tagsNorm = (p.tags || []).map(normalizeText)
         const refNorm = normalizeText(p.reference || p.slug || '')
-        const shortDescNorm = normalizeText(p.shortDescription || '')
 
         if (
           nameNorm.includes(cleanQ) ||
@@ -196,8 +195,7 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           subNorm.includes(cleanQ) ||
           subitemNorm.includes(cleanQ) ||
           refNorm.includes(cleanQ) ||
-          tagsNorm.some((t) => t.includes(cleanQ)) ||
-          shortDescNorm.includes(cleanQ)
+          tagsNorm.some((t) => t.includes(cleanQ))
         ) {
           return true
         }
@@ -209,8 +207,7 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
             catNorm.includes(t) ||
             subNorm.includes(t) ||
             subitemNorm.includes(t) ||
-            tagsNorm.some((tag) => tag.includes(t)) ||
-            shortDescNorm.includes(t)
+            tagsNorm.some((tag) => tag.includes(t))
         )
       })
     }
@@ -232,7 +229,6 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
         const subNorm = normalizeText(p.subcategory || '')
         const subitemNorm = normalizeText(p.subitem || '')
         const tagsNorm = (p.tags || []).map(normalizeText)
-        const shortDescNorm = normalizeText(p.shortDescription || '')
 
         let score = 0
 
@@ -248,9 +244,6 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
         if (subNorm.includes(cleanQ) || subitemNorm.includes(cleanQ)) score += 50
         if (catNorm.includes(cleanQ)) score += 40
         if (tagsNorm.some((t) => t.includes(cleanQ))) score += 40
-
-        // Prioridad secundaria: coincidencia en descripción corta
-        if (shortDescNorm.includes(cleanQ)) score += 20
 
         // Puntos adicionales por cada término individual presente en el nombre
         for (const t of terms) {
