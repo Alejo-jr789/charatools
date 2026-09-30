@@ -122,8 +122,8 @@ export function QuotationDrawer() {
   const totalItems = useQuotationStore(selectTotalItems)
 
   // Mostrar banner VIP cuando el pedido tiene volumen suficiente (≥ 10 unidades)
-  // En un contexto B2B sin precios visibles, el volumen es el proxy del valor del pedido.
-  const showVipBanner = totalItems >= 3 || totalUnits >= 10
+  // Desactivado temporalmente a petición (mantenido en el código para reactivación rápida)
+  const showVipBanner = false && (totalItems >= 3 || totalUnits >= 10)
 
   // Nuevo Hook de Conversión B2B
   const { handleWhatsAppCheckout, hasItems } = useWhatsAppCheckout()
