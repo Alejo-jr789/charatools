@@ -84,11 +84,25 @@ export default async function DynamicCategoryPage({ params }: PageProps) {
     console.warn('[DynamicCategoryPage] Supabase error, usando MOCK_CATALOG:', error)
   }
 
-  // Fallback transparente al mock
-  const allProducts = dbProducts.length > 0 ? dbProducts : MOCK_CATALOG
-  
-  // ── 3. Subfiltro Front-End para el Layout Genérico ────────────────────────
-  const filteredProducts = allProducts.filter(p => p.category === category)
+  // Fallback transparente al mock por categoría si la DB no tiene productos para esa categoría
+  const matchCategory = (p: { category: string }, cat: string) => {
+    if (cat === 'herramientas-general') {
+      return (
+        p.category === 'herramientas-general' ||
+        p.category === 'herramientas-electricas' ||
+        p.category === 'herramientas-manuales' ||
+        p.category === 'electricas' ||
+        p.category === 'manuales'
+      )
+    }
+    return p.category === cat
+  }
+
+  let filteredProducts = dbProducts.filter(p => matchCategory(p, category))
+
+  if (filteredProducts.length === 0) {
+    filteredProducts = MOCK_CATALOG.filter(p => matchCategory(p, category))
+  }
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-gray-50 flex flex-col">
