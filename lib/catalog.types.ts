@@ -2769,25 +2769,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   },
   // ── IMPERMEABILIZACIÓN ───────────────────────────────────────────────────
   {
-    id: 'imp-001',
-    subcategory: 'pinturas',
-    name: 'Pintura Elastomérica Impermeabilizante Reinco',
-    slug: 'pintura-elastomerica-reinco',
-    brand: 'Reinco',
-    category: 'impermeabilizacion',
-    categoryLabel: 'Impermeabilización',
-    shortDescription: 'Pintura impermeabilizante de alta calidad. Colores: Rojo, Verde, Negro y Blanco.',
-    description: 'Pintura elastomérica impermeabilizante formulada para sellar y proteger techos, terrazas y cubiertas. Disponible en colores Rojo, Verde, Negro y Blanco.',
-    image: '/categoria-impermeabilizacion.webp',
-    tags: ['pintura', 'elastomerica', 'impermeabilizante', 'reinco', 'techo'],
-    status: 'available',
-    unit: 'und',
-    variantLabel: 'Presentación',
-    variants: [{ value: 'Galón' }, { value: 'Cuñete' }]
-  },
-  {
     id: 'imp-002',
     subcategory: 'mantos',
+    priority: 1,
     name: 'Manto Asfáltico Cindu',
     slug: 'manto-asfaltico-cindu',
     brand: 'Cindu',
@@ -2801,6 +2785,24 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
     unit: 'rollo',
     variantLabel: 'Espesor',
     variants: [{ value: '2.7 mm' }, { value: '3.2 mm' }]
+  },
+  {
+    id: 'imp-001',
+    subcategory: 'pinturas',
+    priority: 2,
+    name: 'Pintura Elastomérica Impermeabilizante Reinco',
+    slug: 'pintura-elastomerica-reinco',
+    brand: 'Reinco',
+    category: 'impermeabilizacion',
+    categoryLabel: 'Impermeabilización',
+    shortDescription: 'Pintura impermeabilizante de alta calidad. Colores: Rojo, Verde, Negro y Blanco.',
+    description: 'Pintura elastomérica impermeabilizante formulada para sellar y proteger techos, terrazas y cubiertas. Disponible en colores Rojo, Verde, Negro y Blanco.',
+    image: '/categoria-impermeabilizacion.webp',
+    tags: ['pintura', 'elastomerica', 'impermeabilizante', 'reinco', 'techo'],
+    status: 'available',
+    unit: 'und',
+    variantLabel: 'Presentación',
+    variants: [{ value: 'Galón' }, { value: 'Cuñete' }]
   },
   {
     id: 'imp-003',

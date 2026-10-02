@@ -23,25 +23,25 @@ INSERT INTO public.products
   (name, slug, sku, short_desc, description, specs, is_casheable, brand_id, category_id)
 VALUES
   (
-    'Pintura Elastomérica Impermeabilizante Reinco',
-    'pintura-elastomerica-reinco',
-    'REINCO-PINTURA-ELASTO',
-    'Pintura impermeabilizante de alta calidad. Colores: Rojo, Verde, Negro y Blanco.',
-    'Pintura elastomérica impermeabilizante formulada para sellar y proteger techos, terrazas y cubiertas. Disponible en colores Rojo, Verde, Negro y Blanco.',
-    '{"imagen":"/categoria-impermeabilizacion.webp","priority":1,"tags":["pintura","elastomerica","impermeabilizante","reinco","techo"],"stockStatus":"available","unidad":"und","subcategory":"pinturas","subitem":"pinturas","variantLabel":"Presentación","variants":[{"value":"Galón"},{"value":"Cuñete"}]}'::jsonb,
-    false,
-    (SELECT id FROM public.brands WHERE slug = 'reinco'),
-    (SELECT id FROM public.categories WHERE slug = 'impermeabilizacion')
-  ),
-  (
     'Manto Asfáltico Cindu',
     'manto-asfaltico-cindu',
     'CINDU-MANTO',
     'Manto asfáltico certificado Cindu para impermeabilización de cubiertas.',
     'Manto asfáltico certificado Cindu diseñado para la impermeabilización de áreas comerciales y residenciales. Resiste alto tráfico y exposición UV.',
-    '{"imagen":"/categoria-impermeabilizacion.webp","priority":2,"tags":["manto","asfaltico","impermeabilizacion","techos","cindu"],"stockStatus":"available","unidad":"rollo","subcategory":"mantos","subitem":"mantos","variantLabel":"Espesor","variants":[{"value":"2.7 mm"},{"value":"3.2 mm"}]}'::jsonb,
+    '{"imagen":"/categoria-impermeabilizacion.webp","priority":1,"tags":["manto","asfaltico","impermeabilizacion","techos","cindu"],"stockStatus":"available","unidad":"rollo","subcategory":"mantos","subitem":"mantos","variantLabel":"Espesor","variants":[{"value":"2.7 mm"},{"value":"3.2 mm"}]}'::jsonb,
     false,
     (SELECT id FROM public.brands WHERE slug = 'cindu'),
+    (SELECT id FROM public.categories WHERE slug = 'impermeabilizacion')
+  ),
+  (
+    'Pintura Elastomérica Impermeabilizante Reinco',
+    'pintura-elastomerica-reinco',
+    'REINCO-PINTURA-ELASTO',
+    'Pintura impermeabilizante de alta calidad. Colores: Rojo, Verde, Negro y Blanco.',
+    'Pintura elastomérica impermeabilizante formulada para sellar y proteger techos, terrazas y cubiertas. Disponible en colores Rojo, Verde, Negro y Blanco.',
+    '{"imagen":"/categoria-impermeabilizacion.webp","priority":2,"tags":["pintura","elastomerica","impermeabilizante","reinco","techo"],"stockStatus":"available","unidad":"und","subcategory":"pinturas","subitem":"pinturas","variantLabel":"Presentación","variants":[{"value":"Galón"},{"value":"Cuñete"}]}'::jsonb,
+    false,
+    (SELECT id FROM public.brands WHERE slug = 'reinco'),
     (SELECT id FROM public.categories WHERE slug = 'impermeabilizacion')
   ),
   (
