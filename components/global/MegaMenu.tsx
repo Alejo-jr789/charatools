@@ -82,6 +82,7 @@ export const CATEGORIES: Category[] = [
     href: '/catalogo/iluminacion',
     subcategories: [
       { name: 'Focos y Tubos LED', href: '/catalogo/iluminacion?sub=focos-led' },
+      { name: 'Paneles', href: '/catalogo/iluminacion?sub=paneles' },
       { name: 'Reflectores', href: '/catalogo/iluminacion?sub=reflectores' },
       { name: 'Iluminación Industrial', href: '/catalogo/iluminacion?sub=industrial' },
       { name: 'Lámparas de Emergencia', href: '/catalogo/iluminacion?sub=emergencia' }

@@ -21,6 +21,14 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
           Boolean(p.tags?.some((t) => ['LED', 'bombillo', 'tubo', 'dicroico'].includes(t)))),
     },
     {
+      label: 'Paneles',
+      href: '/catalogo/iluminacion?sub=paneles',
+      filterFn: (p) =>
+        p.category === 'iluminacion' &&
+        (p.subcategory === 'paneles' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('panel')))),
+    },
+    {
       label: 'Reflectores',
       href: '/catalogo/iluminacion?sub=reflectores',
       filterFn: (p) =>
