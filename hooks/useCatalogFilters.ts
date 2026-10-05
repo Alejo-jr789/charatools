@@ -140,7 +140,11 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'bombas-perifericas',
           'bomba-periferica-1-2hp',
           'bomba-periferica-3-4hp',
-          'bomba-periferica-1hp'
+          'bomba-periferica-1hp',
+          'bombas-centrifugas',
+          'bomba-centrifuga',
+          'motobombas',
+          'motobomba-gasolina'
         ],
         'bombas': [
           'bombas',
@@ -148,7 +152,11 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'bombas-perifericas',
           'bomba-periferica-1-2hp',
           'bomba-periferica-3-4hp',
-          'bomba-periferica-1hp'
+          'bomba-periferica-1hp',
+          'bombas-centrifugas',
+          'bomba-centrifuga',
+          'motobombas',
+          'motobomba-gasolina'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
