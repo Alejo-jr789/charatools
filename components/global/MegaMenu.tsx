@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield } from 'lucide-react'
+import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -124,6 +124,17 @@ export const CATEGORIES: Category[] = [
       { name: 'Guantes de Protección', href: '/catalogo/seguridad-industrial?sub=guantes' },
       { name: 'Lentes y Visores', href: '/catalogo/seguridad-industrial?sub=lentes' },
       { name: 'Calzado Dieléctrico', href: '/catalogo/seguridad-industrial?sub=calzado' }
+    ]
+  },
+  {
+    id: 'salas-de-bano',
+    name: 'Salas de Baño',
+    icon: Bath,
+    href: '/catalogo/salas-de-bano',
+    subcategories: [
+      { name: 'Sanitarios', href: '/catalogo/salas-de-bano?sub=sanitarios' },
+      { name: 'Inodoros', href: '/catalogo/salas-de-bano?sub=inodoros' },
+      { name: 'Lavamanos y Pedestales', href: '/catalogo/salas-de-bano?sub=lavamanos-pedestales' }
     ]
   }
 ]

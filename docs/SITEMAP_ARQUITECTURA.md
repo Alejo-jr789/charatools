@@ -38,8 +38,12 @@ CharaTools Homepage (/) [L0]
 │   ├── Impermeabilización (/catalogo/impermeabilizacion) [L2]
 │   │   ├── Mantos asfálticos, Primer, Selladores [L3]
 │   │   └── ...
-│   └── Seguridad Industrial (/catalogo/seguridad-industrial) [L2]
-│       └── Cascos, lentes, guantes de carnaza, botas [L3]
+│   ├── Seguridad Industrial (/catalogo/seguridad-industrial) [L2]
+│   │   └── Cascos, lentes, guantes de carnaza, botas [L3]
+│   └── Salas de Baño (/catalogo/salas-de-bano) [L2]
+│       ├── Sanitarios [L3]
+│       ├── Inodoros [L3]
+│       └── Lavamanos y Pedestales [L3]
 ├── Promociones & Marcas (/promociones) [L1]
 │   ├── Promociones INGCO (/promociones/ingco) [L2]
 │   ├── Promociones 3M (/promociones/3m) [L2]
@@ -81,6 +85,7 @@ graph TD
     Cat --> C5["💡 Iluminación (/catalogo/iluminacion)"]
     Cat --> C6["🧴 Impermeabilización (/catalogo/impermeabilizacion)"]
     Cat --> C7["🦺 Seguridad Industrial (/catalogo/seguridad-industrial)"]
+    Cat --> C8["🛁 Salas de Baño (/catalogo/salas-de-bano)"]
 
     Promo --> B1["INGCO (/promociones/ingco)"]
     Promo --> B2["3M (/promociones/3m)"]
@@ -94,6 +99,7 @@ graph TD
     C5 --> P
     C6 --> P
     C7 --> P
+    C8 --> P
     B1 -.-> P
     B2 -.-> P
 

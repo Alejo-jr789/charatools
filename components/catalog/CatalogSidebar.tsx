@@ -36,6 +36,7 @@ const SIDEBAR_CATEGORIES = [
   { slug: 'electricidad', label: 'Electricidad' },
   { slug: 'impermeabilizacion', label: 'Impermeabilización' },
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial' },
+  { slug: 'salas-de-bano', label: 'Salas de Baño' },
 ]
 
 // ── Tipos ──────────────────────────────────────────────────────────────────

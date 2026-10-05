@@ -143,6 +143,12 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
     return { slug: 'seguridad-industrial', label: 'Seguridad Industrial' }
   }
 
+  // Salas de Baño y sus hijas
+  const salasDeBanoSlugs = ['salas-de-bano', 'sanitarios', 'inodoros', 'lavamanos-pedestales', 'lavamanos', 'pedestales']
+  if (salasDeBanoSlugs.includes(dbSlug)) {
+    return { slug: 'salas-de-bano', label: 'Salas de Baño' }
+  }
+
   return { slug: dbSlug, label: dbSlug }
 }
 

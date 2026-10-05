@@ -163,6 +163,24 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'canillas',
           'canilla',
           'flexibles'
+        ],
+        'sanitarios': [
+          'sanitarios',
+          'sanitario',
+          'juegos-sanitarios'
+        ],
+        'inodoros': [
+          'inodoros',
+          'inodoro',
+          'pocetas',
+          'poceta',
+          'wc'
+        ],
+        'lavamanos-pedestales': [
+          'lavamanos-pedestales',
+          'lavamanos',
+          'pedestales',
+          'pedestal'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]

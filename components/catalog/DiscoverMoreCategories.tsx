@@ -264,6 +264,31 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('lente') || t.toLowerCase().includes('careta')))),
     },
   ],
+  'salas-de-bano': [
+    {
+      label: 'Sanitarios',
+      href: '/catalogo/salas-de-bano?sub=sanitarios',
+      filterFn: (p) =>
+        p.category === 'salas-de-bano' &&
+        (p.subcategory === 'sanitarios' || Boolean(p.tags?.some((t) => t.toLowerCase().includes('sanitario')))),
+    },
+    {
+      label: 'Inodoros',
+      href: '/catalogo/salas-de-bano?sub=inodoros',
+      filterFn: (p) =>
+        p.category === 'salas-de-bano' &&
+        (p.subcategory === 'inodoros' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('inodoro') || t.toLowerCase().includes('poceta') || t.toLowerCase().includes('wc')))),
+    },
+    {
+      label: 'Lavamanos y Pedestales',
+      href: '/catalogo/salas-de-bano?sub=lavamanos-pedestales',
+      filterFn: (p) =>
+        p.category === 'salas-de-bano' &&
+        (p.subcategory === 'lavamanos-pedestales' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('lavamano') || t.toLowerCase().includes('pedestal')))),
+    },
+  ],
 }
 
 interface DiscoverMoreCategoriesProps {
