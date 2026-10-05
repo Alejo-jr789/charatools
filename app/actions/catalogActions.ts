@@ -93,7 +93,7 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
 
   // Plomería y todas sus variantes/hijos
   const plomeriaSlugs = [
-    'plomeria', 'tuberias', 'bombas', 'calentadores', 
+    'plomeria', 'tuberias', 'bombas', 'canillas', 'calentadores', 
     'griferia-lavamanos', 'griferia-fregadores', 'valvulas-llaves',
     'tuberia-sanitaria-estandar', 'tuberia-sanitaria-reforzada', 'termofusion-ppr',
     'tuberia-agua-fria', 'tuberia-agua-caliente', 'conexiones-sanitarias-estandar', 'conexiones-sanitarias-reforzadas',

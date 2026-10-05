@@ -72,6 +72,7 @@ export const CATEGORIES: Category[] = [
         ]
       },
       { name: 'Bombas de Agua', href: '/catalogo/plomeria?sub=bombas-perifericas' },
+      { name: 'Canillas', href: '/catalogo/plomeria?sub=canillas' },
       { name: 'Calentadores', href: '/catalogo/plomeria?sub=calentadores' },
       { name: 'Soldadura', href: '/catalogo/plomeria?sub=soldadura' }
     ]

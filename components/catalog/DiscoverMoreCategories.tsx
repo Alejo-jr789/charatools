@@ -141,6 +141,15 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('bomba')))),
     },
     {
+      label: 'Canillas',
+      href: '/catalogo/plomeria?sub=canillas',
+      filterFn: (p) =>
+        p.category === 'plomeria' &&
+        (p.subcategory === 'canillas' ||
+          Boolean(p.subitem && p.subitem.includes('canilla')) ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('canilla')))),
+    },
+    {
       label: 'Termofusión PPR',
       href: '/catalogo/plomeria?sub=linea-termofusion-ppr',
       filterFn: (p) =>

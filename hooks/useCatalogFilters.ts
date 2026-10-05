@@ -158,6 +158,11 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'bomba-centrifuga',
           'motobombas',
           'motobomba-gasolina'
+        ],
+        'canillas': [
+          'canillas',
+          'canilla',
+          'flexibles'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
