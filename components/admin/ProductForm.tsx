@@ -99,8 +99,21 @@ export default function ProductForm({ categories, brands, initialData }: Product
     setSelectedSubitemSlug(itemOpt ? itemOpt.slug : '')
   }
 
-  // Filtrar categorías principales (depth === 0 o parent_id === null)
-  const mainCategories = categories.filter(c => c.depth === 0 || c.parent_id === null)
+  // Categorías oficiales que aparecen en el menú principal
+  const MAIN_MENU_CATEGORY_SLUGS = [
+    'herramientas-general',
+    'plomeria',
+    'iluminacion',
+    'electricidad',
+    'impermeabilizacion',
+    'seguridad-industrial',
+    'salas-de-bano',
+  ]
+
+  // Filtrar categorías principales: solo las oficiales del menú principal, ordenadas según el menú
+  const mainCategories = categories
+    .filter(c => (c.depth === 0 || c.parent_id === null) && MAIN_MENU_CATEGORY_SLUGS.includes(c.slug))
+    .sort((a, b) => MAIN_MENU_CATEGORY_SLUGS.indexOf(a.slug) - MAIN_MENU_CATEGORY_SLUGS.indexOf(b.slug))
 
   // Filtrar subcategorías hijas de la categoría principal seleccionada (depth === 1)
   const subcategories = selectedCategoryId 
