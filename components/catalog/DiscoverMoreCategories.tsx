@@ -114,6 +114,15 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
           Boolean(p.subitem && p.subitem.includes('agua-fria'))),
     },
     {
+      label: 'Línea Agua Caliente',
+      href: '/catalogo/plomeria?sub=linea-agua-caliente',
+      filterFn: (p) =>
+        p.category === 'plomeria' &&
+        (p.subcategory === 'linea-agua-caliente' ||
+          Boolean(p.subitem && p.subitem.includes('agua-caliente')) ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('agua caliente') || t.toLowerCase().includes('cpvc')))),
+    },
+    {
       label: 'Grifería y Válvulas',
       href: '/catalogo/plomeria?sub=griferia',
       filterFn: (p) =>

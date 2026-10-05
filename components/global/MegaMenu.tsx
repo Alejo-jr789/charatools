@@ -42,6 +42,7 @@ export const CATEGORIES: Category[] = [
           { name: 'Línea Sanitaria Estándar', href: '/catalogo/plomeria?sub=linea-sanitaria-estandar' },
           { name: 'Línea Sanitaria Reforzada', href: '/catalogo/plomeria?sub=linea-sanitaria-reforzada' },
           { name: 'Línea Agua Fría', href: '/catalogo/plomeria?sub=linea-agua-fria' },
+          { name: 'Línea Agua Caliente', href: '/catalogo/plomeria?sub=linea-agua-caliente' },
           { name: 'Línea Galvanizada', href: '/catalogo/plomeria?sub=linea-galvanizada' },
           { name: 'Línea Termofusión (PPR)', href: '/catalogo/plomeria?sub=linea-termofusion-ppr' },
         ]

@@ -94,6 +94,7 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
         'linea-sanitaria-estandar': ['tuberia-sanitaria-estandar', 'conexiones-sanitarias-estandar'],
         'linea-sanitaria-reforzada': ['tuberia-sanitaria-reforzada', 'conexiones-sanitarias-reforzadas'],
         'linea-agua-fria': ['tuberia-agua-fria', 'conexiones-agua-fria'],
+        'linea-agua-caliente': ['tuberia-agua-caliente', 'conexiones-agua-caliente', 'agua-caliente', 'cpvc'],
         'linea-galvanizada': ['conexiones-galvanizadas'],
         'linea-termofusion-ppr': ['tuberia-termofusion-ppr', 'conexiones-termofusion-ppr'],
         'griferia': [
