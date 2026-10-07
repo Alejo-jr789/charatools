@@ -74,6 +74,11 @@ export default async function middleware(request: NextRequest) {
 export async function mainMiddleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // ── Redirección de URL huérfana detectada por Googlebot ────────────────
+  if (pathname === '/$') {
+    return NextResponse.redirect(new URL('/', request.url), 301)
+  }
+
   // ── Rutas no-admin: solo headers OWASP básicos ─────────────────────────
   if (!pathname.startsWith('/admin')) {
     return applySecurityHeaders(NextResponse.next())

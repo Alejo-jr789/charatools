@@ -12,6 +12,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/\\$',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
   // Configuración de Turbopack para silenciar advertencias de monorepo
   turbopack: {
     root: path.resolve(__dirname, '..'),
