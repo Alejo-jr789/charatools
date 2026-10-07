@@ -266,13 +266,6 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
   ],
   'salas-de-bano': [
     {
-      label: 'Sanitarios',
-      href: '/catalogo/salas-de-bano?sub=sanitarios',
-      filterFn: (p) =>
-        p.category === 'salas-de-bano' &&
-        (p.subcategory === 'sanitarios' || Boolean(p.tags?.some((t) => t.toLowerCase().includes('sanitario')))),
-    },
-    {
       label: 'Inodoros',
       href: '/catalogo/salas-de-bano?sub=inodoros',
       filterFn: (p) =>

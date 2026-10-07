@@ -164,11 +164,6 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'canilla',
           'flexibles'
         ],
-        'sanitarios': [
-          'sanitarios',
-          'sanitario',
-          'juegos-sanitarios'
-        ],
         'inodoros': [
           'inodoros',
           'inodoro',

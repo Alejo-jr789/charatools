@@ -121,7 +121,7 @@ export const CATALOG_CATEGORIES: CatalogCategory[] = [
   { slug: 'iluminacion',             label: 'Iluminación',              icon: '💡', description: 'LED, paneles, reflectores, bombillos' },
   { slug: 'impermeabilizacion',      label: 'Impermeabilización',       icon: '🧴', description: 'Membranas, selladores, impermeabilizantes' },
   { slug: 'seguridad-industrial',    label: 'Seguridad Industrial',     icon: '🦺', description: 'Cascos, lentes, guantes, botas' },
-  { slug: 'salas-de-bano',           label: 'Salas de Baño',            icon: '🛁', description: 'Sanitarios, inodoros, lavamanos y pedestales' },
+  { slug: 'salas-de-bano',           label: 'Salas de Baño',            icon: '🛁', description: 'Inodoros, lavamanos y pedestales' },
 ]
 
 // ---------------------------------------------------------------------------

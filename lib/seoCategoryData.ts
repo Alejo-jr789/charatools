@@ -296,12 +296,12 @@ export const seoCategoryData: SeoCategoryDataMap = {
   // Salas de Baño
   // ──────────────────────────────────────────────────────────────────────────
   'salas-de-bano': {
-    title: 'Salas de Baño en Charallave: Sanitarios, Inodoros y Lavamanos',
+    title: 'Salas de Baño en Charallave: Inodoros, Lavamanos y Pedestales',
     description:
       'Suministro de piezas sanitarias de alta durabilidad, inodoros eficientes y lavamanos con pedestal para proyectos residenciales y comerciales en los Valles del Tuy.',
     blocks: [
       {
-        subtitle: 'Sanitarios e Inodoros de Alto Rendimiento',
+        subtitle: 'Inodoros de Alto Rendimiento y Descarga Eficiente',
         text:
           'Piezas sanitarias de loza vitrificada y porcelana de primera calidad, diseñadas para un consumo eficiente de agua y máxima higiene en obras residenciales, institucionales y comerciales en Charallave y los Valles del Tuy.',
       },
@@ -315,7 +315,7 @@ export const seoCategoryData: SeoCategoryDataMap = {
       title: 'Dotación de Salas de Baño para Proyectos y Reformas',
       text:
         'Asesoría especializada y cotizaciones por volumen para constructoras, remodeladores e instituciones en Charallave. Disponibilidad inmediata y retiro directo en tienda.',
-      btnText: 'Cotizar Sanitarios y Salas de Baño por WhatsApp',
+      btnText: 'Cotizar Salas de Baño por WhatsApp',
     },
   },
 
