@@ -8,6 +8,9 @@ import { ProductCard } from '@/components/catalog/ProductCard'
 export const metadata: Metadata = {
   title: 'Zona Outlet y Ofertas | CharaTools',
   description: 'Aprovecha nuestras ofertas y liquidaciones en herramientas industriales. Unidades limitadas.',
+  alternates: {
+    canonical: '/ofertas',
+  },
 }
 
 export default function OfertasPage() {

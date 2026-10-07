@@ -4,6 +4,9 @@ import { FileText, CheckCircle2, ShieldAlert } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Términos y Condiciones | CharaTools B2B',
   description: 'Reglas de juego claras. Conoce los términos y condiciones de compra en CharaTools.',
+  alternates: {
+    canonical: '/terminos-y-condiciones',
+  },
 }
 
 export default function TerminosPage() {

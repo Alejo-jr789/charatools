@@ -9,6 +9,9 @@ import { ProductGrid } from '@/components/catalog/ProductGrid'
 export const metadata: Metadata = {
   title: 'Promociones y Regalos | Charatools',
   description: 'Aprovecha nuestros combos y regalos cruzados. Equipa tu obra hoy con las mejores herramientas e insumos del mercado.',
+  alternates: {
+    canonical: '/promociones',
+  },
   openGraph: {
     title: 'Promociones Especiales Charatools',
     description: 'Equipa tu obra hoy con las mejores herramientas y obtén regalos cruzados para tu instalación.',

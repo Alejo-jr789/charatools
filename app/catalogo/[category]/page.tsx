@@ -25,12 +25,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seoData = seoCategoryData[category]
   
   if (!seoData) {
-    return { title: 'Categoría No Encontrada | CharaTools' }
+    return { 
+      title: 'Categoría No Encontrada | CharaTools',
+      robots: { index: false },
+    }
   }
 
   return {
     title: seoData.title,
     description: seoData.description,
+    alternates: {
+      canonical: `/catalogo/${category}`,
+    },
     openGraph: {
       title: seoData.title,
       description: seoData.description,

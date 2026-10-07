@@ -4,6 +4,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Membresía VIP | CharaTools',
   description: 'Únete al Club de Beneficios VIP de CharaTools y obtén precios preferenciales y atención prioritaria en tus obras.',
+  alternates: {
+    canonical: '/membresia',
+  },
 }
 
 export default function MembershipPage() {

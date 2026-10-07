@@ -4,6 +4,9 @@ import { Shield, Lock, EyeOff, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Política de Privacidad | CharaTools B2B',
   description: 'Cómo protegemos y utilizamos tus datos comerciales. Total transparencia en el manejo de tu información.',
+  alternates: {
+    canonical: '/politica-de-privacidad',
+  },
 }
 
 export default function PrivacidadPage() {

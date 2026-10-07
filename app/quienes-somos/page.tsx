@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: 'Quiénes Somos | CharaTools — Tu Aliado en la Obra',
   description:
     'CharaTools nació en Charallave porque en la obra no hay tiempo que perder. Tu aliado ferretero de confianza en herramientas y equipos como INGCO, 3M y Stanley. Obtén una respuesta en minutos.',
+  alternates: {
+    canonical: '/quienes-somos',
+  },
   openGraph: {
     title: 'CharaTools — Tu Aliado en la Obra, no otro proveedor',
     description:

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { CATALOG_CATEGORIES, CATALOG_BRANDS, MOCK_PRODUCTS } from '@/lib/catalog.types'
+import { CATALOG_CATEGORIES, MOCK_PRODUCTS, brandToSlug } from '@/lib/catalog.types'
 import { createPublicSupabaseClient } from '@/lib/supabase/server'
 
 /**
@@ -73,32 +73,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }))
 
-  // ── 3. Landing Pages de Marcas y Promociones (L2) ──────────────────────────
-  const brandRoutes: MetadataRoute.Sitemap = CATALOG_BRANDS.map((brand) => {
-    const brandSlug = brand.toLowerCase().replace(/\s+/g, '-')
-    return {
-      url: `${baseUrl}/promociones/${brandSlug}`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    }
-  })
-
-  // ── 4. Páginas de Detalle de Producto (L3 - Catálogo Dinámico) ─────────────
+  // ── 3. Páginas de Detalle de Producto y Marcas Activas ─────────────────────
   // Consultamos Supabase live con fallback robusto a MOCK_PRODUCTS
   const productSlugMap = new Map<string, Date>()
+  const activeBrandSlugs = new Set<string>()
+
+  // 1. Marcas desde MOCK_PRODUCTS
+  for (const mockItem of MOCK_PRODUCTS) {
+    if (mockItem.brand) {
+      const slug = brandToSlug(mockItem.brand)
+      if (slug) activeBrandSlugs.add(slug)
+    }
+  }
 
   try {
     const supabase = createPublicSupabaseClient()
     const { data: dbProducts, error } = await supabase
       .from('products')
-      .select('slug, updated_at, created_at')
+      .select('slug, updated_at, created_at, brands ( name )')
 
     if (!error && dbProducts) {
       for (const item of dbProducts) {
         if (item.slug) {
           const modDate = item.updated_at ? new Date(item.updated_at) : (item.created_at ? new Date(item.created_at) : currentDate)
           productSlugMap.set(item.slug, modDate)
+        }
+        const b = item.brands as unknown as { name?: string } | { name?: string }[] | null
+        if (b) {
+          if (Array.isArray(b)) {
+            b.forEach((brandItem) => {
+              if (brandItem?.name) {
+                const slug = brandToSlug(brandItem.name)
+                if (slug) activeBrandSlugs.add(slug)
+              }
+            })
+          } else if (b.name) {
+            const slug = brandToSlug(b.name)
+            if (slug) activeBrandSlugs.add(slug)
+          }
         }
       }
     }
@@ -118,6 +130,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: lastMod,
     changeFrequency: 'weekly',
     priority: 0.8,
+  }))
+
+  // ── 4. Landing Pages de Marcas con Inventario (L2) ──────────────────────────
+  // Solo se incluyen marcas con al menos 1 producto para evitar thin content / 404
+  const brandRoutes: MetadataRoute.Sitemap = Array.from(activeBrandSlugs).map((brandSlug) => ({
+    url: `${baseUrl}/promociones/${brandSlug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.7,
   }))
 
   // ── 5. Páginas Legales y de Cumplimiento ────────────────────────────────────

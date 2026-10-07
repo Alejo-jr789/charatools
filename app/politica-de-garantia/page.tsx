@@ -4,6 +4,9 @@ import { ShieldCheck, Toolbox, AlertTriangle, CheckCircle, Clock, Wrench } from 
 export const metadata: Metadata = {
   title: 'Garantía de Hierro | CharaTools B2B',
   description: 'Nuestra política de garantía clara, directa y sin papeleo innecesario. Respaldamos tu inversión en cada herramienta.',
+  alternates: {
+    canonical: '/politica-de-garantia',
+  },
 }
 
 export default function GarantiaPage() {

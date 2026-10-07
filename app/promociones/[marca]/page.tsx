@@ -2,33 +2,45 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Zap } from 'lucide-react'
-import { CATALOG_BRANDS, MOCK_PRODUCTS } from '@/lib/catalog.types'
+import { CATALOG_BRANDS, MOCK_PRODUCTS, brandToSlug, slugToBrand } from '@/lib/catalog.types'
 import { ProductCard } from '@/components/catalog/ProductCard'
 
 // ── react-best-practices: ssg-generation ──────────────────────────────────
 export function generateStaticParams() {
   return CATALOG_BRANDS.map((brand) => ({
-    marca: brand.toLowerCase().replace(/\s+/g, '-'),
+    marca: brandToSlug(brand),
   }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ marca: string }> }): Promise<Metadata> {
   const { marca } = await params
-  const brandName = CATALOG_BRANDS.find((b) => b.toLowerCase().replace(/\s+/g, '-') === marca)
+  const brandName = slugToBrand(marca) || CATALOG_BRANDS.find((b) => b.toLowerCase().replace(/\s+/g, '-') === marca)
 
   if (!brandName) {
-    return { title: 'Marca no encontrada | CharaTools' }
+    return { 
+      title: 'Marca no encontrada | CharaTools',
+      robots: { index: false },
+    }
   }
+
+  const hasProducts = MOCK_PRODUCTS.some(
+    (p) => p.brand.toLowerCase() === brandName.toLowerCase()
+  )
 
   return {
     title: `Promociones ${brandName} | CharaTools`,
     description: `Catálogo oficial y promociones exclusivas de ${brandName} en CharaTools. Compra herramientas originales con garantía.`,
+    alternates: {
+      canonical: `/promociones/${marca}`,
+    },
+    // Si la marca no tiene productos aún, noindex para evitar "thin content" en Google
+    robots: hasProducts ? undefined : { index: false, follow: true },
   }
 }
 
 export default async function PromocionesMarcaPage({ params }: { params: Promise<{ marca: string }> }) {
   const { marca } = await params
-  const brandName = CATALOG_BRANDS.find((b) => b.toLowerCase().replace(/\s+/g, '-') === marca)
+  const brandName = slugToBrand(marca) || CATALOG_BRANDS.find((b) => b.toLowerCase().replace(/\s+/g, '-') === marca)
 
   if (!brandName) {
     notFound()

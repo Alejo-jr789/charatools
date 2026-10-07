@@ -4,6 +4,9 @@ import { Cookie, ShieldAlert, CheckCircle } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Política de Cookies | CharaTools B2B',
   description: 'Cómo utilizamos las cookies para mejorar tu experiencia de compra industrial.',
+  alternates: {
+    canonical: '/politica-de-cookies',
+  },
 }
 
 export default function CookiesPage() {

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: 'Contacto | CharaTools — Un asesor real busca la pieza por ti',
   description:
     'Escribe por WhatsApp y un asesor técnico de CharaTools confirma disponibilidad en menos de 15 minutos. Ubicados en Charallave, Miranda.',
+  alternates: {
+    canonical: '/contacto',
+  },
   openGraph: {
     title: 'Contacta a CharaTools — Respuesta garantizada en <15 min',
     description:

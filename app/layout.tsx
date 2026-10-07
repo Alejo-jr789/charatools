@@ -8,8 +8,13 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.charatools.com').replace(/\/$/, '')
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://charatools-frontend.vercel.app/'),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Charatools - Tu aliado ferretero de confianza que llegó a potenciar Charallave',
     template: '%s | Charatools',
@@ -18,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_VE',
-    url: 'https://charatools-frontend.vercel.app/',
+    url: SITE_URL,
     siteName: 'Charatools',
     title: 'Charatools - Tu aliado ferretero de confianza que llegó a potenciar Charallave',
     description: 'Tu ferretería de confianza en los Valles del Tuy. Stock real de herramientas InGco, Stanley, electricidad y plomería. Cotiza hoy mismo sin intermediarios.',

@@ -4,6 +4,9 @@ import { Banknote, CreditCard, Building2, BadgeCheck } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Política de Pagos | CharaTools B2B',
   description: 'Métodos de pago aceptados, facturación y financiamiento en CharaTools.',
+  alternates: {
+    canonical: '/politica-de-pagos',
+  },
 }
 
 export default function PagosPage() {

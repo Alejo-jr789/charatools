@@ -4,6 +4,9 @@ import { RotateCcw, AlertTriangle, PackageOpen, CheckCircle } from 'lucide-react
 export const metadata: Metadata = {
   title: 'Política de Devoluciones | CharaTools B2B',
   description: 'Condiciones para cambios y devoluciones de mercancía en CharaTools.',
+  alternates: {
+    canonical: '/politica-de-devoluciones',
+  },
 }
 
 export default function DevolucionesPage() {

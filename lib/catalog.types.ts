@@ -190,6 +190,19 @@ export const CATALOG_BRANDS = [
 
 export type CatalogBrand = typeof CATALOG_BRANDS[number]
 
+export function brandToSlug(brand: string): string {
+  return brand
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export function slugToBrand(slug: string): string | undefined {
+  return CATALOG_BRANDS.find((b) => brandToSlug(b) === slug)
+}
+
 // ---------------------------------------------------------------------------
 // Mock Data del Catálogo Completo
 // Reemplazar por fetch real a API/CMS cuando estén listos

@@ -4,6 +4,9 @@ import { Truck, MapPin, Clock, AlertCircle } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Política de Envíos | CharaTools B2B',
   description: 'Logística y tiempos de entrega. Llevamos el material directo a tu obra.',
+  alternates: {
+    canonical: '/politica-de-envios',
+  },
 }
 
 export default function EnviosPage() {

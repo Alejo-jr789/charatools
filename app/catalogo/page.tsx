@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   title: 'Catálogo B2B | CharaTools — Ferretería Industrial',
   description:
     'Explora el catálogo completo de CharaTools: herramientas, plomería, iluminación, electricidad e impermeabilización. Cotización directa por WhatsApp, sin pasarela de pago.',
+  alternates: {
+    canonical: '/catalogo',
+  },
   openGraph: {
     title: 'Catálogo CharaTools — Ferretería B2B',
     description: 'Herramientas, plomería, electricidad y más. Cotiza al instante por WhatsApp.',
