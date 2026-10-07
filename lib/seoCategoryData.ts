@@ -296,9 +296,9 @@ export const seoCategoryData: SeoCategoryDataMap = {
   // Salas de Baño
   // ──────────────────────────────────────────────────────────────────────────
   'salas-de-bano': {
-    title: 'Salas de Baño en Charallave: Inodoros, Lavamanos y Pedestales',
+    title: 'Salas de Baño en Charallave: Inodoros, Lavamanos, Pedestales y Accesorios',
     description:
-      'Suministro de piezas sanitarias de alta durabilidad, inodoros eficientes y lavamanos con pedestal para proyectos residenciales y comerciales en los Valles del Tuy.',
+      'Suministro de piezas sanitarias de alta durabilidad, inodoros eficientes, lavamanos con pedestal y accesorios para proyectos residenciales y comerciales en los Valles del Tuy.',
     blocks: [
       {
         subtitle: 'Inodoros de Alto Rendimiento y Descarga Eficiente',

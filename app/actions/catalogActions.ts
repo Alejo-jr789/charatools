@@ -144,7 +144,7 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
   }
 
   // Salas de Baño y sus hijas
-  const salasDeBanoSlugs = ['salas-de-bano', 'sanitarios', 'inodoros', 'lavamanos-pedestales', 'lavamanos', 'pedestales']
+  const salasDeBanoSlugs = ['salas-de-bano', 'sanitarios', 'inodoros', 'lavamanos-pedestales', 'lavamanos', 'pedestales', 'accesorios']
   if (salasDeBanoSlugs.includes(dbSlug)) {
     return { slug: 'salas-de-bano', label: 'Salas de Baño' }
   }

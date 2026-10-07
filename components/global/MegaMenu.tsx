@@ -133,7 +133,8 @@ export const CATEGORIES: Category[] = [
     href: '/catalogo/salas-de-bano',
     subcategories: [
       { name: 'Inodoros', href: '/catalogo/salas-de-bano?sub=inodoros' },
-      { name: 'Lavamanos y Pedestales', href: '/catalogo/salas-de-bano?sub=lavamanos-pedestales' }
+      { name: 'Lavamanos y Pedestales', href: '/catalogo/salas-de-bano?sub=lavamanos-pedestales' },
+      { name: 'Accesorios', href: '/catalogo/salas-de-bano?sub=accesorios' }
     ]
   }
 ]

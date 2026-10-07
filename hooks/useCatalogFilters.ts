@@ -176,6 +176,12 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'lavamanos',
           'pedestales',
           'pedestal'
+        ],
+        'accesorios': [
+          'accesorios',
+          'accesorio',
+          'accesorios-bano',
+          'herrajes'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]

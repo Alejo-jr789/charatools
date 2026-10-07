@@ -281,6 +281,14 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         (p.subcategory === 'lavamanos-pedestales' ||
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('lavamano') || t.toLowerCase().includes('pedestal')))),
     },
+    {
+      label: 'Accesorios',
+      href: '/catalogo/salas-de-bano?sub=accesorios',
+      filterFn: (p) =>
+        p.category === 'salas-de-bano' &&
+        (p.subcategory === 'accesorios' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('accesorio') || t.toLowerCase().includes('herraje') || t.toLowerCase().includes('repuesto')))),
+    },
   ],
 }
 
