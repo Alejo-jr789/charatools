@@ -182,6 +182,11 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'accesorio',
           'accesorios-bano',
           'herrajes'
+        ],
+        'cascos': [
+          'cascos',
+          'casco',
+          'casco-seguridad'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
