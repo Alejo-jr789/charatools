@@ -271,6 +271,22 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         (p.subcategory === 'calzado' ||
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('bota') || t.toLowerCase().includes('calzado')))),
     },
+    {
+      label: 'Protección Respiratoria',
+      href: '/catalogo/seguridad-industrial?sub=proteccion-respiratoria',
+      filterFn: (p) =>
+        p.category === 'seguridad-industrial' &&
+        (p.subcategory === 'proteccion-respiratoria' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('mascarilla') || t.toLowerCase().includes('respirador') || t.toLowerCase().includes('kn95')))),
+    },
+    {
+      label: 'Señalización y Vialidad',
+      href: '/catalogo/seguridad-industrial?sub=senalizacion-vial',
+      filterFn: (p) =>
+        p.category === 'seguridad-industrial' &&
+        (p.subcategory === 'senalizacion-vial' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('cono') || t.toLowerCase().includes('chaleco') || t.toLowerCase().includes('cinta') || t.toLowerCase().includes('vial') || t.toLowerCase().includes('senalizacion')))),
+    },
   ],
   'salas-de-bano': [
     {

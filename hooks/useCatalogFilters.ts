@@ -209,6 +209,41 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'bota',
           'calzado-dielectrico',
           'calzado-seguridad'
+        ],
+        'proteccion-respiratoria': [
+          'proteccion-respiratoria',
+          'mascarillas',
+          'mascarilla',
+          'respiradores',
+          'tapabocas',
+          'kn95'
+        ],
+        'mascarillas': [
+          'proteccion-respiratoria',
+          'mascarillas',
+          'mascarilla',
+          'respiradores',
+          'tapabocas',
+          'kn95'
+        ],
+        'senalizacion-vial': [
+          'senalizacion-vial',
+          'senalizacion',
+          'vialidad',
+          'conos',
+          'cono',
+          'conos-viales',
+          'chalecos',
+          'chaleco',
+          'cintas',
+          'cintas-seguridad',
+          'cinta'
+        ],
+        'chalecos': [
+          'senalizacion-vial',
+          'chalecos',
+          'chaleco',
+          'chaleco-vial'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
