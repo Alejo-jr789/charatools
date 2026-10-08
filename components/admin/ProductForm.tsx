@@ -59,7 +59,7 @@ export default function ProductForm({ categories, brands, initialData }: Product
   const isEdit = !!initialData
 
   const initialSubcategoryOpt = initialData?.specs?.subcategory
-    ? categories.find(c => c.slug === initialData.specs?.subcategory && c.parent_id === initialData.category_id && c.depth === 1)
+    ? categories.find(c => c.slug === initialData.specs?.subcategory && c.parent_id === initialData.category_id)
     : null
 
   const initialSubitemOpt = initialData?.specs?.subitem && initialSubcategoryOpt
@@ -115,9 +115,9 @@ export default function ProductForm({ categories, brands, initialData }: Product
     .filter(c => (c.depth === 0 || c.parent_id === null) && MAIN_MENU_CATEGORY_SLUGS.includes(c.slug))
     .sort((a, b) => MAIN_MENU_CATEGORY_SLUGS.indexOf(a.slug) - MAIN_MENU_CATEGORY_SLUGS.indexOf(b.slug))
 
-  // Filtrar subcategorías hijas de la categoría principal seleccionada (depth === 1)
+  // Filtrar subcategorías hijas de la categoría principal seleccionada
   const subcategories = selectedCategoryId 
-    ? categories.filter(c => c.parent_id === selectedCategoryId && c.depth === 1)
+    ? categories.filter(c => c.parent_id === selectedCategoryId && (c.depth === 1 || c.depth === 0 || !c.depth))
     : []
 
   // Filtrar sub-ítems hijos de la subcategoría seleccionada (depth === 2)
