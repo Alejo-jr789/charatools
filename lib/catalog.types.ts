@@ -3924,5 +3924,31 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
     isCasheaEligible: true,
     priority: 3,
     tags: ['cono vial', 'cono de transito', 'flexible', 'base pesada', 'cintas reflectivas', 'seguridad vial', 'senalizacion', 'emg', 'epp', 'seguridad industrial'],
+  },
+  {
+    id: 'delantal-de-pvc-impermeable-emg',
+    slug: 'delantal-de-pvc-impermeable-emg',
+    name: 'Delantal de PVC Impermeable EMG',
+    shortDescription: 'Delantal industrial de PVC impermeable de alta resistencia química y al agua con tiras de ajuste.',
+    description: 'Delantal de protección industrial confeccionado en PVC vinílico impermeable de alto calibre marca EMG. Diseñado para proteger el torso y extremidades inferiores contra salpicaduras de agua, grasas, aceites, químicos ligeros, detergentes y productos de limpieza. Cuenta con ojetes termosellados y cordones de sujeción ajustables al cuello y cintura. Ideal para carnicerías, plantas de procesamiento de alimentos, frigoríficos, lavado industrial, talleres y labores de saneamiento.',
+    category: 'seguridad-industrial',
+    categoryLabel: 'Seguridad Industrial',
+    subcategory: 'proteccion-corporal',
+    subcategoryLabel: 'Protección Corporal',
+    subitem: 'delantales',
+    subitemLabel: 'Delantales y Petos',
+    brand: 'EMG',
+    reference: 'SEG-DELANTAL-PVC-IMP',
+    unit: 'und',
+    image: '/placeholder-product.webp',
+    status: 'available',
+    isCasheaEligible: true,
+    priority: 1,
+    variantLabel: 'Color',
+    variants: [
+      { value: 'Blanco' },
+      { value: 'Negro' }
+    ],
+    tags: ['delantal', 'delantal de pvc', 'impermeable', 'mandil', 'proteccion corporal', 'lavado', 'alimentos', 'emg', 'epp', 'seguridad industrial'],
   }
 ];

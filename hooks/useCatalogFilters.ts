@@ -244,6 +244,22 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'chalecos',
           'chaleco',
           'chaleco-vial'
+        ],
+        'proteccion-corporal': [
+          'proteccion-corporal',
+          'delantales',
+          'delantal',
+          'mandiles',
+          'mandil',
+          'petos'
+        ],
+        'delantales': [
+          'proteccion-corporal',
+          'delantales',
+          'delantal',
+          'mandiles',
+          'mandil',
+          'petos'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]

@@ -287,6 +287,14 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         (p.subcategory === 'senalizacion-vial' ||
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('cono') || t.toLowerCase().includes('chaleco') || t.toLowerCase().includes('cinta') || t.toLowerCase().includes('vial') || t.toLowerCase().includes('senalizacion')))),
     },
+    {
+      label: 'Protección Corporal y Delantales',
+      href: '/catalogo/seguridad-industrial?sub=proteccion-corporal',
+      filterFn: (p) =>
+        p.category === 'seguridad-industrial' &&
+        (p.subcategory === 'proteccion-corporal' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('delantal') || t.toLowerCase().includes('mandil') || t.toLowerCase().includes('corporal')))),
+    },
   ],
   'salas-de-bano': [
     {
