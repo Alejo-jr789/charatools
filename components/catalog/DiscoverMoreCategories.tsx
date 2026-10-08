@@ -264,7 +264,7 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('lente') || t.toLowerCase().includes('careta') || t.toLowerCase().includes('visor') || t.toLowerCase().includes('monogafa') || t.toLowerCase().includes('facial')))),
     },
     {
-      label: 'Calzado de Seguridad',
+      label: 'Calzado',
       href: '/catalogo/seguridad-industrial?sub=calzado',
       filterFn: (p) =>
         p.category === 'seguridad-industrial' &&
