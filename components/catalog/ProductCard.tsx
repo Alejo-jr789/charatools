@@ -117,16 +117,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* ── Contenido de la Tarjeta ── */}
       <div className="flex flex-col flex-grow p-4 md:p-5 grid grid-rows-[auto_1fr_auto] gap-3">
-        {/* Metadatos: Marca y SKU (Vital para B2B) */}
-        <div className="flex items-center justify-between gap-2">
+        {/* Metadatos: Marca */}
+        <div className="flex items-center gap-2">
           <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest bg-gray-100 px-2 py-0.5 rounded-sm">
             {product.brand}
           </span>
-          {product.reference && (
-            <span className="text-[11px] font-mono text-gray-500 truncate" title={`SKU / Ref: ${product.reference}`}>
-              Ref: {product.reference}
-            </span>
-          )}
         </div>
 
         {/* Título Principal */}

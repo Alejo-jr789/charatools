@@ -48,7 +48,6 @@ function SpecTable({ product }: { product: CatalogProduct }) {
   const specs: { icon: React.ElementType; label: string; value: string }[] = []
 
   if (product.brand) specs.push({ icon: Tag, label: 'Marca', value: product.brand })
-  if (product.reference) specs.push({ icon: Package, label: 'Referencia / SKU', value: product.reference })
   if (product.unit) specs.push({ icon: Package, label: 'Unidad de venta', value: product.unit })
   if (product.powerWatts) specs.push({ icon: Zap, label: 'Potencia', value: `${product.powerWatts} W` })
   if (product.voltageVolts) specs.push({ icon: Wifi, label: 'Voltaje', value: `${product.voltageVolts} V` })
@@ -219,13 +218,6 @@ export function ProductDetailsTemplate({
 
             {/* ── Botón de Cotización (Client Island) ───────────────────── */}
             <AddToQuoteButton product={product} selectedVariant={selectedVariant ?? undefined} />
-
-            {/* Referencia/SKU visible */}
-            {product.reference && (
-              <p className="text-[10px] text-gray-400 font-mono">
-                Ref: {product.reference}
-              </p>
-            )}
           </div>
         </div>
       </div>
