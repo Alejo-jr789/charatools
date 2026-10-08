@@ -263,6 +263,14 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         (p.subcategory === 'lentes' ||
           Boolean(p.tags?.some((t) => t.toLowerCase().includes('lente') || t.toLowerCase().includes('careta') || t.toLowerCase().includes('visor') || t.toLowerCase().includes('monogafa') || t.toLowerCase().includes('facial')))),
     },
+    {
+      label: 'Calzado de Seguridad',
+      href: '/catalogo/seguridad-industrial?sub=calzado',
+      filterFn: (p) =>
+        p.category === 'seguridad-industrial' &&
+        (p.subcategory === 'calzado' ||
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('bota') || t.toLowerCase().includes('calzado')))),
+    },
   ],
   'salas-de-bano': [
     {

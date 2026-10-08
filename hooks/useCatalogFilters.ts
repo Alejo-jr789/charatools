@@ -196,6 +196,19 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'monogafas',
           'careta',
           'proteccion-facial'
+        ],
+        'guantes': [
+          'guantes',
+          'guante',
+          'guantes-proteccion',
+          'guantes-industriales'
+        ],
+        'calzado': [
+          'calzado',
+          'botas',
+          'bota',
+          'calzado-dielectrico',
+          'calzado-seguridad'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
