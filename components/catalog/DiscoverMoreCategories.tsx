@@ -261,7 +261,7 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
       filterFn: (p) =>
         p.category === 'seguridad-industrial' &&
         (p.subcategory === 'lentes' ||
-          Boolean(p.tags?.some((t) => t.toLowerCase().includes('lente') || t.toLowerCase().includes('careta')))),
+          Boolean(p.tags?.some((t) => t.toLowerCase().includes('lente') || t.toLowerCase().includes('careta') || t.toLowerCase().includes('visor') || t.toLowerCase().includes('monogafa') || t.toLowerCase().includes('facial')))),
     },
   ],
   'salas-de-bano': [

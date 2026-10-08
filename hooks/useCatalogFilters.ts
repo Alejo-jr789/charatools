@@ -187,6 +187,15 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'cascos',
           'casco',
           'casco-seguridad'
+        ],
+        'lentes': [
+          'lentes',
+          'lente',
+          'visores',
+          'visor',
+          'monogafas',
+          'careta',
+          'proteccion-facial'
         ]
       }
       const unified = SUBITEM_UNIFICATION[filters.sub]
