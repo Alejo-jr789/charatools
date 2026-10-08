@@ -181,7 +181,7 @@ function toProduct(row: ProductRow): CatalogProduct {
     subitem:          specStr(row.specs, 'subitem') ?? specStr(row.specs, 'sub_item'),
     variantLabel:     specStr(row.specs, 'variantLabel'),
     variants:         Array.isArray(row.specs?.variants) ? (row.specs.variants as any[]) : undefined,
-    priority:         row.specs?.priority ? Number(row.specs.priority) : undefined,
+    priority:         (row.specs?.priority !== undefined && row.specs?.priority !== null) ? Number(row.specs.priority) : undefined,
   }
 }
 
