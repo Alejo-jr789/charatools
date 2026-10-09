@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
+import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Hammer } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -18,16 +18,18 @@ export interface Category {
 // Taxonomía oficial de 5 categorías con iconos representativos
 export const CATEGORIES: Category[] = [
   {
-    id: 'herramientas-general',
-    name: 'Herramientas en General',
-    icon: Wrench,
-    href: '/catalogo/herramientas-general',
-    subcategories: [
-      { name: 'Herramientas Eléctricas', href: '/catalogo/herramientas-general?sub=electricas' },
-      { name: 'Herramientas Manuales', href: '/catalogo/herramientas-general?sub=manuales' },
-      { name: 'Equipos de Medición', href: '/catalogo/herramientas-general?sub=medicion' },
-      { name: 'Accesorios', href: '/catalogo/herramientas-general?sub=accesorios' }
-    ]
+    id: 'herramientas-electricas',
+    name: 'Herramientas Eléctricas',
+    icon: Zap,
+    href: '/catalogo/herramientas-electricas',
+    subcategories: []
+  },
+  {
+    id: 'herramientas-manuales',
+    name: 'Herramientas Manuales',
+    icon: Hammer,
+    href: '/catalogo/herramientas-manuales',
+    subcategories: []
   },
   {
     id: 'plomeria',

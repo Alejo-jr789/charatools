@@ -64,28 +64,6 @@ export type SeoCategoryDataMap = Partial<Record<string, SeoCategoryEntry>>
 
 export const seoCategoryData: SeoCategoryDataMap = {
 
-  // ──────────────────────────────────────────────────────────────────────────
-  // Herramientas Generales
-  // ──────────────────────────────────────────────────────────────────────────
-  'herramientas-general': {
-    title: 'Herramientas Profesionales en Charallave al Mejor Precio',
-    description: 'Proveemos herramientas  para proyectos de infraestructura y construcción en los Valles del Tuy. Desde nuestra tienda en Charallave garantizamos la capacidad logística que contratistas y empresas necesitan.',
-    blocks: [
-      /*{ 
-        subtitle: 'Maquinaria de Corte y Perforación Industrial', 
-        text: 'Suministro de equipos diseñados para trabajo pesado continuo. Comercializamos líneas de alto rendimiento para asegurar el cumplimiento estricto de cronogramas en obras civiles y comerciales.' 
-      },
-      { 
-        subtitle: 'Dotación para Contratistas y Talleres Especializados', 
-        text: 'Proveemos maquinaria robusta capaz de soportar las máximas exigencias operativas. Nuestro inventario garantiza la continuidad de las operaciones en proyectos de cualquier envergadura.' 
-      }*/
-    ],
-    ctaSection: { 
-      title: '', 
-      text: 'Venta de herramientas profesionales con stock físico disponible para retiro inmediato en nuestra tienda de Charallave. Garantizamos inventario real en los Valles del Tuy para que equipes tu proyecto hoy mismo sin demoras. ', 
-      btnText: 'Solicitar Asesoría Gratuita' 
-    },
-  },
 
   // ──────────────────────────────────────────────────────────────────────────
   // Plantas Eléctricas y Energía

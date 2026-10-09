@@ -30,7 +30,8 @@ import { CATEGORIES, SubItem } from '@/components/global/MegaMenu'
 
 
 const SIDEBAR_CATEGORIES = [
-  { slug: 'herramientas-general', label: 'Herramientas en General' },
+  { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas' },
+  { slug: 'herramientas-manuales', label: 'Herramientas Manuales' },
   { slug: 'plomeria', label: 'Plomería' },
   { slug: 'iluminacion', label: 'Iluminación' },
   { slug: 'electricidad', label: 'Electricidad' },

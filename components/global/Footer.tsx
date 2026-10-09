@@ -42,7 +42,8 @@ const SOCIAL_LINKS = [
 
 const NAV_LINKS = {
   catalogo: [
-    { label: 'Herramientas en General', href: '/catalogo?cat=herramientas-general' },
+    { label: 'Herramientas Eléctricas', href: '/catalogo?cat=herramientas-electricas' },
+    { label: 'Herramientas Manuales', href: '/catalogo?cat=herramientas-manuales' },
     { label: 'Plomería', href: '/catalogo?cat=plomeria' },
     { label: 'Iluminación', href: '/catalogo?cat=iluminacion' },
     { label: 'Electricidad', href: '/catalogo?cat=electricidad' },

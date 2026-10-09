@@ -74,18 +74,7 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
 
     // Filtro por categoría
     if (filters.cat) {
-      if (filters.cat === 'herramientas-general') {
-        result = result.filter(
-          (p) =>
-            p.category === 'herramientas-general' ||
-            p.category === 'herramientas-electricas' ||
-            p.category === 'herramientas-manuales' ||
-            p.category === 'electricas' ||
-            p.category === 'manuales'
-        )
-      } else {
-        result = result.filter((p) => p.category === filters.cat)
-      }
+      result = result.filter((p) => p.category === filters.cat)
     }
 
     // Filtro por subcategoría o sub-ítem (con soporte de unificación para plomería)
