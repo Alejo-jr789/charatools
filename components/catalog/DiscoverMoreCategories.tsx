@@ -222,6 +222,13 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         p.category === 'herramientas-electricas' &&
         (Boolean(p.tags?.some((t) => t.toLowerCase().includes('motosierra'))) || p.name.toLowerCase().includes('motosierra')),
     },
+    {
+      label: 'Hidrolavadoras',
+      href: '/catalogo/herramientas-electricas?q=hidrolavadora',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('hidrolavadora'))) || p.name.toLowerCase().includes('hidrolavadora')),
+    },
   ],
   'herramientas-manuales': [
     {
