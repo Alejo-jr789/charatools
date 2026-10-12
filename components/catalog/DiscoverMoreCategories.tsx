@@ -187,6 +187,20 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         p.category === 'herramientas-electricas' &&
         (Boolean(p.tags?.some((t) => t.toLowerCase().includes('rotomartillo'))) || p.name.toLowerCase().includes('rotomartillo')),
     },
+    {
+      label: 'Lijadoras',
+      href: '/catalogo/herramientas-electricas?q=lijadora',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('lijadora'))) || p.name.toLowerCase().includes('lijadora')),
+    },
+    {
+      label: 'Tronzadoras',
+      href: '/catalogo/herramientas-electricas?q=tronzadora',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('tronzadora'))) || p.name.toLowerCase().includes('tronzadora')),
+    },
   ],
   'herramientas-manuales': [
     {
