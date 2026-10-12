@@ -180,6 +180,13 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         p.category === 'herramientas-electricas' &&
         (Boolean(p.tags?.some((t) => t.toLowerCase().includes('sierra'))) || p.name.toLowerCase().includes('sierra')),
     },
+    {
+      label: 'Rotomartillos',
+      href: '/catalogo/herramientas-electricas?q=rotomartillo',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('rotomartillo'))) || p.name.toLowerCase().includes('rotomartillo')),
+    },
   ],
   'herramientas-manuales': [
     {
