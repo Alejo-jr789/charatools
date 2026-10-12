@@ -249,20 +249,51 @@ export function useCatalogFilters(allProducts: CatalogProduct[]) {
           'mandiles',
           'mandil',
           'petos'
-        ]
+        ],
+        // Herramientas Eléctricas
+        'taladros': ['taladro', 'taladros', 'rotomartillo', 'demoledor', 'destornillador', 'atornillador'],
+        'taladros-alambricos': ['taladro percutor alambrico', 'taladro percutor alámbrico', 'taladro alambrico'],
+        'taladros-inalambricos': ['taladro inalambrico', 'taladro inalámbrico', 'destornillador inalambrico', 'destornillador inalámbrico'],
+        'rotomartillos': ['rotomartillo', 'rotomartillos', 'sds plus'],
+        'demoledores': ['demoledor', 'demoledores', 'cincelador', 'hexagonal', '1100w'],
+        'esmeriles': ['esmeril', 'esmeriles', 'amoladora', 'amoladoras', 'esmeril angular'],
+        'sierras': ['sierra', 'sierras', 'caladora', 'circular', 'tronzadora'],
+        'caladoras': ['caladora', 'sierra caladora'],
+        'sierras-circulares': ['sierra circular', 'circular'],
+        'tronzadoras': ['tronzadora', 'cortadora de metal'],
+        'inalambricos': ['inalambrico', 'inalambricos', 'inalámbrico', 'inalámbricos', 'batería', 'baterias', 'p20s'],
+        'llaves-impacto': ['llave de impacto', 'impacto'],
+        'lijadoras': ['lijadora', 'lijadoras', 'orbital', 'banda'],
+        'lijadoras-orbitales': ['lijadora orbital', 'orbital'],
+        'lijadoras-banda': ['lijadora de banda', 'banda'],
+        'hidrolavadoras': ['hidrolavadora', 'hidrolavadoras', 'induccion', 'inducción', 'alta presion', 'alta presión'],
+        'hidrolavadoras-induccion': ['motor de inducción', 'motor de induccion', 'inducción', 'induccion'],
+        'hidrolavadoras-presion': ['alta presión', 'alta presion', '1200w', '1400w', '2000w'],
+        'pistolas': ['pistola para pintar', 'pistola de calor', 'pulverizador', 'decapador'],
+        'pistolas-pintar': ['pistola para pintar', 'pulverizador'],
+        'pistolas-calor': ['pistola de calor', 'decapador térmico', 'decapador'],
+        'motosierras': ['motosierra', 'motosierras', 'gasolina', 'espada 18']
       }
-      const unified = SUBITEM_UNIFICATION[filters.sub]
+      const currentSub = filters.sub
+      const subLower = currentSub.toLowerCase()
+      const unified = SUBITEM_UNIFICATION[currentSub]
       if (unified) {
         result = result.filter(
           (p) =>
-            p.subcategory === filters.sub ||
-            p.subitem === filters.sub ||
+            p.subcategory === currentSub ||
+            p.subitem === currentSub ||
             (p.subitem ? unified.includes(p.subitem) : false) ||
-            (p.subcategory ? unified.includes(p.subcategory) : false)
+            (p.subcategory ? unified.includes(p.subcategory) : false) ||
+            Boolean(p.tags?.some((t) => unified.some((u) => t.toLowerCase().includes(u)))) ||
+            unified.some((u) => p.name.toLowerCase().includes(u))
         )
       } else {
         result = result.filter(
-          (p) => p.subcategory === filters.sub || p.subitem === filters.sub
+          (p) =>
+            p.subcategory === currentSub ||
+            p.subitem === currentSub ||
+            Boolean(p.tags?.some((t) => t.toLowerCase().includes(subLower))) ||
+            p.name.toLowerCase().includes(subLower)
         )
       }
     }

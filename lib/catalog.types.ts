@@ -217,6 +217,8 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'esmeril-angular-alambrico-tolsen',
     slug: 'esmeril-angular-alambrico-tolsen',
+    subcategory: 'esmeriles',
+    subcategoryLabel: 'Esmeriles y Amoladoras',
     name: 'Esmeril Angular Alámbrico 4" - 9" Tolsen',
     shortDescription: 'Esmeril angular alámbrico industrial Tolsen de alto rendimiento para corte y desbaste. Disponible en medidas de 4" a 9".',
     description: 'Esmeril angular alámbrico industrial TOLSEN diseñado para exigentes labores de corte, desbaste, lijado y pulido en perfiles metálicos, soldadura, piedra y mampostería. Motor de alta potencia con bobinado de cobre, cabezal de engranajes de aluminio fundido, empuñadura auxiliar ergonómica de 2 posiciones y guarda protectora ajustable. Diseñado para ofrecer máxima durabilidad y seguridad en entornos de taller y construcción civil.',
@@ -241,6 +243,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'taladro-percutor-alambrico-tolsen',
     slug: 'taladro-percutor-alambrico-tolsen',
+    subcategory: 'taladros',
+    subcategoryLabel: 'Taladros y Rotomartillos',
+    subitem: 'taladros-alambricos',
     name: 'Taladro Percutor Alámbrico 3/8" - 1/2" Tolsen',
     shortDescription: 'Taladro percutor alámbrico Tolsen de alto torque con doble modo de rotación y percusión. Mandril disponible en 3/8" y 1/2".',
     description: 'Taladro percutor eléctrico alámbrico TOLSEN de grado profesional, diseñado para trabajos continuos de perforación y atornillado de alta exigencia. Cuenta con selector de doble modo (rotación estándar y rotopercusión), gatillo con velocidad variable reversible, tope de profundidad milimétrico y mango auxiliar antideslizante ajustable a 360°. Ideal para perforaciones precisas en concreto, mampostería, madera y perfiles metálicos.',
@@ -263,6 +268,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'sierra-caladora-alambrica-ingco',
     slug: 'sierra-caladora-alambrica-ingco',
+    subcategory: 'sierras',
+    subcategoryLabel: 'Sierras y Tronzadoras',
+    subitem: 'caladoras',
     name: 'Sierra Caladora Alámbrica INGCO',
     shortDescription: 'Sierra caladora pendular alámbrica INGCO de alta precisión con base inclinable a 45° para cortes en madera, plástico y metales.',
     description: 'Sierra caladora eléctrica alámbrica INGCO con sistema de acción pendular de múltiples posiciones para optimizar la velocidad y calidad del corte según el material. Incorpora base metálica inclinable hasta 45° para biselados exactos, guía de corte lateral, mango ergonómico recubierto en goma para mayor control y sistema de cambio rápido de segueta. Diseñada para carpintería, herrería ligera, instalaciones y corte de paneles decorativos.',
@@ -280,6 +288,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'rotomartillo-alambrico-sds-plus-wadfow',
     slug: 'rotomartillo-alambrico-sds-plus-wadfow',
+    subcategory: 'taladros',
+    subcategoryLabel: 'Taladros y Rotomartillos',
+    subitem: 'rotomartillos',
     name: 'Rotomartillo Alámbrico SDS Plus WADFOW',
     shortDescription: 'Rotomartillo industrial alámbrico WADFOW con encastre SDS Plus y maletín rígido para perforación pesada y cincelado.',
     description: 'Rotomartillo profesional alámbrico WADFOW de alta potencia y rendimiento mecánico superior. Equipado con encastre SDS Plus de fijación rápida, selector multifunción (taladro, rotopercusión y cincelado libre/bloqueado) y robusta caja de engranajes metálica. Incluye maletín de transporte rígido de alto impacto, empuñadura auxiliar antivibración y barra de tope de profundidad. Ideal para labores pesadas de anclaje, perforación estructural y demolición ligera en concreto y mampostería.',
@@ -297,6 +308,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'sierra-circular-alambrica-tolsen',
     slug: 'sierra-circular-alambrica-tolsen',
+    subcategory: 'sierras',
+    subcategoryLabel: 'Sierras y Tronzadoras',
+    subitem: 'sierras-circulares',
     name: 'Sierra Circular Alámbrica 7-1/4" con Láser Tolsen',
     shortDescription: 'Sierra circular industrial alámbrica Tolsen de 7-1/4" con guía láser integrada para cortes rectos y biselados exactos en madera.',
     description: 'Sierra circular alámbrica profesional TOLSEN serie Industrial FX Force Speed (modelo 79731). Cuenta con potente motor para discos de 7-1/4 pulgadas (185 mm), puntero láser integrado que proyecta la línea de corte para máxima exactitud, base de acero reforzada regulable en profundidad y ángulo de bisel hasta 45°. Equipada con protector de disco retráctil de aluminio fundido, puerto de extracción de virutas y empuñadura suave ergonómica para jornadas de trabajo prolongadas.',
@@ -314,6 +328,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'tronzadora-metal-14-ingco',
     slug: 'tronzadora-metal-14-ingco',
+    subcategory: 'sierras',
+    subcategoryLabel: 'Sierras y Tronzadoras',
+    subitem: 'tronzadoras',
     name: 'Tronzadora de Metal 14" INGCO',
     shortDescription: 'Tronzadora eléctrica industrial de 14" (355 mm) con motor de 2400W para corte rápido y preciso de perfiles metálicos, tubos y cabillas.',
     description: 'Tronzadora industrial para metales INGCO de 14 pulgadas (355 mm). Equipada con potente motor de 2400W para trabajo pesado continuo en talleres metalúrgicos y obras de construcción. Incluye prensa de fijación rápida con mordaza inclinable hasta 45° para cortes en inglete, deflector de chispas ajustable, empuñadura ergonómica tipo \'D\' y botón de bloqueo de eje para cambio fácil del disco abrasivo.',
@@ -331,6 +348,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'pistola-para-pintar-alambrica-wadfow',
     slug: 'pistola-para-pintar-alambrica-wadfow',
+    subcategory: 'pistolas',
+    subcategoryLabel: 'Pistolas Eléctricas y Térmicas',
+    subitem: 'pistolas-pintar',
     name: 'Pistola para Pintar Alámbrica WADFOW',
     shortDescription: 'Pistola de pulverización eléctrica alámbrica WADFOW con depósito graduado de 800 ml para aplicación uniforme de pinturas, esmaltes y barnices.',
     description: 'Pistola eléctrica para pintar alámbrica WADFOW de alta eficiencia y cobertura homogénea. Diseñada con boquilla ajustable de 3 patrones de rociado (vertical, horizontal y circular), perilla reguladora de flujo de pintura y depósito desmontable con escala de medición de 800 ml. Ideal para pintar rejas, paredes, muebles de madera, cercas y acabados automotrices ligeros sin necesidad de compresor de aire externo.',
@@ -348,6 +368,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'lijadora-orbital-alambrica-ronix',
     slug: 'lijadora-orbital-alambrica-ronix',
+    subcategory: 'lijadoras',
+    subcategoryLabel: 'Lijadoras',
+    subitem: 'lijadoras-orbitales',
     name: 'Lijadora Orbital Alámbrica Ronix',
     shortDescription: 'Lijadora orbital eléctrica alámbrica Ronix con base rectangular de sujeción rápida para acabado fino y desbaste en madera y masilla.',
     description: 'Lijadora orbital alámbrica profesional Ronix con diseño ergonómico de perfil bajo y agarre acolchado antideslizante para minimizar la fatiga durante sesiones prolongadas. Cuenta con motor de altas revoluciones que produce oscilaciones ultra finas para acabados libres de marcas, sistema de presillas metálicas para fijación rápida de pliegos de lija estándar y puerto extractor de polvo para mantener el área de trabajo limpia.',
@@ -365,6 +388,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'lijadora-de-banda-alambrica-tolsen',
     slug: 'lijadora-de-banda-alambrica-tolsen',
+    subcategory: 'lijadoras',
+    subcategoryLabel: 'Lijadoras',
+    subitem: 'lijadoras-banda',
     name: 'Lijadora de Banda Alámbrica Tolsen',
     shortDescription: 'Lijadora de banda industrial Tolsen de alto desbaste con perilla de centrado automático y empuñadura auxiliar para madera y metales.',
     description: 'Lijadora de banda eléctrica alámbrica TOLSEN serie Industrial FX Force Speed (modelo 79568). Diseñada para lijado rápido, desbaste pesado y nivelación de grandes superficies en madera maciza, pisos, tableros y piezas metálicas. Cuenta con perilla micrométrica para alineación precisa de la banda, sistema de tensión y liberación rápida de cambio de lija, empuñadura frontal envolvente para máximo control y conector para bolsa recolectora de virutas.',
@@ -382,6 +408,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'pistola-de-calor-alambrica-daewoo',
     slug: 'pistola-de-calor-alambrica-daewoo',
+    subcategory: 'pistolas',
+    subcategoryLabel: 'Pistolas Eléctricas y Térmicas',
+    subitem: 'pistolas-calor',
     name: 'Pistola de Calor Alámbrica Daewoo',
     shortDescription: 'Pistola de calor industrial alámbrica Daewoo con doble nivel de temperatura y flujo de aire para decapado, retráctil térmico y moldeado.',
     description: 'Pistola de calor eléctrica alámbrica Daewoo Power Products para aplicaciones técnicas y térmicas industriales. Equipada con selector de doble nivel de temperatura y flujo de aire caliente, soporte trasero integrado para colocación vertical manos libres y empuñadura ergonómica con protector para nudillos. Indispensable para termocontracción de cables y tuberías, remoción de pinturas y barnices viejos, desoldadura, moldeado de plásticos y secado rápido.',
@@ -399,6 +428,8 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'motosierra-a-gasolina-18-ronix',
     slug: 'motosierra-a-gasolina-18-ronix',
+    subcategory: 'motosierras',
+    subcategoryLabel: 'Maquinaria y Motosierras',
     name: 'Motosierra a Gasolina 18" Ronix',
     shortDescription: 'Motosierra profesional a gasolina Ronix con espada de 18" (450 mm), motor 2 tiempos de alta cilindrada y sistema de encendido fácil para tala y poda pesada.',
     description: 'Motosierra profesional a gasolina Ronix equipada con barra y cadena de corte de 18 pulgadas (450 mm). Impulsada por motor de combustión a 2 tiempos de alto rendimiento, cuenta con sistema de lubricación automática de cadena, freno de seguridad de parada instantánea ante rebote y sistema antivibración para trabajo continuo. Diseñada para corte de troncos, desmonte agrícola, aserrado de madera en campo y trabajos forestales exigentes.',
@@ -416,6 +447,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'martillo-demoledor-alambrico-1100w-ronix',
     slug: 'martillo-demoledor-alambrico-1100w-ronix',
+    subcategory: 'taladros',
+    subcategoryLabel: 'Taladros y Rotomartillos',
+    subitem: 'demoledores',
     name: 'Martillo Demoledor Alámbrico 1100W Ronix',
     shortDescription: 'Martillo demoledor alámbrico de 1100W Ronix de alta energía de impacto para rotura de pisos, paredes, mampostería y concreto.',
     description: 'Martillo demoledor eléctrico alámbrico Ronix de 1100W con cuerpo compacto y potente mecanismo electro-neumático de percusión. Diseñado para ofrecer máxima tasa de demolición en muros, vigas, lozas y zanjas. Incorpora empuñadura ergonómica antivibratoria tipo \'D\' orientable a 360°, carcasa de engranajes de aleación de magnesio para disipación térmica óptima y sistema de bloqueo continuo para operaciones prolongadas sin fatiga.',
@@ -434,6 +468,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'martillo-demoledor-hexagonal-ingco',
     slug: 'martillo-demoledor-hexagonal-ingco',
+    subcategory: 'taladros',
+    subcategoryLabel: 'Taladros y Rotomartillos',
+    subitem: 'demoledores',
     name: 'Martillo Demoledor Cincelador Hexagonal INGCO',
     shortDescription: 'Martillo demoledor pesado INGCO con encastre hexagonal y maletín de transporte rígido para demolición estructural pesada en pavimentos y hormigón.',
     description: 'Martillo demoledor cincelador industrial INGCO diseñado para trabajos pesados de demolición civil, rotura de concreto armado, zanjeo y asfalto. Cuenta con robusto sistema de encastre hexagonal de sujeción segura, empuñadura auxiliar articulada antifatiga, amortiguación interna para absorber impactos y caja de transporte rígida de alta durabilidad para fácil traslado y protección en faena.',
@@ -451,6 +488,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'taladro-destornillador-inalambrico-12v-ingco',
     slug: 'taladro-destornillador-inalambrico-12v-ingco',
+    subcategory: 'inalambricos',
+    subcategoryLabel: 'Línea Inalámbrica',
+    subitem: 'taladros-inalambricos',
     name: 'Taladro Destornillador Inalámbrico 12V INGCO (Kit con Maletín y 2 Baterías)',
     shortDescription: 'Kit destornillador taladro inalámbrico 12V INGCO con mandril sin llave, 2 baterías de iones de litio, punta doble y maletín plástico.',
     description: 'Taladro y destornillador inalámbrico compacto de 12V INGCO. Ideal para ensamblaje de muebles, instalaciones eléctricas, tabiquería y carpintería en espacios reducidos. Dispone de múltiples posiciones de torque regulable para evitar barrido de tornillos, luz LED frontal de trabajo integrada, velocidad variable reversible y mandril autoajustable. El kit incluye 2 baterías de litio de 12V, cargador rápido, punta de atornillar doble y maletín rígido para transporte ordenado.',
@@ -469,6 +509,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'taladro-percutor-inalambrico-20v-brushless-ingco',
     slug: 'taladro-percutor-inalambrico-20v-brushless-ingco',
+    subcategory: 'inalambricos',
+    subcategoryLabel: 'Línea Inalámbrica',
+    subitem: 'taladros-inalambricos',
     name: 'Taladro Percutor Inalámbrico 20V Brushless INGCO (Kit 2 Baterías 2.0Ah y Maletín)',
     shortDescription: 'Taladro percutor inalámbrico 20V motor Brushless (sin carbones) plataforma P20S INGCO con 2 baterías de 2.0Ah, cargador, accesorios y maletín.',
     description: 'Taladro percutor inalámbrico de alto rendimiento INGCO plataforma P20S con motor Brushless sin escobillas, que ofrece mayor autonomía, potencia y vida útil libre de mantenimiento. Equipado con 3 modos de trabajo (atornillador con embrague regulable, taladro de rotación y rotopercutor para mampostería), mandril metálico de 13 mm sin llave, 2 velocidades mecánicas y luz LED integrada. Incluye 2 baterías de 20V 2.0Ah, cargador inteligente, juego de brocas y maletín rígido de transporte.',
@@ -487,6 +530,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'llave-de-impacto-inalambrica-20v-ingco',
     slug: 'llave-de-impacto-inalambrica-20v-ingco',
+    subcategory: 'inalambricos',
+    subcategoryLabel: 'Línea Inalámbrica',
+    subitem: 'llaves-impacto',
     name: 'Llave de Impacto Inalámbrica 20V INGCO',
     shortDescription: 'Llave de impacto inalámbrica 20V plataforma P20S INGCO con alto torque de apriete, encastre cuadrado de 1/2" y luz LED de trabajo.',
     description: 'Llave de impacto a batería de 20V INGCO diseñada para tareas mecánicas automotrices, montaje de estructuras metálicas y mantenimiento industrial. Ofrece un elevado torque de torsión para aflojar y apretar pernos y tuercas oxidadas o de alta resistencia sin esfuerzo para el usuario. Cuenta con encastre cuadrado estándar de 1/2 pulgada, gatillo de velocidad variable reversible con freno electrónico instantáneo, empuñadura ergonómica antideslizante y luz LED focalizada para iluminar el punto de trabajo.',
@@ -505,6 +551,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'hidrolavadora-motor-induccion-1500w-ingco',
     slug: 'hidrolavadora-motor-induccion-1500w-ingco',
+    subcategory: 'hidrolavadoras',
+    subcategoryLabel: 'Hidrolavadoras',
+    subitem: 'hidrolavadoras-induccion',
     name: 'Hidrolavadora con Motor de Inducción 1500W 100 Bar INGCO',
     shortDescription: 'Hidrolavadora industrial compacta INGCO con motor de inducción silencioso de 1500W, presión de 100 Bar y caudal de 6.7 L/min para lavado continuo.',
     description: 'Hidrolavadora de alta presión INGCO equipada con motor de inducción electromagnético de 1500W de larga vida útil y funcionamiento silencioso sin escobillas. Entrega una presión máxima de 100 Bar con un caudal de agua de 6.7 litros por minuto, ideal para lavado de flotas vehiculares, fachadas, patios, maquinaria industrial y talleres. Incluye pistola de alta presión con boquilla regulable, manguera reforzada, filtro de entrada de agua, acoples rápidos y depósito dosificador de jabón/espuma.',
@@ -523,6 +572,9 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
   {
     id: 'hidrolavadora-electrica-alta-presion-ingco',
     slug: 'hidrolavadora-electrica-alta-presion-ingco',
+    subcategory: 'hidrolavadoras',
+    subcategoryLabel: 'Hidrolavadoras',
+    subitem: 'hidrolavadoras-presion',
     name: 'Hidrolavadora Eléctrica de Alta Presión INGCO',
     shortDescription: 'Hidrolavadora vertical con ruedas de transporte INGCO, sistema de parada automática (Auto-Stop) y depósito de espuma. Disponible en 1200W, 1400W y 2000W.',
     description: 'Hidrolavadora de diseño vertical ergonómico INGCO para limpieza profunda en exteriores, vehículos, pisos de concreto, tejados y áreas comerciales. Equipada con ruedas de alto tránsito, manillar integrado de transporte, carrete/soporte para manguera y cable, y sistema Auto-Stop que apaga automáticamente la bomba al soltar el gatillo para prolongar la vida útil del motor y ahorrar energía. Incluye lanza de chorro ajustable, botella dispensadora de detergente y manguera de alta presión.',

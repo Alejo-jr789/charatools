@@ -22,7 +22,73 @@ export const CATEGORIES: Category[] = [
     name: 'Herramientas Eléctricas',
     icon: Zap,
     href: '/catalogo/herramientas-electricas',
-    subcategories: []
+    subcategories: [
+      {
+        name: 'Taladros y Rotomartillos',
+        href: '/catalogo/herramientas-electricas?sub=taladros',
+        items: [
+          { name: 'Taladros Percutores Alámbricos', href: '/catalogo/herramientas-electricas?sub=taladros-alambricos' },
+          { name: 'Rotomartillos SDS Plus', href: '/catalogo/herramientas-electricas?sub=rotomartillos' },
+          { name: 'Martillos Demoledores', href: '/catalogo/herramientas-electricas?sub=demoledores' },
+          { name: 'Taladros y Atornilladores Inalámbricos', href: '/catalogo/herramientas-electricas?sub=taladros-inalambricos' },
+        ]
+      },
+      {
+        name: 'Esmeriles y Amoladoras',
+        href: '/catalogo/herramientas-electricas?sub=esmeriles',
+        items: [
+          { name: 'Esmeriles Angulares 4" a 9"', href: '/catalogo/herramientas-electricas?sub=esmeriles' },
+        ]
+      },
+      {
+        name: 'Sierras y Tronzadoras',
+        href: '/catalogo/herramientas-electricas?sub=sierras',
+        items: [
+          { name: 'Sierras Caladoras', href: '/catalogo/herramientas-electricas?sub=caladoras' },
+          { name: 'Sierras Circulares con Láser', href: '/catalogo/herramientas-electricas?sub=sierras-circulares' },
+          { name: 'Tronzadoras de Metal 14"', href: '/catalogo/herramientas-electricas?sub=tronzadoras' },
+        ]
+      },
+      {
+        name: 'Línea Inalámbrica',
+        href: '/catalogo/herramientas-electricas?sub=inalambricos',
+        items: [
+          { name: 'Taladros y Destornilladores 12V / 20V', href: '/catalogo/herramientas-electricas?sub=taladros-inalambricos' },
+          { name: 'Llaves de Impacto 20V P20S', href: '/catalogo/herramientas-electricas?sub=llaves-impacto' },
+        ]
+      },
+      {
+        name: 'Lijadoras',
+        href: '/catalogo/herramientas-electricas?sub=lijadoras',
+        items: [
+          { name: 'Lijadoras Orbitales', href: '/catalogo/herramientas-electricas?sub=lijadoras-orbitales' },
+          { name: 'Lijadoras de Banda', href: '/catalogo/herramientas-electricas?sub=lijadoras-banda' },
+        ]
+      },
+      {
+        name: 'Hidrolavadoras',
+        href: '/catalogo/herramientas-electricas?sub=hidrolavadoras',
+        items: [
+          { name: 'Hidrolavadoras con Motor de Inducción', href: '/catalogo/herramientas-electricas?sub=hidrolavadoras-induccion' },
+          { name: 'Hidrolavadoras de Alta Presión', href: '/catalogo/herramientas-electricas?sub=hidrolavadoras-presion' },
+        ]
+      },
+      {
+        name: 'Pistolas Eléctricas y Térmicas',
+        href: '/catalogo/herramientas-electricas?sub=pistolas',
+        items: [
+          { name: 'Pistolas para Pintar Eléctricas', href: '/catalogo/herramientas-electricas?sub=pistolas-pintar' },
+          { name: 'Pistolas de Calor Industriales', href: '/catalogo/herramientas-electricas?sub=pistolas-calor' },
+        ]
+      },
+      {
+        name: 'Maquinaria y Motosierras',
+        href: '/catalogo/herramientas-electricas?sub=motosierras',
+        items: [
+          { name: 'Motosierras a Gasolina 18"', href: '/catalogo/herramientas-electricas?sub=motosierras' },
+        ]
+      },
+    ]
   },
   {
     id: 'herramientas-manuales',
