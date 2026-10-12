@@ -201,6 +201,27 @@ const CATEGORY_SUBCATEGORIES: Record<string, SubcategoryDef[]> = {
         p.category === 'herramientas-electricas' &&
         (Boolean(p.tags?.some((t) => t.toLowerCase().includes('tronzadora'))) || p.name.toLowerCase().includes('tronzadora')),
     },
+    {
+      label: 'Demoledores',
+      href: '/catalogo/herramientas-electricas?q=demoledor',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('demoledor'))) || p.name.toLowerCase().includes('demoledor')),
+    },
+    {
+      label: 'Línea Inalámbrica',
+      href: '/catalogo/herramientas-electricas?q=inalambrico',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('inalambrico') || t.toLowerCase().includes('inalámbrico'))) || p.name.toLowerCase().includes('inalámbrico') || p.name.toLowerCase().includes('inalambrico')),
+    },
+    {
+      label: 'Motosierras',
+      href: '/catalogo/herramientas-electricas?q=motosierra',
+      filterFn: (p) =>
+        p.category === 'herramientas-electricas' &&
+        (Boolean(p.tags?.some((t) => t.toLowerCase().includes('motosierra'))) || p.name.toLowerCase().includes('motosierra')),
+    },
   ],
   'herramientas-manuales': [
     {
