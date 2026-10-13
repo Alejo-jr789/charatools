@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Hammer } from 'lucide-react'
+import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -22,79 +22,6 @@ export const CATEGORIES: Category[] = [
     name: 'Herramientas Eléctricas',
     icon: Zap,
     href: '/catalogo/herramientas-electricas',
-    subcategories: [
-      {
-        name: 'Taladros y Rotomartillos',
-        href: '/catalogo/herramientas-electricas?sub=taladros',
-        items: [
-          { name: 'Taladros Percutores Alámbricos', href: '/catalogo/herramientas-electricas?sub=taladros-alambricos' },
-          { name: 'Rotomartillos SDS Plus', href: '/catalogo/herramientas-electricas?sub=rotomartillos' },
-          { name: 'Martillos Demoledores', href: '/catalogo/herramientas-electricas?sub=demoledores' },
-          { name: 'Taladros y Atornilladores Inalámbricos', href: '/catalogo/herramientas-electricas?sub=taladros-inalambricos' },
-        ]
-      },
-      {
-        name: 'Esmeriles y Amoladoras',
-        href: '/catalogo/herramientas-electricas?sub=esmeriles',
-        items: [
-          { name: 'Esmeriles Angulares 4" a 9"', href: '/catalogo/herramientas-electricas?sub=esmeriles' },
-        ]
-      },
-      {
-        name: 'Sierras y Tronzadoras',
-        href: '/catalogo/herramientas-electricas?sub=sierras',
-        items: [
-          { name: 'Sierras Caladoras', href: '/catalogo/herramientas-electricas?sub=caladoras' },
-          { name: 'Sierras Circulares con Láser', href: '/catalogo/herramientas-electricas?sub=sierras-circulares' },
-          { name: 'Tronzadoras de Metal 14"', href: '/catalogo/herramientas-electricas?sub=tronzadoras' },
-        ]
-      },
-      {
-        name: 'Línea Inalámbrica',
-        href: '/catalogo/herramientas-electricas?sub=inalambricos',
-        items: [
-          { name: 'Taladros y Destornilladores 12V / 20V', href: '/catalogo/herramientas-electricas?sub=taladros-inalambricos' },
-          { name: 'Llaves de Impacto 20V P20S', href: '/catalogo/herramientas-electricas?sub=llaves-impacto' },
-        ]
-      },
-      {
-        name: 'Lijadoras',
-        href: '/catalogo/herramientas-electricas?sub=lijadoras',
-        items: [
-          { name: 'Lijadoras Orbitales', href: '/catalogo/herramientas-electricas?sub=lijadoras-orbitales' },
-          { name: 'Lijadoras de Banda', href: '/catalogo/herramientas-electricas?sub=lijadoras-banda' },
-        ]
-      },
-      {
-        name: 'Hidrolavadoras',
-        href: '/catalogo/herramientas-electricas?sub=hidrolavadoras',
-        items: [
-          { name: 'Hidrolavadoras con Motor de Inducción', href: '/catalogo/herramientas-electricas?sub=hidrolavadoras-induccion' },
-          { name: 'Hidrolavadoras de Alta Presión', href: '/catalogo/herramientas-electricas?sub=hidrolavadoras-presion' },
-        ]
-      },
-      {
-        name: 'Pistolas Eléctricas y Térmicas',
-        href: '/catalogo/herramientas-electricas?sub=pistolas',
-        items: [
-          { name: 'Pistolas para Pintar Eléctricas', href: '/catalogo/herramientas-electricas?sub=pistolas-pintar' },
-          { name: 'Pistolas de Calor Industriales', href: '/catalogo/herramientas-electricas?sub=pistolas-calor' },
-        ]
-      },
-      {
-        name: 'Maquinaria y Motosierras',
-        href: '/catalogo/herramientas-electricas?sub=motosierras',
-        items: [
-          { name: 'Motosierras a Gasolina 18"', href: '/catalogo/herramientas-electricas?sub=motosierras' },
-        ]
-      },
-    ]
-  },
-  {
-    id: 'herramientas-manuales',
-    name: 'Herramientas Manuales',
-    icon: Hammer,
-    href: '/catalogo/herramientas-manuales',
     subcategories: []
   },
   {
@@ -320,7 +247,28 @@ export function DesktopMegaMenu() {
             })}
           </div>
 
-          {/* ── Columna 2: Subcategorías ── */}
+          {/* ── Si la categoría no tiene subcategorías, mostramos acceso directo ── */}
+          {activeCatData.subcategories.length === 0 ? (
+            <div className="flex-1 bg-white p-8 flex flex-col items-center justify-center text-center">
+              <div className="w-16 h-16 rounded-2xl bg-yellow-50 text-yellow-500 flex items-center justify-center mb-4 border border-yellow-200/60 shadow-sm">
+                <activeCatData.icon className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{activeCatData.name}</h3>
+              <p className="text-sm text-gray-500 max-w-sm mb-6">
+                Explora todo el catálogo de {activeCatData.name.toLowerCase()} disponible para entrega inmediata y cotización.
+              </p>
+              <Link
+                href={activeCatData.href}
+                onClick={() => { setIsOpen(false); trackSelectCategory(activeCatData.id) }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all"
+              >
+                <span>Ver todos los productos de {activeCatData.name}</span>
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          ) : (
+            <>
+              {/* ── Columna 2: Subcategorías ── */}
           <div className="w-[220px] bg-white border-r border-gray-100 overflow-y-auto flex-shrink-0">
             <div className="px-4 pt-4 pb-2 border-b border-gray-100 flex items-center justify-between">
               <h3 className="text-xs font-black text-gray-900 uppercase tracking-wider flex items-center gap-2">
@@ -481,6 +429,8 @@ export function DesktopMegaMenu() {
               </div>
             </div>
           )}
+            </>
+          )}
 
         </div>
       </div>
@@ -512,6 +462,26 @@ export function MobileMegaMenu({ closeMenu }: { closeMenu: () => void }) {
       <div className="space-y-1">
         {CATEGORIES.map(cat => {
           const isCatExpanded = expandedCat === cat.id
+          const hasSubcategories = cat.subcategories && cat.subcategories.length > 0
+
+          if (!hasSubcategories) {
+            return (
+              <div key={cat.id} className="bg-gray-800/50 rounded-xl overflow-hidden">
+                <Link
+                  href={cat.href}
+                  onClick={() => { closeMenu(); trackSelectCategory(cat.id) }}
+                  className="w-full flex items-center justify-between p-4 transition-colors hover:bg-gray-800"
+                >
+                  <div className="flex items-center gap-3">
+                    <cat.icon className="w-5 h-5 text-gray-400" />
+                    <span className="font-bold text-gray-300">{cat.name}</span>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-500" />
+                </Link>
+              </div>
+            )
+          }
+
           return (
             <div key={cat.id} className="bg-gray-800/50 rounded-xl overflow-hidden">
               <button

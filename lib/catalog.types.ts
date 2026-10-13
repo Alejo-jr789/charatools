@@ -115,7 +115,6 @@ export interface CatalogCategory {
 
 export const CATALOG_CATEGORIES: CatalogCategory[] = [
   { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas', icon: '⚡', description: 'Taladros, esmeriles, sierras y más' },
-  { slug: 'herramientas-manuales',   label: 'Herramientas Manuales',   icon: '🔧', description: 'Destornilladores, llaves, martillos' },
   { slug: 'plomeria',                label: 'Plomería',                 icon: '🚿', description: 'Tuberías, válvulas, bombas, accesorios PPR' },
   { slug: 'electricidad',            label: 'Electricidad',             icon: '🔌', description: 'Cables, breakers, tableros, conectores' },
   { slug: 'iluminacion',             label: 'Iluminación',              icon: '💡', description: 'LED, paneles, reflectores, bombillos' },

@@ -102,7 +102,6 @@ export default function ProductForm({ categories, brands, initialData }: Product
   // Categorías oficiales que aparecen en el menú principal
   const MAIN_MENU_CATEGORY_SLUGS = [
     'herramientas-electricas',
-    'herramientas-manuales',
     'plomeria',
     'iluminacion',
     'electricidad',
