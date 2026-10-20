@@ -297,4 +297,31 @@ export const seoCategoryData: SeoCategoryDataMap = {
     },
   },
 
+  // ──────────────────────────────────────────────────────────────────────────
+  // Soldadura
+  // ──────────────────────────────────────────────────────────────────────────
+  'soldadura': {
+    title: 'Equipos de Soldadura, Inversores y Consumibles en Charallave',
+    description:
+      'Máquinas para soldar inverter, electrodos, caretas fotosensibles y accesorios profesionales en Charallave y los Valles del Tuy. Stock para herrería, talleres y construcción.',
+    blocks: [
+      {
+        subtitle: 'Máquinas de Soldar Inverter y Equipos Profesionales',
+        text:
+          'Contamos con soldadoras inverter MMA, TIG y MIG con tecnología IGBT para arcos estables, bajo consumo energético y alto ciclo de trabajo en herrería y estructuras metálicas.'
+      },
+      {
+        subtitle: 'Electrodos, Consumibles y Protección para Soldador',
+        text:
+          'Suministro de electrodos revestidos (6013, 7018), pinzas portaelectrodo, pinzas de masa, piquetes, caretas automáticas y guantes de carnaza para trabajos de alta exigencia.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización y Asesoría en Equipos de Soldadura',
+      text:
+        'Equipa tu taller o proyecto con máquinas y consumibles de soldadura de alto rendimiento. Disponibilidad inmediata para retiro en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Equipos de Soldadura por WhatsApp',
+    },
+  },
+
 } satisfies SeoCategoryDataMap

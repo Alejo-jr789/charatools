@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -24,6 +24,14 @@ export const CATEGORIES: Category[] = [
     icon: Zap,
     href: '/catalogo/herramientas-electricas',
     description: 'Taladros, esmeriles, sierras, rotomartillos y herramientas profesionales para alto rendimiento.',
+    subcategories: []
+  },
+  {
+    id: 'soldadura',
+    name: 'Soldadura',
+    icon: Flame,
+    href: '/catalogo/soldadura',
+    description: 'Máquinas de soldar inverter, electrodos, caretas, pinzas y accesorios para soldadura profesional.',
     subcategories: []
   },
   {

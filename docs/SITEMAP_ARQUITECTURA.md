@@ -18,6 +18,8 @@ CharaTools Homepage (/) [L0]
 │   │   ├── Taladro Percutor INGCO (/producto/taladro-ingco-550w) [L3]
 │   │   ├── Esmeril Angular INGCO (/producto/esmeril-ingco-820w) [L3]
 │   │   └── ...
+│   ├── Soldadura (/catalogo/soldadura) [L2]
+│   │   └── Máquinas de soldar inverter, electrodos, caretas [L3]
 │   ├── Herramientas Manuales (/catalogo/herramientas-manuales) [L2]
 │   │   ├── Juego de Destornilladores Stanley [L3]
 │   │   └── ...

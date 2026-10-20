@@ -113,6 +113,12 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
   if (dbSlug === 'electricas' || dbSlug === 'herramientas-electricas') {
     return { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas' }
   }
+
+  // Soldadura y sus hijas
+  const soldaduraSlugs = ['soldadura', 'maquinas-soldar', 'electrodos', 'caretas-soldar']
+  if (soldaduraSlugs.includes(dbSlug)) {
+    return { slug: 'soldadura', label: 'Soldadura' }
+  }
   
   // Herramientas Manuales
   if (dbSlug === 'manuales' || dbSlug === 'herramientas-manuales') {
