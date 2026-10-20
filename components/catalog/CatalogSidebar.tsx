@@ -5,29 +5,14 @@
  * @description Sidebar de filtros B2B estilo Grainger.
  *
  * Principios aplicados (frontend-ui-engineering.md):
- * - Componente focused: solo maneja la presentación de filtros.
+ * - Componente focused: solo maneja la presentación de filtros por categorías principales.
  * - Estado en URL (SearchParams) via useCatalogFilters — no estado local duplicado.
- * - < 200 líneas.
- *
- * Principios aplicados (interaction-design.md):
- * - Desktop: columna fija izquierda ~260px con acordeones.
- * - Mobile: Drawer off-canvas accionado por botón flotante "Filtros".
- * - Transiciones suaves 200-300ms para apertura/cierre.
- *
- * Principios aplicados (accessibility-compliance.md):
- * - Todos los controles son <button> nativos.
- * - aria-expanded en acordeones.
- * - aria-pressed en pill buttons.
- * - Focus trap implícito via backdrop click-to-close.
+ * - Acceso directo a categorías sin anidación de sublíneas.
  */
 
 import { useState } from 'react'
-import { ChevronDown, X, SlidersHorizontal } from 'lucide-react'
-import Image from 'next/image'
+import { ChevronDown, SlidersHorizontal } from 'lucide-react'
 import type { CatalogFilters } from '@/lib/catalog.types'
-import { CATEGORIES, SubItem } from '@/components/global/MegaMenu'
-
-
 
 const SIDEBAR_CATEGORIES = [
   { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas' },
@@ -95,15 +80,12 @@ function FilterAccordion({
 // ── Contenido del Filtro (compartido entre Desktop y Mobile) ──────────────
 
 export function FiltersContent({
-  filters,
   activeFilterCount,
   onUpdateParams,
   onClearFilters,
   activeCategory,
   hideHeader = false,
 }: CatalogSidebarProps) {
-  const [manuallyToggled, setManuallyToggled] = useState<Record<string, boolean>>({})
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
   return (
     <div className="space-y-0">
       {/* Cabecera */}
@@ -130,7 +112,7 @@ export function FiltersContent({
         </div>
       )}
 
-      {/* Si el header está oculto pero hay filtros activos, mostramos botón limpiar flotante o en algún lado */}
+      {/* Si el header está oculto pero hay filtros activos, mostramos botón limpiar */}
       {hideHeader && activeFilterCount > 0 && (
         <div className="flex justify-end mb-2">
           <button
@@ -142,251 +124,30 @@ export function FiltersContent({
         </div>
       )}
 
-      {/* ── Filtro: Categorías ── */}
+      {/* ── Filtro: Categorías Principales ── */}
       <FilterAccordion title="Categoría">
-        <div className="space-y-2 px-1">
+        <div className="space-y-1.5 px-1">
           {SIDEBAR_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.slug
-            const catData = CATEGORIES.find(c => c.id === cat.slug)
-            const hasSubcategories = catData && catData.subcategories && catData.subcategories.length > 0
 
             return (
-              <div key={cat.slug} className="space-y-1.5">
-                <button
-                  key={cat.slug}
-                  onClick={() => onUpdateParams({ cat: isActive ? null : cat.slug })}
-                  aria-pressed={isActive}
-                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
-                    isActive
-                      ? 'bg-yellow-400 text-black font-bold'
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-black font-medium'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-
-                {/* Si la categoría está activa, renderizar sus subcategorías anidadas */}
-                {isActive && hasSubcategories && (
-                  <div className="pl-4 border-l border-gray-200 ml-3.5 py-1 space-y-2">
-                    {catData.subcategories.map((sub) => {
-                      const urlParts = sub.href.split('sub=')
-                      const subSlug = urlParts[1] || ''
-                      const isSubActive = filters.sub === subSlug
-                      const hasSubItems = sub.items && sub.items.length > 0
-
-                      const hasActiveChild = sub.items?.some(item => {
-                        const itemParts = item.href.split('sub=')
-                        const itemSubSlug = itemParts[1] || ''
-                        return filters.sub === itemSubSlug
-                      })
-
-                      const isExpanded = (() => {
-                        if (manuallyToggled[subSlug] !== undefined) {
-                          return manuallyToggled[subSlug]
-                        }
-                        return isSubActive || hasActiveChild
-                      })()
-
-                      return (
-                        <div key={sub.name} className="space-y-1">
-                          <div className={`w-full flex items-center justify-between gap-1 rounded-lg transition-all ${
-                            isSubActive
-                              ? 'bg-yellow-50 border border-yellow-200/50 shadow-sm'
-                              : 'hover:bg-gray-50'
-                          }`}>
-                            <button
-                              onClick={() => {
-                                onUpdateParams({ sub: isSubActive ? null : subSlug })
-                                if (!isSubActive) {
-                                  setManuallyToggled(prev => ({ ...prev, [subSlug]: true }))
-                                }
-                              }}
-                              aria-pressed={isSubActive}
-                              className={`flex-1 text-left px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                                isSubActive ? 'text-yellow-800 font-bold' : 'text-gray-600 hover:text-black'
-                              }`}
-                            >
-                              <span className="whitespace-normal break-words">{sub.name}</span>
-                            </button>
-                            {hasSubItems && (
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation()
-                                  setManuallyToggled(prev => ({
-                                    ...prev,
-                                    [subSlug]: !isExpanded
-                                  }))
-                                }}
-                                className="p-1.5 mr-1 hover:bg-gray-200/40 rounded-md transition-colors flex items-center justify-center"
-                                aria-label={isExpanded ? "Colapsar subcategoría" : "Expandir subcategoría"}
-                              >
-                                <ChevronDown
-                                  className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                                    isExpanded ? 'rotate-180 text-gray-900' : ''
-                                  }`}
-                                />
-                              </button>
-                            )}
-                          </div>
-
-                          {/* Mostrar sub-ítems de tercer nivel (líneas) */}
-                          {hasSubItems && (
-                            <div
-                              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                isExpanded ? 'max-h-[800px] opacity-100 mt-1 pl-3 border-l border-gray-200 ml-3 py-0.5 space-y-1' : 'max-h-0 opacity-0'
-                              }`}
-                            >
-                              {(() => {
-                                const groupedItems: Array<
-                                  | { type: 'flat'; item: SubItem }
-                                  | { type: 'group'; header: SubItem; children: SubItem[] }
-                                > = []
-
-                                sub.items!.forEach((item) => {
-                                  if (item.isHeader) {
-                                    groupedItems.push({ type: 'group', header: item, children: [] })
-                                  } else if (item.isIndented) {
-                                    const lastGroup = groupedItems[groupedItems.length - 1]
-                                    if (lastGroup && lastGroup.type === 'group') {
-                                      lastGroup.children.push(item)
-                                    } else {
-                                      groupedItems.push({ type: 'flat', item })
-                                    }
-                                  } else {
-                                    groupedItems.push({ type: 'flat', item })
-                                  }
-                                })
-
-                                return groupedItems.map((gItem) => {
-                                  if (gItem.type === 'flat') {
-                                    const item = gItem.item
-                                    const itemParts = item.href.split('sub=')
-                                    const itemSubSlug = itemParts[1] || ''
-                                    const isItemActive = filters.sub === itemSubSlug
-
-                                    return (
-                                      <button
-                                        key={item.name}
-                                        onClick={() => onUpdateParams({ sub: isItemActive ? null : itemSubSlug })}
-                                        aria-pressed={isItemActive}
-                                        className={`w-full text-left px-2 py-1 rounded-md text-xs transition-all flex items-start gap-1.5 whitespace-normal break-words ${
-                                          isItemActive
-                                            ? 'text-yellow-600 font-bold bg-yellow-50/50'
-                                            : 'text-gray-500 hover:text-black hover:bg-gray-50'
-                                        }`}
-                                      >
-                                        <span className={`w-1 h-1 rounded-full flex-shrink-0 mt-1.5 ${isItemActive ? 'bg-yellow-500' : 'bg-gray-300'}`} />
-                                        <span className="whitespace-normal break-words text-left">{item.name}</span>
-                                      </button>
-                                    )
-                                  } else {
-                                    const header = gItem.header
-                                    const headerParts = header.href.split('sub=')
-                                    const headerSubSlug = headerParts[1] || ''
-                                    const isHeaderActive = filters.sub === headerSubSlug
-
-                                    const hasActiveChild = gItem.children.some(child => {
-                                      const childParts = child.href.split('sub=')
-                                      const childSubSlug = childParts[1] || ''
-                                      return filters.sub === childSubSlug
-                                    })
-
-                                    const isGroupExpanded = (() => {
-                                      if (expandedGroups[headerSubSlug] !== undefined) {
-                                        return expandedGroups[headerSubSlug]
-                                      }
-                                      return isHeaderActive || hasActiveChild
-                                    })()
-
-                                    return (
-                                      <div key={header.name} className="space-y-1">
-                                        <div className={`w-full flex items-center justify-between gap-1 rounded-md transition-all ${
-                                          isHeaderActive
-                                            ? 'bg-yellow-50/50'
-                                            : 'hover:bg-gray-50'
-                                        }`}>
-                                          <button
-                                            onClick={() => {
-                                              onUpdateParams({ sub: isHeaderActive ? null : headerSubSlug })
-                                              if (!isHeaderActive) {
-                                                setExpandedGroups(prev => ({ ...prev, [headerSubSlug]: true }))
-                                              }
-                                            }}
-                                            aria-pressed={isHeaderActive}
-                                            className={`flex-1 text-left px-2 py-1.5 rounded-md text-[10px] uppercase tracking-wider font-extrabold transition-all ${
-                                              isHeaderActive ? 'text-yellow-700' : 'text-gray-900 hover:text-yellow-600'
-                                            }`}
-                                          >
-                                            <span className="whitespace-normal break-words text-left">{header.name}</span>
-                                          </button>
-                                          {gItem.children.length > 0 && (
-                                            <button
-                                              onClick={(e) => {
-                                                e.stopPropagation()
-                                                setExpandedGroups(prev => ({
-                                                  ...prev,
-                                                  [headerSubSlug]: !isGroupExpanded
-                                                }))
-                                              }}
-                                              className="p-1 mr-1 hover:bg-gray-200/40 rounded-md transition-colors flex items-center justify-center"
-                                              aria-label={isGroupExpanded ? "Colapsar grupo" : "Expandir grupo"}
-                                            >
-                                              <ChevronDown
-                                                className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${
-                                                  isGroupExpanded ? 'rotate-180 text-gray-900' : ''
-                                                }`}
-                                              />
-                                            </button>
-                                          )}
-                                        </div>
-
-                                        {gItem.children.length > 0 && (
-                                          <div
-                                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                              isGroupExpanded ? 'max-h-[500px] opacity-100 pl-3 border-l border-gray-200 ml-2 py-0.5 space-y-1' : 'max-h-0 opacity-0'
-                                            }`}
-                                          >
-                                            {gItem.children.map((child) => {
-                                              const childParts = child.href.split('sub=')
-                                              const childSubSlug = childParts[1] || ''
-                                              const isChildActive = filters.sub === childSubSlug
-
-                                              return (
-                                                <button
-                                                  key={child.name}
-                                                  onClick={() => onUpdateParams({ sub: isChildActive ? null : childSubSlug })}
-                                                  aria-pressed={isChildActive}
-                                                  className={`w-full text-left px-2 py-1 rounded-md text-xs transition-all flex items-start gap-1.5 whitespace-normal break-words ${
-                                                    isChildActive
-                                                      ? 'text-yellow-600 font-bold bg-yellow-50/50'
-                                                      : 'text-gray-500 hover:text-black hover:bg-gray-50'
-                                                  }`}
-                                                >
-                                                  <span className={`w-1 h-1 rounded-full flex-shrink-0 mt-1.5 ${isChildActive ? 'bg-yellow-500' : 'bg-gray-300'}`} />
-                                                  <span className="whitespace-normal break-words text-left">{child.name}</span>
-                                                </button>
-                                              )
-                                            })}
-                                          </div>
-                                        )}
-                                      </div>
-                                    )
-                                  }
-                                })
-                              })()}
-                            </div>
-                          )}
-                        </div>
-                      )
-                    })}
-                  </div>
-                )}
-              </div>
+              <button
+                key={cat.slug}
+                onClick={() => onUpdateParams({ cat: isActive ? null : cat.slug, sub: null })}
+                aria-pressed={isActive}
+                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-all flex items-center justify-between ${
+                  isActive
+                    ? 'bg-yellow-400 text-black font-bold shadow-sm'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-black font-medium'
+                }`}
+              >
+                <span>{cat.label}</span>
+                {isActive && <span className="w-2 h-2 rounded-full bg-black flex-shrink-0" />}
+              </button>
             )
           })}
         </div>
       </FilterAccordion>
-
     </div>
   )
 }
@@ -407,4 +168,3 @@ export function DesktopCatalogSidebar(props: CatalogSidebarProps) {
     </aside>
   )
 }
-

@@ -224,20 +224,13 @@ function buildProductSchema(product: CatalogProduct): string {
     }
   }
 
-  // Breadcrumb dinámico: incluye subcategoría y sub-ítem si existen
+  // Breadcrumb directo: Inicio -> Catálogo -> Categoría -> Producto
   const breadcrumbItems: { '@type': string; position: number; name: string; item: string }[] = [
     { '@type': 'ListItem', position: 1, name: 'Inicio',    item: SITE_URL },
     { '@type': 'ListItem', position: 2, name: 'Catálogo',  item: `${SITE_URL}/catalogo` },
     { '@type': 'ListItem', position: 3, name: product.categoryLabel, item: `${SITE_URL}/catalogo/${product.category}` },
+    { '@type': 'ListItem', position: 4, name: product.name, item: `${SITE_URL}/producto/${product.slug}` }
   ]
-  let pos = 4
-  if (product.subcategoryLabel && product.subcategory) {
-    breadcrumbItems.push({ '@type': 'ListItem', position: pos++, name: product.subcategoryLabel, item: `${SITE_URL}/catalogo/${product.category}?sub=${product.subcategory}` })
-  }
-  if (product.subitemLabel && product.subitem) {
-    breadcrumbItems.push({ '@type': 'ListItem', position: pos++, name: product.subitemLabel, item: `${SITE_URL}/catalogo/${product.category}?sub=${product.subitem}` })
-  }
-  breadcrumbItems.push({ '@type': 'ListItem', position: pos, name: product.name, item: `${SITE_URL}/producto/${product.slug}` })
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -277,12 +270,6 @@ export default async function ProductoPage({ params }: PageProps) {
             { label: 'Inicio',    href: '/' },
             { label: 'Catálogo', href: '/catalogo' },
             { label: product.categoryLabel, href: `/catalogo/${product.category}` },
-            ...(product.subcategoryLabel && product.subcategory
-              ? [{ label: product.subcategoryLabel, href: `/catalogo/${product.category}?sub=${product.subcategory}` }]
-              : []),
-            ...(product.subitemLabel && product.subitem
-              ? [{ label: product.subitemLabel, href: `/catalogo/${product.category}?sub=${product.subitem}` }]
-              : []),
           ].map(({ label, href }) => (
             <li key={href} className="flex items-center gap-1">
               <Link href={href} className="hover:text-gray-300 transition-colors">{label}</Link>

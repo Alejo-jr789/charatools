@@ -37,24 +37,14 @@ export function RelatedProductsCarousel({
     
     if (sameCategory.length === 0) return []
 
-    // 3. Preferencia máxima a la misma subcategoría
-    const sameSubcategory = subcategory
-      ? sameCategory.filter((p) => p.subcategory === subcategory || p.subitem === subcategory)
-      : []
+    // 3. Ordenar determinísticamente por prioridad comercial y luego alfabéticamente
+    const sorted = [...sameCategory].sort(
+      (a, b) => (a.priority ?? 999) - (b.priority ?? 999) || a.name.localeCompare(b.name)
+    )
 
-    const otherInCat = subcategory
-      ? sameCategory.filter((p) => p.subcategory !== subcategory && p.subitem !== subcategory)
-      : sameCategory
-
-    // 4. Ordenar determinísticamente por prioridad comercial y luego alfabéticamente
-    const sortByPriority = (list: CatalogProduct[]) =>
-      [...list].sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999) || a.name.localeCompare(b.name))
-
-    const combined = [...sortByPriority(sameSubcategory), ...sortByPriority(otherInCat)]
-
-    // 5. Retornar hasta 5 productos relacionados relevantes
-    return combined.slice(0, 5)
-  }, [currentProductId, currentProductSlug, category, subcategory, products])
+    // 4. Retornar hasta 5 productos relacionados relevantes
+    return sorted.slice(0, 5)
+  }, [currentProductId, currentProductSlug, category, products])
 
   if (relatedProducts.length === 0) return null
 

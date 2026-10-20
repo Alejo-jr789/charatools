@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Wrench, Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -12,16 +12,18 @@ export interface Category {
   name: string
   icon: React.ComponentType<any>
   href: string
+  description?: string
   subcategories: Subcategory[]
 }
 
-// Taxonomía oficial de 5 categorías con iconos representativos
+// Taxonomía oficial de categorías principales
 export const CATEGORIES: Category[] = [
   {
     id: 'herramientas-electricas',
     name: 'Herramientas Eléctricas',
     icon: Zap,
     href: '/catalogo/herramientas-electricas',
+    description: 'Taladros, esmeriles, sierras, rotomartillos y herramientas profesionales para alto rendimiento.',
     subcategories: []
   },
   {
@@ -29,121 +31,54 @@ export const CATEGORIES: Category[] = [
     name: 'Plomería',
     icon: Droplets,
     href: '/catalogo/plomeria',
-    subcategories: [
-      {
-        name: 'Tuberías y Conexiones',
-        href: '/catalogo/plomeria?sub=tuberias',
-        items: [
-          { name: 'Línea Sanitaria Estándar', href: '/catalogo/plomeria?sub=linea-sanitaria-estandar' },
-          { name: 'Línea Sanitaria Reforzada', href: '/catalogo/plomeria?sub=linea-sanitaria-reforzada' },
-          { name: 'Línea Agua Fría', href: '/catalogo/plomeria?sub=linea-agua-fria' },
-          { name: 'Línea Agua Caliente', href: '/catalogo/plomeria?sub=linea-agua-caliente' },
-          { name: 'Línea Galvanizada', href: '/catalogo/plomeria?sub=linea-galvanizada' },
-          { name: 'Línea Termofusión (PPR)', href: '/catalogo/plomeria?sub=linea-termofusion-ppr' },
-        ]
-      },
-      {
-        name: 'Grifería y Válvulas',
-        href: '/catalogo/plomeria?sub=griferia',
-        items: [
-          { name: 'Grifería para Lavamanos', href: '/catalogo/plomeria?sub=griferia-lavamanos', isHeader: true },
-          { name: 'Monomandos Estándar', href: '/catalogo/plomeria?sub=monomandos-estandar', isIndented: true },
-          { name: 'Monomandos Altos', href: '/catalogo/plomeria?sub=monomandos-altos', isIndented: true },
-          { name: 'Grifos Individuales', href: '/catalogo/plomeria?sub=grifos-individuales', isIndented: true },
-          { name: 'Juegos Twin', href: '/catalogo/plomeria?sub=juegos-twin', isIndented: true },
-          { name: 'Grifería Institucional', href: '/catalogo/plomeria?sub=griferia-institucional', isIndented: true },
-          { name: 'Grifería para Fregadores', href: '/catalogo/plomeria?sub=griferia-fregadores', isHeader: true },
-          { name: 'Monomandos Profesionales (Línea Chef / Resorte)', href: '/catalogo/plomeria?sub=monomandos-profesionales', isIndented: true },
-          { name: 'Monomandos Extensibles (Manguera extraíble)', href: '/catalogo/plomeria?sub=monomandos-extensibles', isIndented: true },
-          { name: 'Cuello de Cisne Tradicional (Fijos / Al mesón)', href: '/catalogo/plomeria?sub=cuello-cisne-tradicional', isIndented: true },
-          { name: 'Griferías para Instalación a Pared', href: '/catalogo/plomeria?sub=griferias-instalacion-pared', isIndented: true },
-          { name: 'Mezcladoras Doble Manilla y Grifos Individuales', href: '/catalogo/plomeria?sub=mezcladoras-grifos-individuales', isIndented: true },
-          { name: 'Válvulas y Llaves', href: '/catalogo/plomeria?sub=valvulas-llaves', isHeader: true },
-          { name: 'Llaves de Arresto (Pared)', href: '/catalogo/plomeria?sub=llaves-arresto', isIndented: true },
-          { name: 'Válvulas Industriales y Pesadas (Metal)', href: '/catalogo/plomeria?sub=valvulas-industriales-pesadas', isIndented: true },
-          { name: 'Línea de Válvulas PVC (Plástico)', href: '/catalogo/plomeria?sub=valvulas-pvc', isIndented: true },
-          { name: 'Válvulas de Retención y Especiales (Check)', href: '/catalogo/plomeria?sub=valvulas-retencion-especiales', isIndented: true },
-          { name: 'Llaves de Chorro y Manguera', href: '/catalogo/plomeria?sub=llaves-chorro-manguera', isIndented: true },
-        ]
-      },
-      { name: 'Bombas de Agua', href: '/catalogo/plomeria?sub=bombas-perifericas' },
-      { name: 'Canillas', href: '/catalogo/plomeria?sub=canillas' },
-      { name: 'Calentadores', href: '/catalogo/plomeria?sub=calentadores' },
-      { name: 'Soldadura', href: '/catalogo/plomeria?sub=soldadura' }
-    ]
+    description: 'Tuberías, conexiones sanitarias, agua fría, PPR termofusión, grifería, llaves y bombas.',
+    subcategories: []
   },
   {
     id: 'iluminacion',
     name: 'Iluminación',
     icon: Lightbulb,
     href: '/catalogo/iluminacion',
-    subcategories: [
-      { name: 'Focos y Tubos LED', href: '/catalogo/iluminacion?sub=focos-led' },
-      { name: 'Paneles', href: '/catalogo/iluminacion?sub=paneles' },
-      { name: 'Reflectores', href: '/catalogo/iluminacion?sub=reflectores' },
-      { name: 'Iluminación Industrial', href: '/catalogo/iluminacion?sub=industrial' },
-      { name: 'Lámparas de Emergencia', href: '/catalogo/iluminacion?sub=emergencia' }
-    ]
+    description: 'Paneles LED, focos, reflectores, lámparas de emergencia e iluminación industrial.',
+    subcategories: []
   },
   {
     id: 'electricidad',
     name: 'Electricidad',
     icon: Zap,
     href: '/catalogo/electricidad',
-    subcategories: [
-      { name: 'Cables y Conductores', href: '/catalogo/electricidad?sub=cables' },
-      { name: 'Tableros y Breakers', href: '/catalogo/electricidad?sub=tableros' },
-      { name: 'Tomacorrientes e Interruptores', href: '/catalogo/electricidad?sub=tomacorrientes' },
-      { name: 'Canalización', href: '/catalogo/electricidad?sub=canalizacion' }
-    ]
+    description: 'Cables, tableros, breakers, tomacorrientes, interruptores y canalización EMT/PVC.',
+    subcategories: []
   },
   {
     id: 'impermeabilizacion',
     name: 'Impermeabilización',
     icon: Umbrella,
     href: '/catalogo/impermeabilizacion',
-    subcategories: [
-      { name: 'Mantos Asfálticos', href: '/catalogo/impermeabilizacion?sub=mantos' },
-      { name: 'Pinturas Impermeabilizantes', href: '/catalogo/impermeabilizacion?sub=pinturas' },
-      { name: 'Selladores y Siliconas', href: '/catalogo/impermeabilizacion?sub=selladores' },
-      { name: 'Aditivos para Concreto', href: '/catalogo/impermeabilizacion?sub=aditivos' }
-    ]
+    description: 'Mantos asfálticos, pinturas elastoméricas, primers y selladores de alta durabilidad.',
+    subcategories: []
   },
   {
     id: 'seguridad-industrial',
     name: 'Seguridad Industrial',
     icon: Shield,
     href: '/catalogo/seguridad-industrial',
-    subcategories: [
-      { name: 'Cascos de Seguridad', href: '/catalogo/seguridad-industrial?sub=cascos' },
-      { name: 'Guantes de Protección', href: '/catalogo/seguridad-industrial?sub=guantes' },
-      { name: 'Lentes y Visores', href: '/catalogo/seguridad-industrial?sub=lentes' },
-      { name: 'Calzado', href: '/catalogo/seguridad-industrial?sub=calzado' },
-      { name: 'Protección Respiratoria', href: '/catalogo/seguridad-industrial?sub=proteccion-respiratoria' },
-      { name: 'Señalización y Vialidad', href: '/catalogo/seguridad-industrial?sub=senalizacion-vial' },
-      { name: 'Protección Corporal', href: '/catalogo/seguridad-industrial?sub=proteccion-corporal' }
-    ]
+    description: 'Cascos, guantes de protección, lentes, calzado de seguridad y señalización vial.',
+    subcategories: []
   },
   {
     id: 'salas-de-bano',
     name: 'Salas de Baño',
     icon: Bath,
     href: '/catalogo/salas-de-bano',
-    subcategories: [
-      { name: 'Inodoros', href: '/catalogo/salas-de-bano?sub=inodoros' },
-      { name: 'Lavamanos y Pedestales', href: '/catalogo/salas-de-bano?sub=lavamanos-pedestales' },
-      { name: 'Accesorios', href: '/catalogo/salas-de-bano?sub=accesorios' }
-    ]
+    description: 'Inodoros, lavamanos, pedestales, muebles de baño y accesorios sanitarios.',
+    subcategories: []
   }
 ]
-
-
 
 export function DesktopMegaMenu() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState<string>(CATEGORIES[0].id)
-  const [activeSub, setActiveSub] = useState<Subcategory | null>(null)
-  const [activeSubSub, setActiveSubSub] = useState<string | null>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = () => {
@@ -154,8 +89,6 @@ export function DesktopMegaMenu() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false)
-      setActiveSub(null)
-      setActiveSubSub(null)
     }, 200)
   }
 
@@ -170,14 +103,9 @@ export function DesktopMegaMenu() {
 
   const handleCategoryHover = (catId: string) => {
     setActiveCategory(catId)
-    setActiveSub(null)
-    setActiveSubSub(null)
   }
 
   const activeCatData = CATEGORIES.find(c => c.id === activeCategory) || CATEGORIES[0]
-
-  // Ancho total del menú: si hay sub-ítems activos, se expande a 3 columnas
-  const hasThirdColumn = activeSub?.items && activeSub.items.length > 0
 
   return (
     <div
@@ -196,18 +124,16 @@ export function DesktopMegaMenu() {
 
       <div
         role="menu"
-        className={`absolute top-[calc(100%+8px)] left-0 bg-white border border-gray-200 rounded-xl shadow-2xl overflow-hidden transition-all duration-200 ease-out ${
-          hasThirdColumn ? 'w-[900px] max-w-[calc(100vw-2rem)]' : 'w-[650px] max-w-[calc(100vw-2rem)]'
-        } ${
+        className={`absolute top-[calc(100%+8px)] left-0 bg-white border border-gray-200 rounded-xl shadow-2xl overflow-hidden transition-all duration-200 ease-out w-[580px] max-w-[calc(100vw-2rem)] ${
           isOpen
             ? 'opacity-100 visible translate-y-0 pointer-events-auto delay-0'
             : 'opacity-0 invisible -translate-y-2 pointer-events-none delay-100'
         }`}
       >
-        <div className="flex h-[380px]">
+        <div className="flex h-[390px]">
 
           {/* ── Columna 1: Categorías principales ── */}
-          <div className="w-[220px] bg-gray-50 border-r border-gray-200 overflow-y-auto p-3 flex-shrink-0">
+          <div className="w-[250px] bg-gray-50 border-r border-gray-200 overflow-y-auto p-3 flex-shrink-0">
             <Link
               href="/catalogo"
               role="menuitem"
@@ -233,204 +159,38 @@ export function DesktopMegaMenu() {
                   onMouseEnter={() => handleCategoryHover(cat.id)}
                   onClick={() => { setIsOpen(false); trackSelectCategory(cat.id) }}
                   onFocus={() => handleCategoryHover(cat.id)}
-                  className={`w-full flex items-center justify-between p-3 rounded-lg text-sm font-bold transition-all group focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-1 ${
+                  className={`w-full flex items-center justify-between p-2.5 rounded-lg text-sm font-bold transition-all group focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-1 ${
                     isActive ? 'bg-white text-black shadow-sm border border-gray-200' : 'text-gray-600 hover:bg-gray-200 border border-transparent'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <cat.icon className={`w-5 h-5 transition-colors ${isActive ? 'text-yellow-500' : 'text-gray-400 group-hover:text-gray-600'}`} />
-                    <span>{cat.name}</span>
+                  <div className="flex items-center gap-2.5">
+                    <cat.icon className={`w-4 h-4 transition-colors ${isActive ? 'text-yellow-500' : 'text-gray-400 group-hover:text-gray-600'}`} />
+                    <span className="text-xs">{cat.name}</span>
                   </div>
-                  <ChevronRight className={`w-4 h-4 transition-all ${isActive ? 'text-gray-400 opacity-100 translate-x-0' : 'text-gray-300 opacity-0 -translate-x-2'}`} />
+                  <ChevronRight className={`w-3.5 h-3.5 transition-all ${isActive ? 'text-gray-400 opacity-100 translate-x-0' : 'text-gray-300 opacity-0 -translate-x-2'}`} />
                 </Link>
               )
             })}
           </div>
 
-          {/* ── Si la categoría no tiene subcategorías, mostramos acceso directo ── */}
-          {activeCatData.subcategories.length === 0 ? (
-            <div className="flex-1 bg-white p-8 flex flex-col items-center justify-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-yellow-50 text-yellow-500 flex items-center justify-center mb-4 border border-yellow-200/60 shadow-sm">
-                <activeCatData.icon className="w-8 h-8" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{activeCatData.name}</h3>
-              <p className="text-sm text-gray-500 max-w-sm mb-6">
-                Explora todo el catálogo de {activeCatData.name.toLowerCase()} disponible para entrega inmediata y cotización.
-              </p>
-              <Link
-                href={activeCatData.href}
-                onClick={() => { setIsOpen(false); trackSelectCategory(activeCatData.id) }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all"
-              >
-                <span>Ver todos los productos de {activeCatData.name}</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
+          {/* ── Columna 2: Acceso Directo y Resumen de Categoría ── */}
+          <div className="flex-1 bg-white p-6 flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 rounded-2xl bg-yellow-50 text-yellow-500 flex items-center justify-center mb-4 border border-yellow-200/60 shadow-sm">
+              <activeCatData.icon className="w-8 h-8" />
             </div>
-          ) : (
-            <>
-              {/* ── Columna 2: Subcategorías ── */}
-          <div className="w-[220px] bg-white border-r border-gray-100 overflow-y-auto flex-shrink-0">
-            <div className="px-4 pt-4 pb-2 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="text-xs font-black text-gray-900 uppercase tracking-wider flex items-center gap-2">
-                <activeCatData.icon className="w-4 h-4 text-yellow-500" />
-                {activeCatData.name}
-              </h3>
-              <Link
-                href={activeCatData.href}
-                onClick={() => { setIsOpen(false); trackSelectCategory(activeCatData.id) }}
-                className="text-[10px] font-bold text-yellow-600 hover:text-yellow-700 hover:underline uppercase tracking-wider"
-              >
-                Ver todo
-              </Link>
-            </div>
-            <div className="p-3 space-y-1">
-              {activeCatData.subcategories.map(sub => {
-                const isSubActive = activeSub?.name === sub.name
-                return (
-                  <div
-                    key={sub.name}
-                    onMouseEnter={() => {
-                      setActiveSub(sub.items ? sub : null)
-                      if (sub.items) {
-                        const firstHeader = sub.items.find(item => item.isHeader)
-                        setActiveSubSub(firstHeader ? firstHeader.name : null)
-                      } else {
-                        setActiveSubSub(null)
-                      }
-                    }}
-                    className="relative"
-                  >
-                    <Link
-                      href={sub.href}
-                      onClick={() => { setIsOpen(false); trackSelectCategory(`${activeCatData.id}/${sub.name}`) }}
-                      className={`flex items-center justify-between p-2.5 rounded-lg text-sm font-medium transition-all group ${
-                        isSubActive
-                          ? 'bg-yellow-50 text-black border border-yellow-200'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-black border border-transparent'
-                      }`}
-                    >
-                      <span>{sub.name}</span>
-                      {sub.items && (
-                        <ChevronRight className={`w-4 h-4 transition-colors flex-shrink-0 ${isSubActive ? 'text-yellow-500' : 'text-gray-300 group-hover:text-gray-500'}`} />
-                      )}
-                    </Link>
-                  </div>
-                )
-              })}
-            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">{activeCatData.name}</h3>
+            <p className="text-xs text-gray-500 max-w-xs mb-6 leading-relaxed">
+              {activeCatData.description || `Explora todo el catálogo de ${activeCatData.name.toLowerCase()} disponible para entrega inmediata y cotización.`}
+            </p>
+            <Link
+              href={activeCatData.href}
+              onClick={() => { setIsOpen(false); trackSelectCategory(activeCatData.id) }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all"
+            >
+              <span>Ver todos los productos de {activeCatData.name}</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
-
-          {/* ── Columna 3 y 4 ── */}
-          {hasThirdColumn && (
-            <>
-              {/* Si la subcategoría tiene headers, separamos en Columna 3 (Headers) y Columna 4 (Items) */}
-              {activeSub!.items!.some(item => item.isHeader) ? (
-                <>
-                  {/* Columna 3: Categorías de nivel 3 (Headers) */}
-                  <div className="w-[220px] bg-gray-50 border-r border-gray-100 overflow-y-auto flex-shrink-0">
-                    <div className="px-4 pt-4 pb-2 border-b border-gray-100">
-                      <h4 className="text-xs font-black text-gray-900 uppercase tracking-wider">
-                        {activeSub!.name}
-                      </h4>
-                    </div>
-                    <div className="p-3 space-y-1">
-                      {activeSub!.items!.filter(item => item.isHeader).map(header => {
-                        const isHeaderActive = activeSubSub === header.name
-                        return (
-                          <div
-                            key={header.name}
-                            onMouseEnter={() => setActiveSubSub(header.name)}
-                            className="relative"
-                          >
-                            <Link
-                              href={header.href}
-                              onClick={() => { setIsOpen(false); trackSelectCategory(header.name) }}
-                              className={`flex items-center justify-between p-2.5 rounded-lg text-sm font-bold transition-all group ${
-                                isHeaderActive
-                                  ? 'bg-yellow-50 text-black border border-yellow-200'
-                                  : 'text-gray-600 hover:bg-gray-100 hover:text-black border border-transparent'
-                              }`}
-                            >
-                              <span>{header.name}</span>
-                              <ChevronRight className={`w-4 h-4 transition-colors flex-shrink-0 ${isHeaderActive ? 'text-yellow-500' : 'text-gray-300 group-hover:text-gray-500'}`} />
-                            </Link>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Columna 4: Sub-ítems de nivel 4 */}
-                  <div className="flex-1 bg-white overflow-y-auto">
-                    <div className="px-4 pt-4 pb-2 border-b border-gray-100">
-                      <h4 className="text-xs font-black text-gray-900 uppercase tracking-wider">
-                        {activeSubSub || 'Selecciona subcategoría'}
-                      </h4>
-                    </div>
-                    <div className="p-3 space-y-1">
-                      {activeSubSub &&
-                        activeSub!.items!
-                          .reduce<SubItem[]>((acc, item, index, arr) => {
-                            if (item.isHeader && item.name === activeSubSub) {
-                              for (let i = index + 1; i < arr.length; i++) {
-                                if (arr[i].isHeader) break
-                                if (arr[i].isIndented) {
-                                  acc.push(arr[i])
-                                }
-                              }
-                            }
-                            return acc;
-                          }, [])
-                          .map(item => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              onClick={() => { setIsOpen(false); trackSelectCategory(item.name) }}
-                              className="flex items-center gap-2 p-2.5 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-black hover:shadow-sm border border-transparent hover:border-gray-200 transition-all group"
-                            >
-                              <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 flex-shrink-0" />
-                              <span>{item.name}</span>
-                            </Link>
-                          ))
-                      }
-                    </div>
-                  </div>
-                </>
-              ) : (
-                /* Caso sin headers: mostramos lista simple en Columna 3 que ocupa todo el espacio restante */
-                <div className="flex-1 bg-gray-50 overflow-y-auto">
-                  <div className="px-4 pt-4 pb-2 border-b border-gray-100">
-                    <h4 className="text-xs font-black text-gray-900 uppercase tracking-wider">{activeSub!.name}</h4>
-                  </div>
-                  <div className="p-3 space-y-1">
-                    {activeSub!.items!.map(item => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => { setIsOpen(false); trackSelectCategory(item.name) }}
-                        className="flex items-center gap-2 p-2.5 rounded-lg text-sm text-gray-600 hover:bg-white hover:text-black hover:shadow-sm border border-transparent hover:border-gray-200 transition-all group"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 flex-shrink-0" />
-                        <span>{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </>
-          )}
-
-          {/* ── Panel vacío cuando no hay 3ª columna pero sí categorías sin sub-ítems ── */}
-          {!hasThirdColumn && (
-            <div className="flex-1 bg-white flex items-center justify-center p-6">
-              <div className="text-center opacity-30">
-                <activeCatData.icon className="w-12 h-12 text-gray-300 mx-auto mb-2" />
-                <p className="text-xs text-gray-400 font-medium">Selecciona una categoría</p>
-              </div>
-            </div>
-          )}
-            </>
-          )}
 
         </div>
       </div>
@@ -439,9 +199,6 @@ export function DesktopMegaMenu() {
 }
 
 export function MobileMegaMenu({ closeMenu }: { closeMenu: () => void }) {
-  const [expandedCat, setExpandedCat] = useState<string | null>(null)
-  const [expandedSub, setExpandedSub] = useState<string | null>(null)
-
   return (
     <nav className="flex flex-col w-full" role="navigation" aria-label="Catálogo Móvil">
       <p className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3 px-1 border-b border-gray-800 pb-2">Nuestro Catálogo</p>
@@ -459,121 +216,22 @@ export function MobileMegaMenu({ closeMenu }: { closeMenu: () => void }) {
         <ChevronRight className="w-5 h-5 text-black" />
       </Link>
 
-      <div className="space-y-1">
-        {CATEGORIES.map(cat => {
-          const isCatExpanded = expandedCat === cat.id
-          const hasSubcategories = cat.subcategories && cat.subcategories.length > 0
-
-          if (!hasSubcategories) {
-            return (
-              <div key={cat.id} className="bg-gray-800/50 rounded-xl overflow-hidden">
-                <Link
-                  href={cat.href}
-                  onClick={() => { closeMenu(); trackSelectCategory(cat.id) }}
-                  className="w-full flex items-center justify-between p-4 transition-colors hover:bg-gray-800"
-                >
-                  <div className="flex items-center gap-3">
-                    <cat.icon className="w-5 h-5 text-gray-400" />
-                    <span className="font-bold text-gray-300">{cat.name}</span>
-                  </div>
-                  <ChevronRight className="w-5 h-5 text-gray-500" />
-                </Link>
+      <div className="space-y-1.5">
+        {CATEGORIES.map(cat => (
+          <div key={cat.id} className="bg-gray-800/50 rounded-xl overflow-hidden">
+            <Link
+              href={cat.href}
+              onClick={() => { closeMenu(); trackSelectCategory(cat.id) }}
+              className="w-full flex items-center justify-between p-3.5 transition-colors hover:bg-gray-800 active:bg-gray-700"
+            >
+              <div className="flex items-center gap-3">
+                <cat.icon className="w-5 h-5 text-yellow-400" />
+                <span className="font-bold text-gray-200 text-sm">{cat.name}</span>
               </div>
-            )
-          }
-
-          return (
-            <div key={cat.id} className="bg-gray-800/50 rounded-xl overflow-hidden">
-              <button
-                onClick={() => { setExpandedCat(isCatExpanded ? null : cat.id); setExpandedSub(null) }}
-                aria-expanded={isCatExpanded}
-                className={`w-full flex items-center justify-between p-4 transition-colors focus:outline-none ${isCatExpanded ? 'bg-gray-800' : 'hover:bg-gray-800'}`}
-              >
-                <div className="flex items-center gap-3">
-                  <cat.icon className={`w-5 h-5 ${isCatExpanded ? 'text-yellow-400' : 'text-gray-400'}`} />
-                  <span className={`font-bold ${isCatExpanded ? 'text-white' : 'text-gray-300'}`}>{cat.name}</span>
-                </div>
-                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isCatExpanded ? 'rotate-180 text-yellow-400' : 'text-gray-500'}`} />
-              </button>
-
-              {/* Acordeón nivel 1 */}
-              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isCatExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-4 pb-4 pt-1 bg-gray-800 space-y-1">
-                  <Link
-                    href={cat.href}
-                    onClick={() => { closeMenu(); trackSelectCategory(cat.id) }}
-                    className="flex items-center justify-between w-full p-3 bg-yellow-400/10 text-yellow-400 rounded-lg text-sm font-bold border border-yellow-400/20"
-                  >
-                    Ver todo de {cat.name}
-                    <ChevronRight className="w-4 h-4" />
-                  </Link>
-
-                  {cat.subcategories.map(sub => {
-                    const isSubExpanded = expandedSub === `${cat.id}/${sub.name}`
-                    return (
-                      <div key={sub.name}>
-                        {sub.items ? (
-                          // Subcategoría con sub-ítems → acordeón
-                          <>
-                            <button
-                              onClick={() => setExpandedSub(isSubExpanded ? null : `${cat.id}/${sub.name}`)}
-                              className="w-full flex items-center justify-between p-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
-                            >
-                              {sub.name}
-                              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSubExpanded ? 'rotate-180 text-yellow-400' : 'text-gray-500'}`} />
-                            </button>
-                            <div className={`transition-all duration-200 overflow-hidden ${isSubExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                              <div className="pl-4 pb-1 space-y-1 border-l-2 border-yellow-400/30 ml-4 mt-1">
-                                {sub.items.map(item => {
-                                  if (item.isHeader) {
-                                    return (
-                                      <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        onClick={() => { closeMenu(); trackSelectCategory(item.name) }}
-                                        className="block pt-3 pb-1 text-xs font-black text-white hover:text-yellow-400 uppercase tracking-wider transition-colors"
-                                      >
-                                        {item.name}
-                                      </Link>
-                                    )
-                                  }
-                                  return (
-                                    <Link
-                                      key={item.name}
-                                      href={item.href}
-                                      onClick={() => { closeMenu(); trackSelectCategory(item.name) }}
-                                      className={`flex items-center gap-2 p-2 rounded-lg text-xs transition-colors ${
-                                        item.isIndented
-                                          ? 'pl-6 text-gray-500 hover:text-white hover:bg-gray-700'
-                                          : 'text-gray-400 hover:text-white hover:bg-gray-700'
-                                      }`}
-                                    >
-                                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400/60 flex-shrink-0" />
-                                      {item.name}
-                                    </Link>
-                                  )
-                                })}
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          // Subcategoría simple → link directo
-                          <Link
-                            href={sub.href}
-                            onClick={() => { closeMenu(); trackSelectCategory(`${cat.id}/${sub.name}`) }}
-                            className="block p-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
-                          >
-                            {sub.name}
-                          </Link>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          )
-        })}
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+            </Link>
+          </div>
+        ))}
       </div>
     </nav>
   )
