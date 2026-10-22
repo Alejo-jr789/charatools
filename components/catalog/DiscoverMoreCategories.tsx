@@ -10,6 +10,7 @@ interface MainCategoryDef {
 
 const ALL_MAIN_CATEGORIES: MainCategoryDef[] = [
   { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas', href: '/catalogo/herramientas-electricas' },
+  { slug: 'herramientas-manuales', label: 'Herramientas Manuales', href: '/catalogo/herramientas-manuales' },
   { slug: 'soldadura', label: 'Soldadura', href: '/catalogo/soldadura' },
   { slug: 'plomeria', label: 'Plomería', href: '/catalogo/plomeria' },
   { slug: 'iluminacion', label: 'Iluminación', href: '/catalogo/iluminacion' },

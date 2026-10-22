@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -24,6 +24,14 @@ export const CATEGORIES: Category[] = [
     icon: Zap,
     href: '/catalogo/herramientas-electricas',
     description: 'Taladros, esmeriles, sierras, rotomartillos y herramientas profesionales para alto rendimiento.',
+    subcategories: []
+  },
+  {
+    id: 'herramientas-manuales',
+    name: 'Herramientas Manuales',
+    icon: Wrench,
+    href: '/catalogo/herramientas-manuales',
+    description: 'Alicates, destornilladores, llaves de apriete, dados, martillos y herramientas de mano para taller y construcción.',
     subcategories: []
   },
   {

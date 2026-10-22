@@ -16,6 +16,7 @@ import type { CatalogFilters } from '@/lib/catalog.types'
 
 const SIDEBAR_CATEGORIES = [
   { slug: 'herramientas-electricas', label: 'Herramientas Eléctricas' },
+  { slug: 'herramientas-manuales', label: 'Herramientas Manuales' },
   { slug: 'soldadura', label: 'Soldadura' },
   { slug: 'plomeria', label: 'Plomería' },
   { slug: 'iluminacion', label: 'Iluminación' },

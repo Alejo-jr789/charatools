@@ -120,6 +120,33 @@ export const seoCategoryData: SeoCategoryDataMap = {
   },
 
   // ──────────────────────────────────────────────────────────────────────────
+  // Herramientas Manuales
+  // ──────────────────────────────────────────────────────────────────────────
+  'herramientas-manuales': {
+    title: 'Herramientas Manuales de Uso Profesional e Industrial en Charallave',
+    description:
+      'Alicates, destornilladores, llaves de apriete, dados, martillos y herramientas de mano de alta resistencia en Charallave y los Valles del Tuy. Calidad para cuadrillas y talleres.',
+    blocks: [
+      {
+        subtitle: 'Herramientas Forjadas de Máxima Durabilidad',
+        text:
+          'Suministro de herramientas de mano forjadas en aleaciones de alta resistencia mecánica (Cr-V). Diseñadas para resistir torsión extrema, impacto y uso continuo en talleres y obras civiles.'
+      },
+      {
+        subtitle: 'Dotación para Cuadrillas y Mantenimiento Técnico',
+        text:
+          'Kits completos y piezas individuales para cuadrillas de mantenimiento, mecánicos y constructores. Soluciones ergonómicas que incrementan la productividad y seguridad del operario.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Lote y Dotación de Herramientas Manuales',
+      text:
+        'Suministramos dotaciones completas para talleres, empresas y contratistas. Disponibilidad inmediata para retiro en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Herramientas Manuales por WhatsApp',
+    },
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
   // Bombas de Agua y Presión
   // ──────────────────────────────────────────────────────────────────────────
   'bombas-de-agua-y-presion': {
