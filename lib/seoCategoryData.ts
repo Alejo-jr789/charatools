@@ -274,6 +274,33 @@ export const seoCategoryData: SeoCategoryDataMap = {
   },
 
   // ──────────────────────────────────────────────────────────────────────────
+  // Pintura y Accesorios
+  // ──────────────────────────────────────────────────────────────────────────
+  'pintura-y-accesorios': {
+    title: 'Pintura y Accesorios en Charallave: Pinturas, Esmaltes, Brochas y Rodillos',
+    description:
+      'Pinturas de caucho, esmaltes sintéticos, anticorrosivos, brochas, rodillos, bandejas y complementos para contratistas y remodelación en Charallave y los Valles del Tuy.',
+    blocks: [
+      {
+        subtitle: 'Pinturas Arquitectónicas y Acabados de Alto Rendimiento',
+        text:
+          'Suministro de pinturas de caucho para interiores y exteriores, esmaltes brillantes y satinados, y fondos anticorrosivos de máxima cobertura y durabilidad para obras residenciales y comerciales.'
+      },
+      {
+        subtitle: 'Herramientas de Aplicación y Complementos de Pintura',
+        text:
+          'Inventario permanente de brochas de cerda natural y sintética, rodillos de lana y felpa, bandejas, tirros de pintor, espátulas y solventes para cuadrillas de pintura y remodelación.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Pintura y Accesorios',
+      text:
+        'Equipa tu proyecto de pintura o cuadrilla con materiales de primera calidad. Disponibilidad inmediata para retiro corporativo en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Pinturas y Accesorios por WhatsApp',
+    },
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
   // Seguridad Industrial
   // ──────────────────────────────────────────────────────────────────────────
   'seguridad-industrial': {

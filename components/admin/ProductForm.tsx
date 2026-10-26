@@ -108,6 +108,7 @@ export default function ProductForm({ categories, brands, initialData }: Product
     'iluminacion',
     'electricidad',
     'impermeabilizacion',
+    'pintura-y-accesorios',
     'seguridad-industrial',
     'salas-de-bano',
   ]

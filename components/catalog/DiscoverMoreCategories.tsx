@@ -16,6 +16,7 @@ const ALL_MAIN_CATEGORIES: MainCategoryDef[] = [
   { slug: 'iluminacion', label: 'Iluminación', href: '/catalogo/iluminacion' },
   { slug: 'electricidad', label: 'Electricidad', href: '/catalogo/electricidad' },
   { slug: 'impermeabilizacion', label: 'Impermeabilización', href: '/catalogo/impermeabilizacion' },
+  { slug: 'pintura-y-accesorios', label: 'Pintura y Accesorios', href: '/catalogo/pintura-y-accesorios' },
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial', href: '/catalogo/seguridad-industrial' },
   { slug: 'salas-de-bano', label: 'Salas de Baño', href: '/catalogo/salas-de-bano' },
 ]

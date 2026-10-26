@@ -143,6 +143,12 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
     return { slug: 'impermeabilizacion', label: 'Impermeabilización' }
   }
 
+  // Pintura y Accesorios y sus hijas
+  const pinturaSlugs = ['pintura-y-accesorios', 'pintura', 'brochas', 'rodillos', 'esmaltes', 'solventes']
+  if (pinturaSlugs.includes(dbSlug)) {
+    return { slug: 'pintura-y-accesorios', label: 'Pintura y Accesorios' }
+  }
+
   // Seguridad Industrial y sus hijas
   const seguridadSlugs = ['seguridad-industrial', 'cascos', 'guantes', 'lentes', 'calzado']
   if (seguridadSlugs.includes(dbSlug)) {

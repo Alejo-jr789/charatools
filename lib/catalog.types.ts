@@ -121,6 +121,7 @@ export const CATALOG_CATEGORIES: CatalogCategory[] = [
   { slug: 'electricidad',            label: 'Electricidad',             icon: '🔌', description: 'Cables, breakers, tableros, conectores' },
   { slug: 'iluminacion',             label: 'Iluminación',              icon: '💡', description: 'LED, paneles, reflectores, bombillos' },
   { slug: 'impermeabilizacion',      label: 'Impermeabilización',       icon: '🧴', description: 'Membranas, selladores, impermeabilizantes' },
+  { slug: 'pintura-y-accesorios',    label: 'Pintura y Accesorios',    icon: '🎨', description: 'Pinturas de caucho, esmaltes, brochas, rodillos y accesorios' },
   { slug: 'seguridad-industrial',    label: 'Seguridad Industrial',     icon: '🦺', description: 'Cascos, lentes, guantes, botas' },
   { slug: 'salas-de-bano',           label: 'Salas de Baño',            icon: '🛁', description: 'Inodoros, lavamanos, pedestales y accesorios' },
 ]

@@ -49,6 +49,7 @@ const NAV_LINKS = {
     { label: 'Iluminación', href: '/catalogo?cat=iluminacion' },
     { label: 'Electricidad', href: '/catalogo?cat=electricidad' },
     { label: 'Impermeabilización', href: '/catalogo?cat=impermeabilizacion' },
+    { label: 'Pintura y Accesorios', href: '/catalogo?cat=pintura-y-accesorios' },
   ],
   empresa: [
     { label: 'Quiénes Somos', href: '/quienes-somos' },
