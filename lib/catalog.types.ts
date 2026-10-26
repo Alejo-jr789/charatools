@@ -4964,5 +4964,22 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
     isCasheaEligible: true,
     priority: 10,
     tags: ['cinta adhesiva para enmascarar 1/2 - 3/4', 'cinta verde de enmascarar', 'masking tape verde', 'cinta automotriz', 'lineas nitidas', 'alta precision', 'latoneria y pintura', 'pintura y accesorios'],
+  },
+  {
+    id: 'cinta-doble-faz-transparente-blanco-negro',
+    slug: 'cinta-doble-faz-transparente-blanco-negro',
+    name: 'Cinta Doble Faz Transparente - Blanco - Negro',
+    shortDescription: 'Cinta adhesiva de doble contacto extra fuerte de alta fijación. Disponible en gel acrílico transparente (nano tape) y espuma acolchada en color blanco y negro.',
+    description: 'Cinta de doble cara de adherencia industrial para montaje, fijación y unión de objetos sin necesidad de taladrar ni usar clavos. Diseñada para alto agarre en múltiples superficies lisas como metal, vidrio, madera, cerámica, azulejos y plásticos rígidos. Disponible en tres variantes: Transparente (gel acrílico elástico invisible tipo nano tape de alta resistencia), Blanca (espuma de polietileno con adhesivo acrílico para montaje en interiores y drywall) y Negra (espuma automotriz / intemperie resistente a vibraciones y humedad).',
+    category: 'pintura-y-accesorios',
+    categoryLabel: 'Pintura y Accesorios',
+    brand: 'Genérico',
+    reference: 'PINT-CINTA-DOBLEFAZ',
+    unit: 'rollo',
+    image: '/placeholder-product.webp',
+    status: 'available',
+    isCasheaEligible: true,
+    priority: 11,
+    tags: ['cinta doble faz transparente - blanco - negro', 'cinta doble faz', 'cinta doble cara', 'nano tape', 'cinta de montaje', 'transparente', 'blanco', 'negro', 'adhesivo fuerte', 'pintura y accesorios'],
   }
 ];
