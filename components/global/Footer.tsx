@@ -45,11 +45,13 @@ const NAV_LINKS = {
     { label: 'Herramientas Eléctricas', href: '/catalogo?cat=herramientas-electricas' },
     { label: 'Herramientas Manuales', href: '/catalogo?cat=herramientas-manuales' },
     { label: 'Soldadura', href: '/catalogo?cat=soldadura' },
+    { label: 'Bombas', href: '/catalogo?cat=bombas' },
     { label: 'Plomería', href: '/catalogo?cat=plomeria' },
     { label: 'Iluminación', href: '/catalogo?cat=iluminacion' },
     { label: 'Electricidad', href: '/catalogo?cat=electricidad' },
     { label: 'Impermeabilización', href: '/catalogo?cat=impermeabilizacion' },
     { label: 'Pintura y Accesorios', href: '/catalogo?cat=pintura-y-accesorios' },
+    { label: 'Selladores y Adhesivo', href: '/catalogo?cat=selladores-y-adhesivo' },
   ],
   empresa: [
     { label: 'Quiénes Somos', href: '/quienes-somos' },

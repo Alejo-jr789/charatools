@@ -104,11 +104,13 @@ export default function ProductForm({ categories, brands, initialData }: Product
     'herramientas-electricas',
     'herramientas-manuales',
     'soldadura',
+    'bombas',
     'plomeria',
     'iluminacion',
     'electricidad',
     'impermeabilizacion',
     'pintura-y-accesorios',
+    'selladores-y-adhesivo',
     'seguridad-industrial',
     'salas-de-bano',
   ]

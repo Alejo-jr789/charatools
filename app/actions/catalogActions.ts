@@ -91,9 +91,42 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
     return { slug: 'herramientas-manuales', label: 'Herramientas Manuales' }
   }
 
+  // Bombas y sus hijas / productos específicos
+  const pumpProductSlugs = [
+    'bomba-periferica-1-2hp', 'bomba-de-agua-perifrica-12-hp',
+    'bomba-periferica-3-4hp', 'bomba-de-agua-perifrica-34-hp',
+    'bomba-periferica-1hp', 'bomba-de-agua-perifrica-1-hp',
+    'bomba-centrifuga', 'motobomba-gasolina', 'press-control-automatico'
+  ]
+  const bombasSlugs = ['bombas', 'bombas-perifericas', 'bombas-centrifugas', 'motobombas', 'bombas-de-agua-y-presion']
+  if (bombasSlugs.includes(dbSlug) || pumpProductSlugs.includes(productSlug)) {
+    return { slug: 'bombas', label: 'Bombas' }
+  }
+
+  // Selladores y Adhesivo
+  const selladoresProductSlugs = [
+    'soldadura-para-pvc-condiciones-humedas-164-galon',
+    'soldadura-para-pvc-condiciones-humedas-132-galon',
+    'soldadura-pvc-tubrica-transparente-multiproposito-1-64',
+    'soldadura-cpvc-tubrica-naranja-agua-caliente-1-64',
+    'soldadura-pvc-tubrica-alta-viscosidad-resistencia-1-4',
+    'cemento-plastico-super-a',
+    'asfalto-plastico-bituplast',
+    'sellador-impermeable-covo',
+    'cinta-aluminio-butilo-zasc',
+    'espuma-expansiva-run',
+    'adhesivo-montaje-reinco',
+    'sellador-no-mas-clavos-zasc',
+    'silicona-neutra-zasc'
+  ]
+  const selladoresSlugs = ['selladores-y-adhesivo', 'selladores-y-adhesivos', 'selladores', 'adhesivos', 'soldadura-pvc', 'soldadura-cpvc']
+  if (selladoresSlugs.includes(dbSlug) || selladoresProductSlugs.includes(productSlug)) {
+    return { slug: 'selladores-y-adhesivo', label: 'Selladores y Adhesivo' }
+  }
+
   // Plomería y todas sus variantes/hijos
   const plomeriaSlugs = [
-    'plomeria', 'tuberias', 'bombas', 'canillas', 'calentadores', 
+    'plomeria', 'tuberias', 'canillas', 'calentadores', 
     'griferia-lavamanos', 'griferia-fregadores', 'valvulas-llaves',
     'tuberia-sanitaria-estandar', 'tuberia-sanitaria-reforzada', 'termofusion-ppr',
     'tuberia-agua-fria', 'tuberia-agua-caliente', 'conexiones-sanitarias-estandar', 'conexiones-sanitarias-reforzadas',
@@ -138,7 +171,7 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
   }
 
   // Impermeabilización y sus hijas
-  const impermeabilizacionSlugs = ['impermeabilizacion', 'mantos', 'pinturas', 'selladores', 'aditivos']
+  const impermeabilizacionSlugs = ['impermeabilizacion', 'mantos', 'pinturas', 'aditivos']
   if (impermeabilizacionSlugs.includes(dbSlug)) {
     return { slug: 'impermeabilizacion', label: 'Impermeabilización' }
   }

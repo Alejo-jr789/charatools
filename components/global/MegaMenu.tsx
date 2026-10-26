@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush, Gauge, Layers } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -43,11 +43,19 @@ export const CATEGORIES: Category[] = [
     subcategories: []
   },
   {
+    id: 'bombas',
+    name: 'Bombas',
+    icon: Gauge,
+    href: '/catalogo/bombas',
+    description: 'Bombas de agua periféricas, centrífugas, motobombas a gasolina y sistemas de presurización.',
+    subcategories: []
+  },
+  {
     id: 'plomeria',
     name: 'Plomería',
     icon: Droplets,
     href: '/catalogo/plomeria',
-    description: 'Tuberías, conexiones sanitarias, agua fría, PPR termofusión, grifería, llaves y bombas.',
+    description: 'Tuberías, conexiones sanitarias, agua fría, PPR termofusión, grifería y llaves de paso.',
     subcategories: []
   },
   {
@@ -71,7 +79,7 @@ export const CATEGORIES: Category[] = [
     name: 'Impermeabilización',
     icon: Umbrella,
     href: '/catalogo/impermeabilizacion',
-    description: 'Mantos asfálticos, pinturas elastoméricas, primers y selladores de alta durabilidad.',
+    description: 'Mantos asfálticos, pinturas elastoméricas, primers y soluciones contra humedad.',
     subcategories: []
   },
   {
@@ -80,6 +88,14 @@ export const CATEGORIES: Category[] = [
     icon: Paintbrush,
     href: '/catalogo/pintura-y-accesorios',
     description: 'Pinturas de caucho, esmaltes, anticorrosivos, brochas, rodillos, bandejas y complementos para acabados.',
+    subcategories: []
+  },
+  {
+    id: 'selladores-y-adhesivo',
+    name: 'Selladores y Adhesivo',
+    icon: Layers,
+    href: '/catalogo/selladores-y-adhesivo',
+    description: 'Soldaduras líquidas PVC/CPVC, siliconas, selladores, espuma expansiva y adhesivos de montaje.',
     subcategories: []
   },
   {

@@ -147,7 +147,36 @@ export const seoCategoryData: SeoCategoryDataMap = {
   },
 
   // ──────────────────────────────────────────────────────────────────────────
-  // Bombas de Agua y Presión
+  // Bombas y Sistemas de Presión
+  // ──────────────────────────────────────────────────────────────────────────
+  'bombas': {
+    title: 'Bombas de Agua, Motobombas y Sistemas de Presión en Charallave',
+    description:
+      'Bombas periféricas, centrífugas, sumergibles y motobombas a gasolina con stock permanente en Charallave para abastecimiento residencial, comercial e industrial en los Valles del Tuy.',
+    blocks: [
+      {
+        subtitle: 'Bombas Periféricas y Centrífugas de Alto Rendimiento',
+        text: 'Suministramos electrobombas periféricas (1/2 HP, 3/4 HP, 1 HP) y centrífugas de caudal continuo para llenado rápido de tanques, elevación y distribución hidráulica con máxima durabilidad.'
+      },
+      {
+        subtitle: 'Motobombas a Gasolina para Achique y Riego',
+        text: 'Equipos autocebantes a combustión de 2", 3" y 4" para drenaje pesado, desalojo de inundaciones, obras civiles y riego agrícola en zonas sin red eléctrica.'
+      },
+      {
+        subtitle: 'Automatización con Press Control y Presostatos',
+        text: 'Controladores automáticos de flujo y presión para transformar cualquier bomba en un sistema hidroneumático inteligente y proteger el motor contra trabajo en seco.'
+      },
+    ],
+    ctaSection: {
+      title: 'Asesoría Técnica y Cotización de Bombas de Agua',
+      text:
+        'Dimensionamos el equipo de bombeo exacto según tu altura piezométrica y caudal requerido. Retiro inmediato en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Bombas por WhatsApp',
+    },
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Bombas de Agua y Presión (Alias)
   // ──────────────────────────────────────────────────────────────────────────
   'bombas-de-agua-y-presion': {
     title: 'Soluciones de Bombeo de Caudal Constante y Presión Técnica Sostenida',
@@ -375,6 +404,96 @@ export const seoCategoryData: SeoCategoryDataMap = {
       text:
         'Equipa tu taller o proyecto con máquinas y consumibles de soldadura de alto rendimiento. Disponibilidad inmediata para retiro en Charallave o despacho en los Valles del Tuy.',
       btnText: 'Cotizar Equipos de Soldadura por WhatsApp',
+    },
+  },
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Selladores y Adhesivo
+  // ──────────────────────────────────────────────────────────────────────────
+  'selladores-y-adhesivo': {
+    title: 'Selladores, Siliconas, Soldaduras PVC y Adhesivos en Charallave',
+    description:
+      'Soldaduras líquidas para PVC y CPVC Tubrica, siliconas RTV, adhesivos de montaje, cementos plásticos y selladores de alto rendimiento con disponibilidad inmediata en Charallave.',
+    blocks: [
+      {
+        subtitle: 'Soldaduras Líquidas para Tuberías de PVC y CPVC',
+        text:
+          'Soldaduras líquidas Tubrica en condiciones húmedas, transparentes multipropósito, de alta viscosidad para grandes diámetros y soldadura naranja para CPVC agua caliente con fusión química hermética garantizada.'
+      },
+      {
+        subtitle: 'Siliconas Neutras, Adhesivos de Montaje y Espuma Expansiva',
+        text:
+          'Siliconas RTV resistentes a intemperie, adhesivos de montaje tipo "No Más Clavos" para fijación ultra fuerte sin perforaciones y espuma expansiva de poliuretano para aislamiento térmico y sellado de juntas.'
+      },
+      {
+        subtitle: 'Cementos Plásticos y Cintas de Butilo Tapagoteras',
+        text:
+          'Pastas elastoméricas para reparación inmediata de grietas, asfalto plástico y cintas autoadhesivas de aluminio de butilo para sellado estanco en techos, canaletas y bajantes.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Selladores y Adhesivos',
+      text:
+        'Suministro al mayor y detal para plomeros, instaladores, contratistas y ferreterías en los Valles del Tuy. Retiro directo en Charallave.',
+      btnText: 'Cotizar Selladores y Adhesivos por WhatsApp',
+    },
+  },
+
+  // Aliases para compatibilidad de rutas
+  'selladores': {
+    title: 'Selladores, Siliconas, Soldaduras PVC y Adhesivos en Charallave',
+    description:
+      'Soldaduras líquidas para PVC y CPVC Tubrica, siliconas RTV, adhesivos de montaje, cementos plásticos y selladores de alto rendimiento con disponibilidad inmediata en Charallave.',
+    blocks: [
+      {
+        subtitle: 'Soldaduras Líquidas para Tuberías de PVC y CPVC',
+        text:
+          'Soldaduras líquidas Tubrica en condiciones húmedas, transparentes multipropósito, de alta viscosidad para grandes diámetros y soldadura naranja para CPVC agua caliente con fusión química hermética garantizada.'
+      },
+      {
+        subtitle: 'Siliconas Neutras, Adhesivos de Montaje y Espuma Expansiva',
+        text:
+          'Siliconas RTV resistentes a intemperie, adhesivos de montaje tipo "No Más Clavos" para fijación ultra fuerte sin perforaciones y espuma expansiva de poliuretano para aislamiento térmico y sellado de juntas.'
+      },
+      {
+        subtitle: 'Cementos Plásticos y Cintas de Butilo Tapagoteras',
+        text:
+          'Pastas elastoméricas para reparación inmediata de grietas, asfalto plástico y cintas autoadhesivas de aluminio de butilo para sellado estanco en techos, canaletas y bajantes.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Selladores y Adhesivos',
+      text:
+        'Suministro al mayor y detal para plomeros, instaladores, contratistas y ferreterías en los Valles del Tuy. Retiro directo en Charallave.',
+      btnText: 'Cotizar Selladores y Adhesivos por WhatsApp',
+    },
+  },
+  'selladores-y-adhesivos': {
+    title: 'Selladores, Siliconas, Soldaduras PVC y Adhesivos en Charallave',
+    description:
+      'Soldaduras líquidas para PVC y CPVC Tubrica, siliconas RTV, adhesivos de montaje, cementos plásticos y selladores de alto rendimiento con disponibilidad inmediata en Charallave.',
+    blocks: [
+      {
+        subtitle: 'Soldaduras Líquidas para Tuberías de PVC y CPVC',
+        text:
+          'Soldaduras líquidas Tubrica en condiciones húmedas, transparentes multipropósito, de alta viscosidad para grandes diámetros y soldadura naranja para CPVC agua caliente con fusión química hermética garantizada.'
+      },
+      {
+        subtitle: 'Siliconas Neutras, Adhesivos de Montaje y Espuma Expansiva',
+        text:
+          'Siliconas RTV resistentes a intemperie, adhesivos de montaje tipo "No Más Clavos" para fijación ultra fuerte sin perforaciones y espuma expansiva de poliuretano para aislamiento térmico y sellado de juntas.'
+      },
+      {
+        subtitle: 'Cementos Plásticos y Cintas de Butilo Tapagoteras',
+        text:
+          'Pastas elastoméricas para reparación inmediata de grietas, asfalto plástico y cintas autoadhesivas de aluminio de butilo para sellado estanco en techos, canaletas y bajantes.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Selladores y Adhesivos',
+      text:
+        'Suministro al mayor y detal para plomeros, instaladores, contratistas y ferreterías en los Valles del Tuy. Retiro directo en Charallave.',
+      btnText: 'Cotizar Selladores y Adhesivos por WhatsApp',
     },
   },
 
