@@ -5612,5 +5612,31 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
     isCasheaEligible: true,
     priority: 18,
     tags: ['extractor de ventosa 25kg', 'extractor de ventosa', 'ventosa para vidrio', 'chupa para vidrio', 'suction cup', 'ventosa porcelanato', 'ventosa sacabollos', 'desabollador', 'ventosa simple', 'herramientas manuales', 'vidriería', 'construccion'],
+  },
+  {
+    id: 'mascara-respiratoria-1-filtro-2-filtros',
+    slug: 'mascara-respiratoria-1-filtro-2-filtros',
+    name: 'Máscara Respiratoria 1 Filtro - 2 Filtros',
+    shortDescription: 'Respirador de media cara reutilizable con cuerpo en elastómero flexible, válvula de exhalación y arnés ajustable. Disponible en presentación de 1 filtro central o 2 filtros laterales de carbón activado para vapores orgánicos, pinturas, solventes y polvos.',
+    description: 'Máscara respiratoria reutilizable de media cara diseñada para la protección efectiva de las vías respiratorias en labores de pintura con pistola y brocha, aplicación de solventes, lacas, barnices, resinas, fumigación agrícola, carpintería, desbaste y ambientes con vapores orgánicos y partículas de polvo en suspensión. Fabricada en elastómero termoplástico (TPR/TPE) hipoalergénico de alta flexibilidad que se amolda herméticamente al contorno facial del operario minimizando la fuga de aire no filtrado. Cuenta con válvula de exhalación frontal que expulsa rápidamente el calor y la humedad facilitando una respiración fresca y evitando el empañamiento de lentes de seguridad. Su arnés con bandas elásticas ajustables y hebilla de cierre en la nuca proporciona una sujeción firme sin puntos de presión excesivos. Disponible en versiones de 1 filtro central (compacto y económico para labores ligeras) y 2 filtros laterales con cartuchos de carbón activado (mayor flujo respiratorio, peso balanceado y amplio campo de visión libre hacia abajo).',
+    category: 'seguridad-industrial',
+    categoryLabel: 'Seguridad Industrial',
+    subcategory: 'proteccion-respiratoria',
+    subcategoryLabel: 'Protección Respiratoria',
+    subitem: 'proteccion-respiratoria',
+    subitemLabel: 'Protección Respiratoria',
+    brand: 'Genérico',
+    reference: 'SEG-MASC-RESP-1-2F',
+    unit: 'und',
+    image: '/placeholder-product.webp',
+    status: 'available',
+    isCasheaEligible: true,
+    priority: 26,
+    variantLabel: 'Modelo / Presentación',
+    variants: [
+      { value: '1 Filtro (Monofiltro)' },
+      { value: '2 Filtros (Doble Filtro)' }
+    ],
+    tags: ['mascara respiratoria', 'respirador media cara', 'mascara para pintar', 'mascara 1 filtro', 'mascara 2 filtros', 'doble filtro', 'vapores organicos', 'pintura', 'solventes', 'proteccion respiratoria', 'epp', 'seguridad industrial'],
   }
 ];
