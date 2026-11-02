@@ -113,6 +113,7 @@ export default function ProductForm({ categories, brands, initialData }: Product
     'selladores-y-adhesivo',
     'seguridad-industrial',
     'salas-de-bano',
+    'brocas-y-abrasivos',
   ]
 
   // Filtrar categorías principales: solo las oficiales del menú principal, ordenadas según el menú

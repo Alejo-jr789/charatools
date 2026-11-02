@@ -194,6 +194,12 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
     return { slug: 'salas-de-bano', label: 'Salas de Baño' }
   }
 
+  // Brocas y Abrasivos y sus hijas
+  const brocasAbrasivosSlugs = ['brocas-y-abrasivos', 'brocas', 'abrasivos', 'discos-de-corte', 'discos', 'lijas']
+  if (brocasAbrasivosSlugs.includes(dbSlug)) {
+    return { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos' }
+  }
+
   return { slug: dbSlug, label: dbSlug }
 }
 

@@ -52,6 +52,9 @@ const NAV_LINKS = {
     { label: 'Impermeabilización', href: '/catalogo?cat=impermeabilizacion' },
     { label: 'Pintura y Accesorios', href: '/catalogo?cat=pintura-y-accesorios' },
     { label: 'Selladores y Adhesivo', href: '/catalogo?cat=selladores-y-adhesivo' },
+    { label: 'Seguridad Industrial', href: '/catalogo?cat=seguridad-industrial' },
+    { label: 'Salas de Baño', href: '/catalogo?cat=salas-de-bano' },
+    { label: 'Brocas y Abrasivos', href: '/catalogo?cat=brocas-y-abrasivos' },
   ],
   empresa: [
     { label: 'Quiénes Somos', href: '/quienes-somos' },

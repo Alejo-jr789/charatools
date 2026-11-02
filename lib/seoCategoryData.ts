@@ -497,4 +497,31 @@ export const seoCategoryData: SeoCategoryDataMap = {
     },
   },
 
+  // ──────────────────────────────────────────────────────────────────────────
+  // Brocas y Abrasivos
+  // ──────────────────────────────────────────────────────────────────────────
+  'brocas-y-abrasivos': {
+    title: 'Brocas y Abrasivos en Charallave: Discos de Corte, Desbaste y Brocas Industriales',
+    description:
+      'Venta al mayor y detal de brocas para concreto, metal, madera y porcelanato, discos de corte fino, desbaste, lijas y copas diamantadas en Charallave y los Valles del Tuy.',
+    blocks: [
+      {
+        subtitle: 'Brocas de Alto Rendimiento para Concreto, Metal y Madera',
+        text:
+          'Suministro de brocas para rotomartillo SDS Plus y cilíndricas para mampostería, brocas de acero rápido (HSS) para metales, brocas para madera y brocas diamantadas para porcelanato y vidrio, ideales para construcción y talleres en Charallave y los Valles del Tuy.'
+      },
+      {
+        subtitle: 'Discos Abrasivos de Corte, Desbaste y Acabados',
+        text:
+          'Discos de corte fino para metal e inox, discos de desbaste, copas diamantadas para concreto, discos flap y lijas de alta durabilidad para amoladoras y tronzadoras industriales.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Brocas y Abrasivos',
+      text:
+        'Equipa tu cuadrilla o taller con brocas y consumibles abrasivos de máxima durabilidad y rendimiento continuo. Disponibilidad inmediata para retiro en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Brocas y Abrasivos por WhatsApp',
+    },
+  },
+
 } satisfies SeoCategoryDataMap

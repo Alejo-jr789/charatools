@@ -126,6 +126,7 @@ export const CATALOG_CATEGORIES: CatalogCategory[] = [
   { slug: 'selladores-y-adhesivo',   label: 'Selladores y Adhesivo',   icon: '🧪', description: 'Soldaduras PVC/CPVC, siliconas, selladores y adhesivos' },
   { slug: 'seguridad-industrial',    label: 'Seguridad Industrial',     icon: '🦺', description: 'Cascos, lentes, guantes, botas' },
   { slug: 'salas-de-bano',           label: 'Salas de Baño',            icon: '🛁', description: 'Inodoros, lavamanos, pedestales y accesorios' },
+  { slug: 'brocas-y-abrasivos',      label: 'Brocas y Abrasivos',      icon: '💿', description: 'Brocas para concreto, metal y madera, discos de corte y desbaste, lijas y abrasivos' },
 ]
 
 // ---------------------------------------------------------------------------

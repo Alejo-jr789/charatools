@@ -27,6 +27,7 @@ const SIDEBAR_CATEGORIES = [
   { slug: 'selladores-y-adhesivo', label: 'Selladores y Adhesivo' },
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial' },
   { slug: 'salas-de-bano', label: 'Salas de Baño' },
+  { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos' },
 ]
 
 // ── Tipos ──────────────────────────────────────────────────────────────────

@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush, Gauge, Layers } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush, Gauge, Layers, Disc } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -112,6 +112,14 @@ export const CATEGORIES: Category[] = [
     icon: Bath,
     href: '/catalogo/salas-de-bano',
     description: 'Inodoros, lavamanos, pedestales, muebles de baño y accesorios sanitarios.',
+    subcategories: []
+  },
+  {
+    id: 'brocas-y-abrasivos',
+    name: 'Brocas y Abrasivos',
+    icon: Disc,
+    href: '/catalogo/brocas-y-abrasivos',
+    description: 'Brocas para concreto, metal y madera, discos de corte fino, desbaste, lijas y copas diamantadas.',
     subcategories: []
   }
 ]

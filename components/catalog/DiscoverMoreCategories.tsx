@@ -21,6 +21,7 @@ const ALL_MAIN_CATEGORIES: MainCategoryDef[] = [
   { slug: 'selladores-y-adhesivo', label: 'Selladores y Adhesivo', href: '/catalogo/selladores-y-adhesivo' },
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial', href: '/catalogo/seguridad-industrial' },
   { slug: 'salas-de-bano', label: 'Salas de Baño', href: '/catalogo/salas-de-bano' },
+  { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos', href: '/catalogo/brocas-y-abrasivos' },
 ]
 
 interface DiscoverMoreCategoriesProps {
