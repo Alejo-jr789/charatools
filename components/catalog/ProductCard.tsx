@@ -89,11 +89,11 @@ export function ProductCard({ product }: ProductCardProps) {
       aria-label={product.name}
     >
       {/* ── Área de Imagen con Overlay ── */}
-      <Link href={`/producto/${product.slug}`} className="relative aspect-[4/3] bg-gray-50 overflow-hidden block">
+      <Link href={`/producto/${product.slug}`} className="relative aspect-square bg-gray-50 overflow-hidden block">
         {/* Badges superiores */}
-        <div className="absolute top-3 left-3 right-3 z-10 flex justify-between items-start">
+        <div className="absolute top-2 left-2 right-2 z-10 flex justify-between items-start">
           <span
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wide border shadow-sm ${badge.bgClass} ${badge.textClass}`}
+            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wide border shadow-sm ${badge.bgClass} ${badge.textClass}`}
             aria-label={`Estado: ${product.status}`}
           >
             <span aria-hidden="true">{badge.icon}</span>
@@ -108,7 +108,7 @@ export function ProductCard({ product }: ProductCardProps) {
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500 ease-out"
+          className="w-full h-full object-contain p-3 group-hover:scale-110 transition-transform duration-500 ease-out"
         />
         
         {/* Gradiente inferior suave para contraste */}
@@ -116,31 +116,31 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* ── Contenido de la Tarjeta ── */}
-      <div className="flex flex-col flex-grow p-4 md:p-5 grid grid-rows-[auto_1fr_auto] gap-3">
+      <div className="flex flex-col flex-grow p-3 md:p-3.5 grid grid-rows-[auto_1fr_auto] gap-2">
         {/* Metadatos: Marca */}
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest bg-gray-100 px-2 py-0.5 rounded-sm">
+          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-100 px-1.5 py-0.5 rounded-sm">
             {product.brand}
           </span>
         </div>
 
         {/* Título Principal */}
-        <Link href={`/producto/${product.slug}`} className="block group/title mt-1">
-          <h3 className="text-sm md:text-base font-bold text-gray-900 min-h-[2.5rem] md:min-h-[2.8rem] leading-tight group-hover/title:text-yellow-600 transition-colors text-left">
+        <Link href={`/producto/${product.slug}`} className="block group/title">
+          <h3 className="text-xs md:text-sm font-bold text-gray-900 min-h-[2rem] md:min-h-[2.2rem] leading-tight group-hover/title:text-yellow-600 transition-colors text-left line-clamp-2">
             {product.name}
           </h3>
         </Link>
 
         {/* Descripción Corta - Forzamos text-left para escaneo rápido */}
-        <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed text-left">
+        <p className="text-[11px] text-gray-500 line-clamp-2 leading-snug text-left">
           {product.shortDescription}
         </p>
 
         {/* Variantes disponibles (potencias, medidas, etc.) */}
         {product.variants && product.variants.length > 0 && (
-          <div className="mt-1 flex items-center gap-1.5">
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-gray-700 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-md">
-              <span className="text-[10px] uppercase font-bold text-amber-800">{product.variantLabel || 'Medidas'}:</span>
+          <div className="flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-gray-700 bg-amber-50 border border-amber-200/80 px-1.5 py-0.5 rounded-md">
+              <span className="text-[9px] uppercase font-bold text-amber-800">{product.variantLabel || 'Medidas'}:</span>
               <span>
                 {product.variants.length > 3
                   ? `${product.variants[0].value} a ${product.variants[product.variants.length - 1].value} (${product.variants.length} opciones)`
@@ -149,7 +149,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
         )}
-        <div className="pt-2 border-t border-gray-50">
+        <div className="pt-1.5 border-t border-gray-50">
           <Button
             onClick={handleAddClick}
             disabled={isDisabled || isInQuotation}
@@ -158,7 +158,7 @@ export function ProductCard({ product }: ProductCardProps) {
               status === 'added' ? 'Producto añadido a la cotización' : `Agregar ${product.name} a mi cotización`
             }
             aria-pressed={isInQuotation}
-            className={`w-full py-2.5 px-4 rounded-md font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 ease-out active:scale-95 ${
+            className={`w-full py-2 px-3 rounded-md font-semibold text-xs flex items-center justify-center gap-1.5 transition-all duration-200 ease-out active:scale-95 ${
               isInQuotation
                 ? 'bg-yellow-50 border-2 border-yellow-400 text-yellow-800 hover:bg-yellow-100 cursor-default'
                 : status === 'added'
