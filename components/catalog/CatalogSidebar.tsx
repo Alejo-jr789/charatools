@@ -28,6 +28,7 @@ const SIDEBAR_CATEGORIES = [
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial' },
   { slug: 'salas-de-bano', label: 'Salas de Baño' },
   { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos' },
+  { slug: 'ruedas', label: 'Ruedas' },
 ]
 
 // ── Tipos ──────────────────────────────────────────────────────────────────

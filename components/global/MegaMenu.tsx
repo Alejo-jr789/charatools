@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush, Gauge, Layers, Disc } from 'lucide-react'
+import { Droplets, Lightbulb, Zap, Umbrella, ChevronDown, ChevronRight, LayoutGrid, Shield, Bath, Flame, Wrench, Paintbrush, Gauge, Layers, Disc, CircleDot } from 'lucide-react'
 import { trackSelectCategory } from '@/lib/analytics'
 
 export type SubItem = { name: string; href: string; isHeader?: boolean; isIndented?: boolean }
@@ -120,6 +120,14 @@ export const CATEGORIES: Category[] = [
     icon: Disc,
     href: '/catalogo/brocas-y-abrasivos',
     description: 'Brocas para concreto, metal y madera, discos de corte fino, desbaste, lijas y copas diamantadas.',
+    subcategories: []
+  },
+  {
+    id: 'ruedas',
+    name: 'Ruedas',
+    icon: CircleDot,
+    href: '/catalogo/ruedas',
+    description: 'Ruedas neumáticas, macizas, garruchas giratorias y fijas para zorras y carros de carga.',
     subcategories: []
   }
 ]

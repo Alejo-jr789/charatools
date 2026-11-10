@@ -127,6 +127,7 @@ export const CATALOG_CATEGORIES: CatalogCategory[] = [
   { slug: 'seguridad-industrial',    label: 'Seguridad Industrial',     icon: '🦺', description: 'Cascos, lentes, guantes, botas' },
   { slug: 'salas-de-bano',           label: 'Salas de Baño',            icon: '🛁', description: 'Inodoros, lavamanos, pedestales y accesorios' },
   { slug: 'brocas-y-abrasivos',      label: 'Brocas y Abrasivos',      icon: '💿', description: 'Brocas para concreto, metal y madera, discos de corte y desbaste, lijas y abrasivos' },
+  { slug: 'ruedas',                  label: 'Ruedas',                  icon: '🛞', description: 'Ruedas neumáticas, macizas, garruchas giratorias y fijas para zorras y carros de carga' },
 ]
 
 // ---------------------------------------------------------------------------
@@ -6311,5 +6312,24 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
     isCasheaEligible: true,
     priority: 21,
     tags: ['sifón doble', 'conexión doble', 'brazo doble metálico', 'fregadero doble', 'desagüe doble', 'fregadero dos poncheras', 'acabado cromado', '1 1/2 pulgada', 'plomería'],
+  },
+  {
+    id: 'rueda-neumatica-zorra-10-pulgadas',
+    slug: 'rueda-neumatica-zorra-10-pulgadas',
+    name: 'Rueda Neumática para Zorra de Carga 10"',
+    shortDescription: 'Rueda neumática de 10" (4.10/3.50-4) para zorras y carros de carga con rin metálico desmontable de 2 piezas y rodamientos de bolas. Capacidad de carga de 136 kg (300 lb) con excelente absorción de impactos.',
+    description: 'Rueda neumática de alta resistencia de 10 pulgadas (medida estándar 4.10 / 3.50-4) especialmente diseñada para zorras de carga de mano (diablos), carretillas de almacén, plataformas rodantes y carros de transporte industrial. Equipada con un neumático de caucho reforzado de 2 a 4 lonas con grabado de tacos antideslizantes que proporciona una tracción suave y una amortiguación superior contra baches y desniveles en asfalto, concreto, baldosas o tierra. Incorpora un rin de acero estampado galvanizado/plateado desmontable en dos mitades unidas por tornillería de alta resistencia, lo que permite sustituir con facilidad la tripa (cámara de aire) o la cubierta sin requerir prensa mecánica. Su centro de eje cuenta con rodamientos dobles de bolas (rolineras) que aseguran un giro libre, fluido y sin fricción excesiva incluso bajo cargas pesadas continuas de hasta 136 kg (300 libras). Válvula de inflado tipo auto (Schrader) reforzada de fácil acceso.',
+    category: 'ruedas',
+    categoryLabel: 'Ruedas',
+    subcategory: 'ruedas-neumaticas',
+    subcategoryLabel: 'Ruedas Neumáticas',
+    brand: 'Genérico',
+    reference: 'RUED-NEUM-ZORRA-10',
+    unit: 'und',
+    image: '/placeholder-product.webp',
+    status: 'available',
+    isCasheaEligible: true,
+    priority: 1,
+    tags: ['rueda', 'rueda neumática', 'rueda zorra', 'rueda 10 pulgadas', 'zorra de carga', 'diablo de carga', 'rin metalico', 'carretilla', 'ruedas'],
   }
 ];

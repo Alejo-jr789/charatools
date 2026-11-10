@@ -524,4 +524,31 @@ export const seoCategoryData: SeoCategoryDataMap = {
     },
   },
 
+  // ──────────────────────────────────────────────────────────────────────────
+  // Ruedas
+  // ──────────────────────────────────────────────────────────────────────────
+  'ruedas': {
+    title: 'Ruedas y Garruchas en Charallave: Ruedas Neumáticas, Macizas y para Zorras',
+    description:
+      'Venta al mayor y detal de ruedas neumáticas, macizas, garruchas giratorias y fijas para zorras de carga, carretillas y carros de almacén en Charallave y los Valles del Tuy.',
+    blocks: [
+      {
+        subtitle: 'Ruedas Neumáticas y Semineumáticas para Zorras y Carretillas',
+        text:
+          'Ruedas neumáticas de 10 pulgadas y medidas industriales con rines metálicos reforzados y rodamientos de bolas de alta durabilidad, diseñadas para absorber impactos y brindar un desplazamiento suave sobre cualquier superficie.'
+      },
+      {
+        subtitle: 'Garruchas Industriales y Ruedas para Carros de Carga',
+        text:
+          'Variedad de ruedas macizas antipinchazo, garruchas giratorias y fijas con freno para plataformas de carga, muebles pesados y carros de transporte en almacenes y talleres.'
+      }
+    ],
+    ctaSection: {
+      title: 'Cotización por Volumen en Ruedas y Garruchas',
+      text:
+        'Equipa o repara tus equipos de carga y transporte con ruedas industriales de máxima resistencia. Disponibilidad para retiro directo en Charallave o despacho en los Valles del Tuy.',
+      btnText: 'Cotizar Ruedas por WhatsApp',
+    },
+  },
+
 } satisfies SeoCategoryDataMap

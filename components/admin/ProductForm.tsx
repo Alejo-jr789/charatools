@@ -114,6 +114,7 @@ export default function ProductForm({ categories, brands, initialData }: Product
     'seguridad-industrial',
     'salas-de-bano',
     'brocas-y-abrasivos',
+    'ruedas',
   ]
 
   // Filtrar categorías principales: solo las oficiales del menú principal, ordenadas según el menú

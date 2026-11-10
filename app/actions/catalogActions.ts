@@ -200,6 +200,12 @@ function getCanonicalCategorySlug(dbSlug: string, productSlug: string): { slug: 
     return { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos' }
   }
 
+  // Ruedas y sus hijas
+  const ruedasSlugs = ['ruedas', 'garruchas', 'ruedas-y-garruchas', 'ruedas-industriales', 'ruedas-neumaticas']
+  if (ruedasSlugs.includes(dbSlug)) {
+    return { slug: 'ruedas', label: 'Ruedas' }
+  }
+
   return { slug: dbSlug, label: dbSlug }
 }
 

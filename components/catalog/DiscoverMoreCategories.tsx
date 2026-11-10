@@ -22,6 +22,7 @@ const ALL_MAIN_CATEGORIES: MainCategoryDef[] = [
   { slug: 'seguridad-industrial', label: 'Seguridad Industrial', href: '/catalogo/seguridad-industrial' },
   { slug: 'salas-de-bano', label: 'Salas de Baño', href: '/catalogo/salas-de-bano' },
   { slug: 'brocas-y-abrasivos', label: 'Brocas y Abrasivos', href: '/catalogo/brocas-y-abrasivos' },
+  { slug: 'ruedas', label: 'Ruedas', href: '/catalogo/ruedas' },
 ]
 
 interface DiscoverMoreCategoriesProps {

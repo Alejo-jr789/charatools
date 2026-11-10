@@ -55,6 +55,7 @@ const NAV_LINKS = {
     { label: 'Seguridad Industrial', href: '/catalogo?cat=seguridad-industrial' },
     { label: 'Salas de Baño', href: '/catalogo?cat=salas-de-bano' },
     { label: 'Brocas y Abrasivos', href: '/catalogo?cat=brocas-y-abrasivos' },
+    { label: 'Ruedas', href: '/catalogo?cat=ruedas' },
   ],
   empresa: [
     { label: 'Quiénes Somos', href: '/quienes-somos' },
