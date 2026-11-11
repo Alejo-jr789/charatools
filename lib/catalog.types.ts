@@ -6452,5 +6452,30 @@ export const MOCK_PRODUCTS: CatalogProduct[] = [
       { value: '40 x 60 mm' }
     ],
     tags: ['guia para porton', 'rodillo guia', 'rodillo de nylon', 'guia superior', 'porton corredizo', 'poliamida', 'reja corrediza', 'esparrago roscado', 'ruedas'],
+  },
+  {
+    id: 'garrucha-4-ruedas-para-riel-colgante',
+    slug: 'garrucha-4-ruedas-para-riel-colgante',
+    name: 'Garrucha de 4 Ruedas para Riel Colgante 1" - 1 1/2" - 2"',
+    shortDescription: 'Carretilla o garrucha colgante de 4 rodamientos de acero galvanizado con vástago roscado de suspensión, tuercas y pletina de anclaje para portones y puertas corredizas suspendidas sobre riel tipo C. Disponible en 1" (riel 1 1/2"), 1 1/2" (riel 2") y 2" (riel 2 1/2").',
+    description: 'Garrucha o carretilla colgante de 4 ruedas para puertas y portones corredizos suspendidos de servicio pesado. Fabricada con un cuerpo robusto de acero al carbono galvanizado que integra cuatro rodamientos de bolas de acero templado blindados (rolineras) montados en pares tándem, proporcionando un deslizamiento ultra suave, silencioso y de bajo rozamiento dentro de rieles superiores tipo caja o perfil "C". Equipada con un vástago roscado central de acero de alta resistencia que permite calibrar y nivelar con exactitud la altura y plomo de la hoja de la puerta, pletina o soporte de fijación con perforaciones para atornillar o soldar al marco superior del portón, y contratuercas hexagonales de seguridad para evitar desajustes por vibración. Diseñada para soportar cargas pesadas continuas en portones de galpones industriales, talleres, almacenes, cancelas y cerramientos corredizos suspendidos.',
+    category: 'ruedas',
+    categoryLabel: 'Ruedas',
+    subcategory: 'roldanas-y-garruchas',
+    subcategoryLabel: 'Roldanas y Garruchas',
+    brand: 'Genérico',
+    reference: 'RUED-GARR-RIEL-COLG-SERIES',
+    unit: 'und',
+    image: '/placeholder-product.webp',
+    status: 'available',
+    isCasheaEligible: true,
+    priority: 7,
+    variantLabel: 'Medida de Rueda y Riel Compatible',
+    variants: [
+      { value: '1" (para Riel 1 1/2")' },
+      { value: '1 1/2" (para Riel 2")' },
+      { value: '2" (para Riel 2 1/2")' }
+    ],
+    tags: ['garrucha', 'garrucha colgante', 'carretilla para riel', 'riel colgante', 'porton colgante', '4 ruedas', 'riel tipo c', 'puerta corrediza colgante', 'ruedas'],
   }
 ];
